@@ -1,0 +1,1000 @@
+/* ----------------------------------------------------
+   Froggets Farm - Design System & Modern Aesthetics
+   ---------------------------------------------------- */
+
+:root {
+    /* Color Palette */
+    --bg-primary: #FCFBF9;       /* Alabaster / Warm Luxury Off-White */
+    --bg-secondary: #FAF6F0;     /* Rich Cream */
+    --text-primary: #1C1E21;     /* Soft Premium Charcoal */
+    --text-secondary: #5F656D;   /* Muted Slate Gray */
+    --accent-green: #6C7A65;     /* Soft Sage Green */
+    --accent-green-hover: #505C4B; 
+    --accent-green-light: #F0F3EF;
+    --accent-peach: #E5C3B2;     /* Warm Clay / Blush */
+    --white: #FFFFFF;
+
+    /* Fonts */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    /* Spacing & Layout */
+    --section-padding: 180px;    /* Big elegant white spaces */
+    --border-radius-lg: 24px;
+    --border-radius-sm: 8px;
+
+    /* Glassmorphism & Liquid Glass Tokens */
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.65);
+    --glass-highlight: rgba(255, 255, 255, 0.85);
+    --glass-shadow: 
+        0 4px 30px rgba(0, 0, 0, 0.03), 
+        inset 0 1px 1px rgba(255, 255, 255, 0.8),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.02);
+
+    /* Transitions */
+    --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
+}
+
+/* ----------------------------------------------------
+   1. Base Reset & Typography
+   ---------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+button {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------
+   2. Shared & Reusable Layout Elements
+   ---------------------------------------------------- */
+.section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-tag {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--accent-green);
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 3.25rem;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+.section-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.section-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 60px;
+    font-weight: 300;
+}
+
+.paragraph-lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--accent-green);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.paragraph-body {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* Modern Premium Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 40px;
+    transition: var(--transition-smooth);
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background-color: var(--accent-green);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(108, 122, 101, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-green-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 122, 101, 0.35);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* ----------------------------------------------------
+   3. Apple Liquid Glass Element
+   ---------------------------------------------------- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(190%);
+    -webkit-backdrop-filter: blur(25px) saturate(190%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    z-index: 1;
+}
+
+/* Specular specular reflection highlight simulation */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(255, 255, 255, 0.15) 30%, 
+        rgba(255, 255, 255, 0.02) 50%, 
+        rgba(255, 255, 255, 0.1) 70%, 
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* ----------------------------------------------------
+   4. Header & Navigation (Subtle Glassmorphism)
+   ---------------------------------------------------- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 24px 0;
+    transition: var(--transition-smooth);
+}
+
+.main-header.scrolled {
+    padding: 16px 0;
+    background-color: rgba(252, 251, 249, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.logo-accent {
+    font-style: italic;
+    color: var(--accent-green);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    opacity: 0.8;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    color: var(--accent-green);
+}
+
+.contact-cta {
+    background-color: var(--accent-green);
+    color: var(--white) !important;
+    padding: 10px 24px;
+    border-radius: 30px;
+    opacity: 1 !important;
+    box-shadow: 0 4px 10px rgba(108, 122, 101, 0.15);
+}
+
+.contact-cta:hover {
+    background-color: var(--accent-green-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(108, 122, 101, 0.25);
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+/* ----------------------------------------------------
+   5. Hero Section with Blurred Background Image
+   ---------------------------------------------------- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(12px) scale(1.05); /* Gorgeous subtle blurred hero image */
+    transition: var(--transition-smooth);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(252, 251, 249, 0.1) 0%, rgba(252, 251, 249, 0.45) 100%);
+    z-index: -1;
+}
+
+.hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.hero-glass-card {
+    max-width: 650px;
+    padding: 60px;
+    animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.card-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    color: var(--accent-green-hover);
+    display: block;
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    font-size: 3.85rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.hero-title em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----------------------------------------------------
+   6. About Section (Generous White Space & Storytelling)
+   ---------------------------------------------------- */
+.about-section {
+    padding: var(--section-padding) 0;
+    background-color: var(--bg-primary);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.stats-row {
+    display: flex;
+    gap: 50px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 30px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--accent-green);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 5px;
+}
+
+/* Image framing with clean spacing */
+.about-visual {
+    position: relative;
+}
+
+.image-frame {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.03);
+    z-index: 2;
+}
+
+.about-img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.about-img:hover {
+    transform: scale(1.03);
+}
+
+.frame-backdrop {
+    position: absolute;
+    top: 40px;
+    right: -40px;
+    bottom: -40px;
+    left: 40px;
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    z-index: -1;
+}
+
+/* ----------------------------------------------------
+   7. Seasonal Collections Section
+   ---------------------------------------------------- */
+.collections-section {
+    padding: var(--section-padding) 0;
+    background-color: var(--bg-secondary);
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+/* Premium Card Layout */
+.product-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: var(--transition-smooth);
+}
+
+.product-img-wrapper {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-badge {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--text-primary);
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.product-info {
+    padding: 30px;
+}
+
+.product-title {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+}
+
+.product-category {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+}
+
+.product-price {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.add-to-cart-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent-green);
+}
+
+.add-to-cart-btn svg {
+    transition: var(--transition-fast);
+}
+
+.add-to-cart-btn:hover {
+    color: var(--accent-green-hover);
+}
+
+.add-to-cart-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* Glass hover card effect */
+.glass-hover-card {
+    transition: var(--transition-smooth);
+}
+
+.glass-hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ----------------------------------------------------
+   8. The Experience / How it Works Section
+   ---------------------------------------------------- */
+.experience-section {
+    padding: var(--section-padding) 0;
+    background-color: var(--bg-primary);
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.experience-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    padding: 48px 40px;
+    position: relative;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Card hover animation */
+.experience-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(108, 122, 101, 0.15);
+    box-shadow: 0 20px 45px rgba(108, 122, 101, 0.06);
+}
+
+.card-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--accent-green-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-green);
+    margin-bottom: 28px;
+    transition: var(--transition-smooth);
+}
+
+.experience-card:hover .card-icon-wrapper {
+    background-color: var(--accent-green);
+    color: var(--white);
+    transform: rotate(6deg) scale(1.05);
+}
+
+.card-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.card-step-num {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--accent-peach);
+    position: absolute;
+    top: 48px;
+    right: 40px;
+    font-weight: 500;
+}
+
+.card-heading {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    font-family: var(--font-serif);
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+/* ----------------------------------------------------
+   9. Subscribe / Newsletter (Glass Overlay Background)
+   ---------------------------------------------------- */
+.subscribe-section {
+    position: relative;
+    padding: 140px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('images/hero_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.subscribe-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(252, 251, 249, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.subscribe-glass-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.subscribe-description {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    max-width: 550px;
+    margin-bottom: 40px;
+}
+
+.subscribe-form {
+    display: flex;
+    width: 100%;
+    max-width: 550px;
+    gap: 16px;
+}
+
+.subscribe-input {
+    flex: 1;
+    padding: 16px 28px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    outline: none;
+}
+
+.subscribe-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.subscribe-input:focus {
+    background: var(--white);
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 4px rgba(108, 122, 101, 0.1);
+}
+
+.btn-submit {
+    border: none;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------
+   10. Footer Section
+   ---------------------------------------------------- */
+.main-footer {
+    background-color: var(--text-primary);
+    color: var(--white);
+    padding: 100px 0 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+.footer-logo {
+    color: var(--white);
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.footer-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 320px;
+}
+
+.footer-heading {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--accent-peach);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+    transform: translateX(4px);
+}
+
+.footer-contact p, .footer-hours p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+.contact-email {
+    margin-top: 16px;
+    color: var(--white) !important;
+    font-weight: 400 !important;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 40px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+}
+
+/* ----------------------------------------------------
+   11. Responsiveness & Adaptive Layouts
+   ---------------------------------------------------- */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 120px;
+    }
+    
+    .section-title {
+        font-size: 2.75rem;
+    }
+    
+    .about-grid {
+        gap: 50px;
+    }
+    
+    .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 90px;
+    }
+
+    .header-container {
+        padding: 0 24px;
+    }
+
+    /* Mobile Nav Menu toggling */
+    .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        z-index: 1100;
+    }
+    
+    .mobile-nav-toggle span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: var(--text-primary);
+        border-radius: 2px;
+        transition: var(--transition-fast);
+    }
+    
+    .mobile-nav-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-nav-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: var(--bg-primary);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        transition: var(--transition-smooth);
+        padding: 120px 40px;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .hero-glass-card {
+        padding: 40px 24px;
+    }
+
+    .hero-title {
+        font-size: 2.75rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .about-visual {
+        order: -1;
+    }
+
+    .about-img {
+        height: 400px;
+    }
+
+    .frame-backdrop {
+        right: -20px;
+        bottom: -20px;
+        left: 20px;
+        top: 20px;
+    }
+
+    .collections-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .subscribe-glass-card {
+        padding: 40px 24px;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
