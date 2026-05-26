@@ -672,8 +672,10 @@ button {
     gap: 40px;
 }
 
+/* Update: Apply Glassmorphism to Experience Cards */
 .experience-card {
-    background-color: var(--white);
+    /* Existing basic style */
+    /* background-color: var(--white); <- CSERÉLD LE EZT */
     border-radius: var(--border-radius-lg);
     border: 1px solid rgba(0, 0, 0, 0.03);
     padding: 48px 40px;
@@ -684,6 +686,13 @@ button {
     flex-direction: column;
     align-items: flex-start;
     opacity: 0;
+
+    /* NEW: Liquid Glass Aesthetics (Mint a Hero szekciónál) */
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(190%);
+    -webkit-backdrop-filter: blur(25px) saturate(190%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
 }
 
 /* Card hover animation */
