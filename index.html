@@ -362,6 +362,35 @@
                 }
             });
         });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Fade in the section
+                    entry.target.classList.add('fade-in-section');
+                    
+                    // Fade in cards within the section
+                    const cards = entry.target.querySelectorAll('.product-card, .experience-card');
+                    cards.forEach((card, index) => {
+                        card.style.animationDelay = `${index * 0.15}s`;
+                        card.classList.add('fade-in-card');
+                    });
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.about-section, .collections-section, .experience-section, .subscribe-section').forEach(section => {
+            observer.observe(section);
+        });
     </script>
 </body>
 

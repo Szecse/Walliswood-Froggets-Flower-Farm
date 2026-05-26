@@ -407,12 +407,59 @@ button {
     }
 }
 
+/* Section Fade-In Animations */
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animate sections on scroll */
+.fade-in-section {
+    animation: sectionFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger animation for cards */
+.fade-in-card {
+    animation: cardFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.fade-in-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.fade-in-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fade-in-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
 /* ----------------------------------------------------
    6. About Section (Generous White Space & Storytelling)
    ---------------------------------------------------- */
 .about-section {
     padding: var(--section-padding) 0;
     background-color: var(--bg-primary);
+    opacity: 0;
 }
 
 .about-grid {
@@ -491,6 +538,7 @@ button {
 .collections-section {
     padding: var(--section-padding) 0;
     background-color: var(--bg-secondary);
+    opacity: 0;
 }
 
 .collections-grid {
@@ -507,6 +555,7 @@ button {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
     border: 1px solid rgba(0, 0, 0, 0.02);
     transition: var(--transition-smooth);
+    opacity: 0;
 }
 
 .product-img-wrapper {
@@ -614,6 +663,7 @@ button {
 .experience-section {
     padding: var(--section-padding) 0;
     background-color: var(--bg-primary);
+    opacity: 0;
 }
 
 .experience-grid {
@@ -633,6 +683,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    opacity: 0;
 }
 
 /* Card hover animation */
@@ -704,6 +755,7 @@ button {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    opacity: 0;
 }
 
 .subscribe-bg {
