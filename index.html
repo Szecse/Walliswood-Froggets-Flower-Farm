@@ -344,39 +344,49 @@
             <h2 class="section-title">Life <em>on the</em> Flower Farm</h2>
         </div>
 
+        <div class="gallery-slider-container">
+            <button class="slider-btn prev-btn" id="gallery-prev" aria-label="Previous images">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            
         <div class="gallery-grid">
     
     <div class="gallery-item">
-        <img src="images/gallery1.jpg" alt="Clare gathering fresh dahlias on the farm">
+        <img src="images/gallery1.jpg" alt="Clare gathering fresh dahlias in a sunlit farm field, harvesting blooms with rows of flowers in the background">
         <div class="gallery-overlay"><span>Dahlia Harvest</span></div>
     </div>
 
     <div class="gallery-item">
-        <img src="images/gallery2.jpg" alt="Close up of a vibrant Café au Lait dahlia">
+        <img src="images/Clare.webp" alt="A large Café au Lait dahlia bloom with creamy peach petals and soft natural detail">
         <div class="gallery-overlay"><span>Café au Lait Close-up</span></div>
     </div>
 
     <div class="gallery-item">
-        <img src="images/gallery4.jpg" alt="Freshly conditioned British blooms ready for bouquets">
+        <img src="images/gallery6.webp" alt="Freshly conditioned British dahlia stems arranged for bouquet making in a rustic farm workspace">
         <div class="gallery-overlay"><span>Our Signature Bouquets</span></div>
     </div>
 
     <div class="gallery-item">
-        <img src="images/gallery3.jpg" alt="Summer creative workshop in the barn">
+        <img src="images/gallery3.jpg" alt="Workshop participants creating floral designs inside a barn, enjoying a relaxed summer creative session">
         <div class="gallery-overlay"><span>Floral Masterclass</span></div>
     </div>
     
     <div class="gallery-item">
-        <img src="images/gallery5.jpg" alt="The West Sussex landscape at Froggetts">
+        <img src="images/gallery5.jpg" alt="Rolling West Sussex flower fields at Froggetts with cut beds and hedgerows under a soft sky">
         <div class="gallery-overlay"><span>The Dahlia Fields</span></div>
     </div>
     
     <div class="gallery-item">
-        <img src="images/gallery6.jpg" alt="Beautiful details of autumn textures">
+        <img src="images/gallery6.webp" alt="Close-up of autumn dahlia petals and foliage showing rich seasonal texture and warm tones">
         <div class="gallery-overlay"><span>Autumn Textures</span></div>
     </div>
 
 </div>
+
+            <button class="slider-btn next-btn" id="gallery-next" aria-label="Next images">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
     </div>
 </section>
 
@@ -489,69 +499,7 @@
     </footer>
 
     <!-- Light interactivity script -->
-    <script>
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('main-header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile nav toggle
-        const toggle = document.getElementById('mobile-nav-toggle');
-        const menu = document.getElementById('nav-menu');
-        toggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
-            toggle.classList.toggle('active');
-        });
-
-        // Smooth scroll for anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    menu.classList.remove('active');
-                    toggle.classList.remove('active');
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Fade in the section
-                    entry.target.classList.add('fade-in-section');
-                    
-                    // Fade in cards within the section
-                    const cards = entry.target.querySelectorAll('.product-card, .experience-card');
-                    cards.forEach((card, index) => {
-                        card.style.animationDelay = `${index * 0.15}s`;
-                        card.classList.add('fade-in-card');
-                    });
-                    
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.about-section, .collections-section, .experience-section, .subscribe-section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
