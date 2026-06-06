@@ -1,46 +1,59 @@
 /* ----------------------------------------------------
-   Froggets Farm - Design System & Modern Aesthetics
+   Froggetts Farm - Design System & Modern Aesthetics
    ---------------------------------------------------- */
 
 :root {
-    /* Color Palette */
+    /* --- Color Palette --- */
     --bg-primary: #FCFBF9;       /* Alabaster / Warm Luxury Off-White */
     --bg-secondary: #FAF6F0;     /* Rich Cream */
-    --text-primary: #1C1E21;     /* Soft Premium Charcoal */
-    --text-secondary: #5F656D;   /* Muted Slate Gray */
-    --accent-green: #6C7A65;     /* Soft Sage Green */
-    --accent-green-hover: #505C4B; 
-    --accent-green-light: #F0F3EF;
-    --accent-peach: #E5C3B2;     /* Warm Clay / Blush */
+    --text-primary: #1C1E21;     /* Deep Anthracite / Soft Premium Charcoal */
+    --text-secondary: #5F656D;   /* Muted Slate Gray for Subtitles */
     --white: #FFFFFF;
 
-    /* Fonts */
+    /* --- Fonts --- */
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* --- Fluid Typographic Scale (clamp: min, preferred, max) --- */
+    --font-h1: clamp(2.6rem, 4.5vw + 1rem, 4.2rem);     /* Hero Title - Picit finomítva a 3 sorhoz! */
+    --font-h2: clamp(2rem, 3vw + 1rem, 3.2rem);         /* Section Titles */
+    --font-h3: clamp(1.4rem, 1.5vw + 0.8rem, 1.8rem);   /* Card Titles, Features */
+    --font-h4: clamp(1.1rem, 1vw + 0.8rem, 1.3rem);     /* Small Headings, Footer Headings */
+    
+    --font-subtitle: clamp(1.05rem, 1vw + 0.8rem, 1.25rem); /* Lead paragraphs, Subtitles */
+    --font-body: clamp(0.95rem, 0.4vw + 0.85rem, 1.1rem);   /* General Body Text */
+    --font-small: clamp(0.75rem, 0.2vw + 0.7rem, 0.85rem);  /* Tags, Badges */
+    --font-btn: clamp(0.85rem, 0.3vw + 0.8rem, 0.95rem);    /* Buttons */
+    --font-nav: clamp(0.75rem, 0.8vw + 0.1rem, 0.85rem);    /* Dedikált Navigációs méret! */
 
-    /* Spacing & Layout */
-    --section-padding: 180px;    /* Big elegant white spaces */
+    /* --- Spacing & Layout --- */
+    --section-padding: 140px;    
+    --container-padding: 40px;
     --border-radius-lg: 24px;
     --border-radius-sm: 8px;
 
-    /* Glassmorphism & Liquid Glass Tokens */
+    /* --- Grid & Flex Gaps --- */
+    --gap-sm: 24px;
+    --gap-md: 40px;    
+    --gap-lg: 60px;
+    --gap-xl: 80px;    
+
+    /* --- Glassmorphism Tokens --- */
     --glass-bg: rgba(255, 255, 255, 0.45);
     --glass-border: rgba(255, 255, 255, 0.65);
-    --glass-highlight: rgba(255, 255, 255, 0.85);
     --glass-shadow: 
         0 4px 30px rgba(0, 0, 0, 0.03), 
         inset 0 1px 1px rgba(255, 255, 255, 0.8),
         inset 0 -1px 2px rgba(0, 0, 0, 0.02);
     --soft-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 
-    /* Transitions */
+    /* --- Transitions --- */
     --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.3s ease;
-    
 }
 
 /* ----------------------------------------------------
-   1. Base Reset & Typography
+   1. Base Reset & Typography Settings
    ---------------------------------------------------- */
 * {
     margin: 0;
@@ -50,7 +63,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    font-size: var(--font-body); 
     background-color: var(--bg-primary);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
@@ -62,10 +75,17 @@ body {
     overflow-x: hidden;
 }
 
+/* Global Heading Defaults connected to Variables */
+h1 { font-size: var(--font-h1); line-height: 1.1; }
+h2 { font-size: var(--font-h2); line-height: 1.15; }
+h3 { font-size: var(--font-h3); line-height: 1.3; }
+h4 { font-size: var(--font-h4); line-height: 1.4; }
+
 h1, h2, h3, h4 {
     font-family: var(--font-serif);
     font-weight: 400;
     letter-spacing: -0.01em;
+    color: var(--text-primary);
 }
 
 a {
@@ -93,7 +113,7 @@ button {
 .section-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--container-padding); 
 }
 
 .text-center {
@@ -102,19 +122,17 @@ button {
 
 .section-tag {
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: var(--font-small);
     font-weight: 600;
     letter-spacing: 0.15em;
-    color: var(--accent-green);
+    color: var(--text-secondary); 
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 20px;
 }
 
 .section-title {
-    font-size: 3.25rem;
-    line-height: 1.15;
-    color: var(--text-primary);
+    font-size: var(--font-h2);
     margin-bottom: 24px;
 }
 
@@ -125,35 +143,23 @@ button {
 }
 
 .section-subtitle {
-    font-size: 1.15rem;
+    font-size: var(--font-subtitle);
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 60px;
     font-weight: 300;
-}
-
-.paragraph-lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-    color: var(--accent-green);
     line-height: 1.6;
-    margin-bottom: 24px;
 }
 
-.paragraph-body {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-    margin-bottom: 30px;
-}
-
-/* Modern Premium Buttons */
+/* ----------------------------------------------------
+   3. UI Components (Buttons & Glass Cards)
+   ---------------------------------------------------- */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 16px 36px;
-    font-size: 0.9rem;
+    font-size: var(--font-btn);
     font-weight: 500;
     border-radius: 40px;
     transition: var(--transition-smooth);
@@ -163,15 +169,15 @@ button {
 }
 
 .btn-primary {
-    background-color: var(--accent-green);
+    background-color: var(--text-primary); 
     color: var(--white);
-    box-shadow: 0 4px 15px rgba(108, 122, 101, 0.2);
+    box-shadow: 0 4px 15px rgba(28, 30, 33, 0.15);
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-green-hover);
+    background-color: #33373C; 
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(108, 122, 101, 0.35);
+    box-shadow: 0 8px 25px rgba(28, 30, 33, 0.25);
 }
 
 .btn-secondary {
@@ -187,9 +193,6 @@ button {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* ----------------------------------------------------
-   3. Apple Liquid Glass Element
-   ---------------------------------------------------- */
 .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(25px) saturate(190%);
@@ -201,14 +204,10 @@ button {
     z-index: 1;
 }
 
-/* Specular specular reflection highlight simulation */
 .glass-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     border-radius: inherit;
     padding: 1px;
     background: linear-gradient(
@@ -219,16 +218,14 @@ button {
         rgba(255, 255, 255, 0.1) 70%,
         rgba(255, 255, 255, 0.4) 100%
     );
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
 }
 
 /* ----------------------------------------------------
-   4. Header & Navigation (Subtle Glassmorphism)
+   4. Header & Navigation (Javított, letisztult verzió)
    ---------------------------------------------------- */
 .main-header {
     position: fixed;
@@ -236,7 +233,7 @@ button {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 24px 0;
+    padding: 20px 0;
     transition: var(--transition-smooth);
 }
 
@@ -252,7 +249,7 @@ button {
 .header-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--container-padding);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -260,51 +257,61 @@ button {
 
 .logo {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 1.2vw + 0.1rem, 1.3rem); 
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     color: var(--text-primary);
+    white-space: nowrap; 
+    text-shadow: 0 0 10px rgba(252, 251, 249, 0.9);
+    flex-shrink: 0; 
 }
 
 .logo-accent {
+    font-family: var(--font-serif);
     font-style: italic;
-    color: var(--accent-green);
+    font-weight: 400;
 }
 
 .nav-menu ul {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 40px;
+    gap: clamp(20px, 2.5vw, 36px); /* Elegáns, dinamikus térköz a menüpontoknak */
 }
 
 .nav-link {
-    font-size: 0.85rem;
+    font-size: var(--font-nav); 
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-primary);
-    opacity: 0.8;
+    opacity: 0.85;
+    text-shadow: 0 0 8px rgba(252, 251, 249, 0.8);
+    white-space: nowrap; 
+    transition: var(--transition-fast);
 }
 
 .nav-link:hover {
     opacity: 1;
-    color: var(--accent-green);
+    color: var(--text-secondary);
 }
 
-.contact-cta {
-    background-color: var(--accent-green);
-    color: var(--white) !important;
-    padding: 10px 24px;
+/* Tiszta, !important-mentes gomb stílus */
+.nav-menu .contact-cta {
+    background-color: transparent;
+    color: var(--text-primary); 
+    border: 1px solid var(--text-primary);
+    padding: 10px 20px; 
     border-radius: 30px;
-    opacity: 1 !important;
-    box-shadow: 0 4px 10px rgba(108, 122, 101, 0.15);
+    white-space: nowrap; 
+    flex-shrink: 0;
+    transition: var(--transition-fast);
 }
 
-.contact-cta:hover {
-    background-color: var(--accent-green-hover);
+.nav-menu .contact-cta:hover {
+    background-color: var(--text-primary); 
+    color: var(--white);
     transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(108, 122, 101, 0.25);
 }
 
 .mobile-nav-toggle {
@@ -312,152 +319,116 @@ button {
 }
 
 /* ----------------------------------------------------
-   5. Hero Section with Blurred Background Image
+   5. Hero Section (Középre rendezett - Opció A)
    ---------------------------------------------------- */
 .hero-section {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    justify-content: center;
     overflow: hidden;
+    padding: 120px 0;
 }
 
 .hero-bg-wrapper {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     z-index: -2;
 }
 
 .hero-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: blur(12px) scale(1.05); /* Gorgeous subtle blurred hero image */
+    width: 100%; height: 100%; object-fit: cover;
+    filter: blur(12px) scale(1.05); 
     transition: var(--transition-smooth);
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
     height: 100%;
-    background: radial-gradient(circle at 70% 30%, rgba(252, 251, 249, 0.1) 0%, rgba(252, 251, 249, 0.45) 100%);
-    z-index: -1;
+    /* KIZÁRÓLAG a felső menü mögötti sávot világosítjuk (0-tól 20%-ig), alatta a fotó 100%-ban kristálytiszta marad! */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 20%);
+    z-index: 1;
+    pointer-events: none; /* Biztonsági beállítás: így a fátyol véletlenül sem blokkolja a menü kattintásait */
 }
 
 .hero-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--container-padding);
     width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    min-height: calc(100vh - 240px);
 }
 
 .hero-glass-card {
-    max-width: 650px;
-    padding: 60px;
-    animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    background: rgba(255, 255, 255, 0.65); /* Erősebb fedés, hogy a szöveg jól elkülönüljön a fotótól */
+    max-width: 800px; 
+    width: 100%;
+    padding: 90px 50px; 
+    background: rgba(255, 255, 255, 0.65); 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-subtitle {
-    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: var(--font-small);
     letter-spacing: 0.2em;
     font-weight: 700;
-    color: var(--text-primary); /* Sötétebb tónus a jobb kontrasztért */
+    color: var(--text-primary); 
     display: block;
     margin-bottom: 24px;
+    text-transform: uppercase;
 }
 
 .hero-title {
-    font-size: 3.85rem;
-    line-height: 1.1;
+    font-size: var(--font-h1);
+    line-height: 1.25; /* EZ AZ ÚJ: Kényelmesebb, szellősebb sorköz */
     margin-bottom: 24px;
-    color: var(--text-primary);
 }
 
 .hero-title em {
     font-style: italic;
-    font-weight: 400;
 }
 
 .hero-description {
-    font-size: 1.15rem;
-    line-height: 1.65;
-    color: var(--text-primary); /* Fekete/Sötétszürke a halvány helyett */
+    font-size: var(--font-subtitle);
+    color: var(--text-primary); 
     margin-bottom: 40px;
-    font-weight: 400; /* Vastagabb, jobban olvasható betűk */
+    font-weight: 400; 
 }
 
 .hero-actions {
     display: flex;
+    justify-content: center; 
     gap: 20px;
 }
 
-@keyframes heroFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Section Fade-In Animations */
 @keyframes sectionFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(60px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes cardFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Animate sections on scroll */
-.fade-in-section {
-    animation: sectionFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Lassabb, lágyabb szekció beúszás */
-}
-
-/* Stagger animation for cards */
-.fade-in-card {
-    animation: cardFadeIn 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Lágyabb kártya beúszás */
-    opacity: 0;
-}
-
-.fade-in-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.fade-in-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.fade-in-card:nth-child(3) {
-    animation-delay: 0.3s;
-}
+.fade-in-section { animation: sectionFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.fade-in-card { animation: cardFadeIn 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.fade-in-card:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-card:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-card:nth-child(3) { animation-delay: 0.3s; }
 
 /* ----------------------------------------------------
-   6. About Section (Generous White Space & Storytelling)
+   6. About Section
    ---------------------------------------------------- */
 .about-section {
     padding: var(--section-padding) 0;
@@ -472,35 +443,22 @@ button {
     align-items: center;
 }
 
-.stats-row {
-    display: flex;
-    gap: 50px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    padding-top: 30px;
-}
-
-.stat-item {
+.story-content {
+    flex: 1;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
-.stat-number {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    color: var(--accent-green);
-    line-height: 1.2;
-}
-
-.stat-label {
-    font-size: 0.8rem;
+.story-text {
+    font-size: var(--font-body);
+    line-height: 1.6;
     color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 5px;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
-/* Image framing with clean spacing */
 .about-visual {
     position: relative;
 }
@@ -526,10 +484,7 @@ button {
 
 .frame-backdrop {
     position: absolute;
-    top: 40px;
-    right: -40px;
-    bottom: -40px;
-    left: 40px;
+    top: 40px; right: -40px; bottom: -40px; left: 40px;
     background-color: var(--bg-secondary);
     border-radius: var(--border-radius-lg);
     z-index: -1;
@@ -547,10 +502,9 @@ button {
 .collections-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: var(--gap-md);
 }
 
-/* Premium Card Layout */
 .product-card {
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
@@ -568,9 +522,7 @@ button {
 }
 
 .product-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover;
     transition: var(--transition-smooth);
 }
 
@@ -580,13 +532,12 @@ button {
 
 .product-badge {
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 24px; left: 24px;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
     color: var(--text-primary);
     padding: 6px 14px;
-    font-size: 0.7rem;
+    font-size: var(--font-small);
     font-weight: 600;
     letter-spacing: 0.05em;
     border-radius: 20px;
@@ -598,14 +549,13 @@ button {
 }
 
 .product-title {
-    font-size: 1.35rem;
+    font-size: var(--font-h3);
     margin-bottom: 6px;
-    color: var(--text-primary);
     transition: var(--transition-fast);
 }
 
 .product-category {
-    font-size: 0.8rem;
+    font-size: var(--font-small);
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -622,7 +572,7 @@ button {
 
 .product-price {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: var(--font-h3);
     color: var(--text-primary);
 }
 
@@ -630,11 +580,11 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: var(--font-small);
+    font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: var(--accent-green);
+    color: var(--text-primary); 
 }
 
 .add-to-cart-btn svg {
@@ -642,14 +592,13 @@ button {
 }
 
 .add-to-cart-btn:hover {
-    color: var(--accent-green-hover);
+    color: var(--text-secondary); 
 }
 
 .add-to-cart-btn:hover svg {
     transform: translateX(4px);
 }
 
-/* Glass hover card effect */
 .glass-hover-card {
     transition: var(--transition-smooth);
 }
@@ -661,101 +610,415 @@ button {
 }
 
 /* ----------------------------------------------------
-   8. The Experience / How it Works Section
+   8 & 9. Farm Editorial Sections (PYO & Community)
    ---------------------------------------------------- */
-.experience-section {
+.farm-editorial-section {
     padding: var(--section-padding) 0;
     background-color: var(--bg-primary);
-    opacity: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+.farm-editorial-section.bg-cream-alt {
+    background-color: var(--bg-secondary);
 }
 
-/* Update: Apply Glassmorphism to Experience Cards */
-.experience-card {
-    /* Existing basic style */
-    /* background-color: var(--white); <- CSERÉLD LE EZT */
+.editorial-flex-container {
+    display: flex;
+    align-items: center;
+    gap: 80px; 
+}
+
+.editorial-flex-container.row-reversed {
+    flex-direction: row-reverse;
+}
+
+.editorial-image-block {
+    flex: 1.2;
+}
+
+.editorial-display-img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
     border-radius: var(--border-radius-lg);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    padding: 48px 40px;
-    position: relative;
-    transition: var(--transition-smooth);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);
+    box-shadow: var(--soft-shadow);
+    transition: transform 0.4s ease;
+}
+
+.editorial-display-img:hover {
+    transform: scale(1.015);
+}
+
+.editorial-text-block {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    opacity: 0;
-
-    /* NEW: Liquid Glass Aesthetics (Mint a Hero szekciónál) */
-    background: var(--glass-bg);
-    backdrop-filter: blur(25px) saturate(190%);
-    -webkit-backdrop-filter: blur(25px) saturate(190%);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
 }
 
-/* Card hover animation */
-.experience-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(108, 122, 101, 0.15);
-    box-shadow: 0 20px 45px rgba(108, 122, 101, 0.06);
+.editorial-subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--font-small);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary); 
+    margin-bottom: 12px;
 }
 
-.card-icon-wrapper {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: var(--accent-green-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent-green);
-    margin-bottom: 28px;
-    transition: var(--transition-smooth);
+.editorial-title {
+    font-size: var(--font-h2);
+    margin-bottom: 24px;
 }
 
-.experience-card:hover .card-icon-wrapper {
-    background-color: var(--accent-green);
-    color: var(--white);
-    transform: rotate(6deg) scale(1.05);
-}
-
-.card-icon {
-    width: 28px;
-    height: 28px;
-}
-
-.card-step-num {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--accent-peach);
-    position: absolute;
-    top: 48px;
-    right: 40px;
-    font-weight: 500;
-}
-
-.card-heading {
-    font-size: 1.35rem;
-    margin-bottom: 16px;
-    color: var(--text-primary);
-    font-family: var(--font-serif);
-}
-
-.card-text {
-    font-size: 0.95rem;
+.editorial-description {
+    font-size: var(--font-body);
     color: var(--text-secondary);
     font-weight: 300;
-    line-height: 1.65;
+    line-height: 1.75;
+    margin-bottom: 32px;
+}
+
+.editorial-cta-link {
+    font-family: var(--font-sans);
+    font-size: var(--font-btn);
+    font-weight: 600;
+    color: var(--text-primary); 
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(28, 30, 33, 0.2);
+    padding-bottom: 4px;
+}
+
+.editorial-cta-link:hover {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--text-primary);
+    transform: translateX(4px);
 }
 
 /* ----------------------------------------------------
-   9. Subscribe / Newsletter (Glass Overlay Background)
+   10. Workshops & Learning Section 
+   ---------------------------------------------------- */
+.learning-section#learning {
+    background-color: var(--bg-primary) !important; 
+    width: 100%;
+    padding: var(--section-padding) 0;
+}
+
+.learning-flex-container {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xl);
+    flex-wrap: wrap; 
+    width: 100%; 
+}
+
+.learning-images-grid {
+    flex: 1.5;
+    min-width: 340px;
+    display: flex;
+    gap: var(--gap-md);
+    align-items: flex-start;
+}
+
+.img-col-1 {
+    flex: 1;
+    margin-top: 80px; 
+}
+
+.img-col-1 img {
+    width: 100%;
+    height: 600px; 
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--soft-shadow);
+}
+
+.img-col-2 {
+    flex: 1;
+    position: relative;
+}
+
+.img-col-2 img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--soft-shadow);
+}
+
+.learning-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    padding: 15px 25px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(16px);
+    box-shadow: var(--soft-shadow);
+}
+
+.learning-badge span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: var(--font-small);
+}
+
+.learning-content {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.learning-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--gap-md) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.learning-list li {
+    text-align: left;
+    line-height: 1.6;
+    font-size: var(--font-body);
+    color: var(--text-secondary);
+}
+
+.learning-list li strong {
+    color: var(--text-primary);
+    display: inline;
+}
+
+/* ----------------------------------------------------
+   11. Testimonials Section 
+   ---------------------------------------------------- */
+.testimonials-section {
+    background-color: var(--bg-secondary) !important; 
+    padding: var(--section-padding) 0;
+    width: 100%;
+    opacity: 0;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonials-grid {
+    display: flex;
+    gap: var(--gap-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    flex: 1;
+    min-width: 300px; 
+    background: #fdfbf9; 
+    padding: 40px 35px;
+    border-radius: 16px;
+    border: 1px solid #f3ece5; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--soft-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.quote-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #e2d6ca; 
+    line-height: 1;
+    position: absolute;
+    top: 15px; left: 25px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.testimonial-text {
+    font-size: var(--font-body);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 1px solid #eaddcf;
+    padding-top: 20px;
+}
+
+.testimonial-author strong {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+    font-size: var(--font-h4);
+    font-weight: 600;
+}
+
+.testimonial-author span {
+    font-size: var(--font-small);
+    color: #a3998d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+/* ----------------------------------------------------
+   12. Gallery Section 
+   ---------------------------------------------------- */
+.gallery-section {
+    background-color: #ffffff; 
+    padding: var(--section-padding) 0; 
+    width: 100%;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-slider-container {
+    position: relative;
+    display: block; 
+    width: 100%;
+}
+
+.slider-btn { display: none; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px; 
+    max-width: 1100px; 
+    margin: 0 auto;
+}
+
+.gallery-grid::-webkit-scrollbar { display: none; }
+
+.gallery-item {
+    position: relative;
+    background: #ffffff; 
+    box-shadow: var(--soft-shadow); 
+    border-radius: var(--border-radius-lg); 
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    aspect-ratio: 4 / 5; 
+}
+
+.gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 20%; 
+    border-radius: inherit; 
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(28, 30, 33, 0.55) 0%, rgba(28, 30, 33, 0) 70%);
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 3; 
+}
+
+.gallery-overlay span {
+    color: #ffffff;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--font-h4);
+    transform: translateY(15px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover {
+    box-shadow: 0 25px 50px rgba(28, 30, 33, 0.15); 
+    transform: translateY(-8px); 
+}
+
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-item:hover .gallery-overlay span { transform: translateY(0); }
+
+/* ----------------------------------------------------
+   13. Lightbox / Modal Image Viewer
+   ---------------------------------------------------- */
+.lightbox-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none; align-items: center; justify-content: center;
+    z-index: 2000; opacity: 0; transition: opacity 0.3s ease; 
+}
+
+.lightbox-overlay.active { display: flex; opacity: 1; }
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%; max-height: 90%;
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox-overlay.active .lightbox-content { transform: scale(1); }
+
+.lightbox-img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+
+.lightbox-close {
+    position: absolute; top: 15px; right: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--text-primary);
+    font-size: 2rem; line-height: 1;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition-fast);
+}
+
+.lightbox-trigger { cursor: pointer; }
+.lightbox-close:hover { background: var(--white); color: var(--text-secondary); }
+
+/* ----------------------------------------------------
+   14. Subscribe / Newsletter Section
    ---------------------------------------------------- */
 .subscribe-section {
     position: relative;
@@ -767,44 +1030,28 @@ button {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    opacity: 0;
 }
 
 .subscribe-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(252, 251, 249, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
 }
 
 .subscribe-glass-card {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 2;
+    max-width: 800px; margin: 0 auto; padding: 80px;
+    display: flex; flex-direction: column; align-items: center; z-index: 2;
 }
 
 .subscribe-description {
-    font-size: 1.15rem;
+    font-size: var(--font-subtitle);
     font-weight: 300;
     color: var(--text-secondary);
     max-width: 550px;
     margin-bottom: 40px;
 }
 
-.subscribe-form {
-    display: flex;
-    width: 100%;
-    max-width: 550px;
-    gap: 16px;
-}
+.subscribe-form { display: flex; width: 100%; max-width: 550px; gap: 16px; }
 
 .subscribe-input {
     flex: 1;
@@ -815,29 +1062,22 @@ button {
     backdrop-filter: blur(5px);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    font-size: 0.95rem;
+    font-size: var(--font-body);
     transition: var(--transition-fast);
     outline: none;
 }
 
-.subscribe-input::placeholder {
-    color: var(--text-secondary);
-    opacity: 0.7;
-}
-
+.subscribe-input::placeholder { color: var(--text-secondary); opacity: 0.7; }
 .subscribe-input:focus {
     background: var(--white);
-    border-color: var(--accent-green);
-    box-shadow: 0 0 0 4px rgba(108, 122, 101, 0.1);
+    border-color: var(--text-primary);
+    box-shadow: 0 0 0 4px rgba(28, 30, 33, 0.1);
 }
 
-.btn-submit {
-    border: none;
-    cursor: pointer;
-}
+.btn-submit { border: none; cursor: pointer; }
 
 /* ----------------------------------------------------
-   10. Footer Section
+   15. Footer Section
    ---------------------------------------------------- */
 .main-footer {
     background-color: var(--text-primary);
@@ -852,15 +1092,11 @@ button {
     margin-bottom: 80px;
 }
 
-.footer-logo {
-    color: var(--white);
-    margin-bottom: 24px;
-    display: inline-block;
-}
+.footer-logo { color: var(--white); margin-bottom: 24px; display: inline-block; }
 
 .footer-desc {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 0.95rem;
+    font-size: var(--font-body);
     line-height: 1.6;
     font-weight: 300;
     max-width: 320px;
@@ -868,45 +1104,33 @@ button {
 
 .footer-heading {
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: var(--font-small);
     font-weight: 600;
     letter-spacing: 0.15em;
-    color: var(--accent-peach);
+    color: rgba(255, 255, 255, 0.6); 
     text-transform: uppercase;
     margin-bottom: 24px;
 }
 
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.65);
-    font-size: 0.9rem;
+    font-size: var(--font-body);
     font-weight: 300;
 }
 
-.footer-links a:hover {
-    color: var(--white);
-    transform: translateX(4px);
-}
+.footer-links a:hover { color: var(--white); transform: translateX(4px); }
 
 .footer-contact p, .footer-hours p {
     color: rgba(255, 255, 255, 0.65);
-    font-size: 0.9rem;
+    font-size: var(--font-body);
     font-weight: 300;
     margin-bottom: 8px;
 }
 
-.contact-email {
-    margin-top: 16px;
-    color: var(--white) !important;
-    font-weight: 400 !important;
-}
+.contact-email { margin-top: 16px; color: var(--white) !important; font-weight: 400 !important; }
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -915,525 +1139,84 @@ button {
 }
 
 .footer-bottom p {
-    font-size: 0.8rem;
+    font-size: var(--font-small);
     color: rgba(255, 255, 255, 0.4);
     font-weight: 300;
     letter-spacing: 0.03em;
 }
 
 /* ----------------------------------------------------
-   11. Responsiveness & Adaptive Layouts
+   16. Global Responsiveness & Adaptive Layouts
    ---------------------------------------------------- */
 @media (max-width: 1024px) {
-    :root {
-        --section-padding: 120px;
-    }
-    
-    .section-title {
-        font-size: 2.75rem;
-    }
-    
-    .about-grid {
-        gap: 50px;
-    }
-    
-    .collections-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 50px;
-    }
+    :root { --section-padding: 90px; }
+    .about-grid { gap: 50px; }
+    .collections-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 50px; }
+    .editorial-flex-container { gap: 40px; }
+    .editorial-display-img { height: 420px; }
 }
 
 @media (max-width: 768px) {
-    :root {
-        --section-padding: 90px;
-    }
+    :root { --section-padding: 70px; --container-padding: 24px; }
 
-    .header-container {
-        padding: 0 24px;
-    }
+    .header-container { padding: 0 24px; }
 
-    /* Mobile Nav Menu toggling */
     .mobile-nav-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 24px;
-        height: 18px;
-        z-index: 1100;
+        display: flex; flex-direction: column; justify-content: space-between;
+        width: 24px; height: 18px; z-index: 1100;
     }
     
     .mobile-nav-toggle span {
-        display: block;
-        height: 2px;
-        width: 100%;
-        background-color: var(--text-primary);
-        border-radius: 2px;
-        transition: var(--transition-fast);
+        display: block; height: 2px; width: 100%;
+        background-color: var(--text-primary); border-radius: 2px; transition: var(--transition-fast);
     }
     
-    .mobile-nav-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .mobile-nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-nav-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+    .mobile-nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .mobile-nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .mobile-nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        background-color: var(--bg-primary);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
-        z-index: 1000;
-        transition: var(--transition-smooth);
-        padding: 120px 40px;
+        position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+        background-color: var(--bg-primary); box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        z-index: 1000; transition: var(--transition-smooth); padding: 120px 40px;
     }
 
-    .nav-menu.active {
-        right: 0;
-    }
+    .nav-menu.active { right: 0; }
+    .nav-menu ul { flex-direction: column; align-items: flex-start; gap: 30px; }
 
-    .nav-menu ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 30px;
-    }
+    .hero-glass-card { padding: 40px 24px; }
+    
+    .about-grid { grid-template-columns: 1fr; gap: 60px; }
+    .about-visual { order: -1; }
+    .about-img { height: 400px; }
+    .frame-backdrop { right: -20px; bottom: -20px; left: 20px; top: 20px; }
 
-    .hero-glass-card {
-        padding: 40px 24px;
-    }
+    .collections-grid { grid-template-columns: 1fr; gap: 40px; }
 
-    .hero-title {
-        font-size: 2.75rem;
-    }
+    .editorial-flex-container, 
+    .editorial-flex-container.row-reversed { flex-direction: column; gap: 32px; }
+    .editorial-image-block, .editorial-text-block { width: 100%; }
+    .editorial-display-img { height: 320px; }
 
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-
-    .about-visual {
-        order: -1;
-    }
-
-    .about-img {
-        height: 400px;
-    }
-
-    .frame-backdrop {
-        right: -20px;
-        bottom: -20px;
-        left: 20px;
-        top: 20px;
-    }
-
-    .collections-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .experience-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .subscribe-glass-card {
-        padding: 40px 24px;
-    }
-
-    .subscribe-form {
-        flex-direction: column;
-        gap: 12px;
+    .gallery-grid {
+        display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+        padding: 20px var(--container-padding); scrollbar-width: none;
     }
     
-    .btn {
-        width: 100%;
+    .gallery-item { flex: 0 0 calc(100% - 40px); scroll-snap-align: center; aspect-ratio: auto; height: 400px; }
+
+    .slider-btn {
+        display: flex; position: absolute; top: 50%; transform: translateY(-50%);
+        width: 40px; height: 40px; border-radius: 50%; background: var(--white);
+        border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        color: var(--text-primary); align-items: center; justify-content: center;
+        z-index: 10; cursor: pointer;
     }
-}
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
 
-/* --- Workshops & Learning Section Styles --- */
-
-/* Csak az új, átnevezett szekció háttere lesz bézs */
-.learning-section#learning {
-    background-color: #f7f5f0 !important; 
-    width: 100%;
-    opacity: 0;
-}
-
-.learning-flex-container {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    flex-wrap: wrap;
-    padding: 120px 0;
-    width: 100%;
-    max-width: 1200px; /* Igazítsd a te dizájnodhoz, ha szükséges */
-    margin: 0 auto;    
-}
-
-/* Képrács aránya */
-.learning-images-grid {
-    flex: 1.5;
-    min-width: 340px;
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-}
-
-/* Képek oszlopai és egyedi magasságai */
-.img-col-1 {
-    flex: 1;
-    margin-top: 40px;
-    opacity: 0;
-}
-
-.img-col-1 img {
-    width: 100%;
-    height: 525px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: var(--soft-shadow);
-}
-
-.img-col-2 {
-    flex: 1;
-    position: relative;
-    opacity: 0;
-}
-
-.img-col-2 img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: var(--soft-shadow);
-}
-
-/* DofE Jelvény */
-.learning-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -10px;
-    padding: 15px 25px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.75) !important;
-    backdrop-filter: blur(16px);
-    box-shadow: var(--soft-shadow);
-}
-
-.learning-badge span {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--text-primary);
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-/* Szöveges tartalom */
-.learning-content {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    opacity: 0;
-}
-
-.learning-content .section-title {
-    margin-bottom: 24px;
-    text-align: left;
-}
-
-.learning-content .section-subtitle {
-    text-align: left;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.learning-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
-.learning-list li {
-    text-align: left;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
-.learning-list li strong {
-    color: var(--text-primary);
-    display: inline;
-}
-
-/* --- Testimonials Section Styles --- */
-
-.testimonials-section {
-    background-color: #f7f5f0 !important; /* Tiszta fehér a váltakozó ritmusért */
-    padding: 120px 0;
-    width: 100%;
-    opacity: 0;
-}
-
-.testimonials-header {
-    text-align: center;
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.testimonials-header .section-title {
-    text-align: center;
-    margin-top: 12px;
-}
-
-/* 3-hasábos elrendezés flexbox-szal, ami mobilon egymás alá ugrik */
-.testimonials-grid {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1200px; /* Igazítva a főoldal szélességéhez */
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Egyedi kártyák stílusa */
-.testimonial-card {
-    flex: 1;
-    min-width: 300px; /* Biztosítja, hogy mobilon ne nyomódjanak össze */
-    background: #fdfbf9; /* Nagyon finom meleg off-white hártya */
-    padding: 40px 35px;
-    border-radius: 16px;
-    border: 1px solid #f3ece5; /* Lágy bézs keret */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: var(--soft-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-}
-
-/* Finom interakció, ha fölé viszik az egeret */
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
-
-/* Dekoratív idézőjel */
-.quote-icon {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    color: #e2d6ca; /* Halvány arany/bézs árnyalat */
-    line-height: 1;
-    position: absolute;
-    top: 15px;
-    left: 25px;
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-.testimonial-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 1;
-    text-align: left;
-    font-style: italic;
-}
-
-/* Szerzők formázása */
-.testimonial-author {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-top: 1px solid #eaddcf;
-    padding-top: 20px;
-}
-
-.testimonial-author strong {
-    font-family: 'Playfair Display', serif;
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.testimonial-author span {
-    font-size: 0.85rem;
-    color: #a3998d;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 4px;
-}
-
-/* --- Új, Magazin-Stílusú Finomított Galéria --- */
-
-.gallery-section {
-    background-color: #ffffff; 
-    padding: 100px 0 160px; /* Megnövelt alsó térköz, hogy ne legyen összenyomva a következő szekcióval */
-    width: 100%;
-    opacity: 0;
-}
-
-.gallery-header {
-    text-align: center;
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.gallery-header .section-title {
-    text-align: center;
-    margin-top: 12px;
-}
-
-/* SLIDER KONTÉNER ÉS NYILAK */
-.gallery-slider-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--white);
-    border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: var(--transition-fast);
-}
-
-.slider-btn:hover {
-    background: var(--accent-green);
-    color: var(--white);
-}
-
-.prev-btn { left: -25px; }
-.next-btn { right: -25px; }
-
-.gallery-grid {
-    display: flex;
-    gap: 35px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Hide scrollbar Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
-    padding: 20px 0; /* Hely az árnyékoknak */
-    width: 100%;
-}
-
-.gallery-grid::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
-}
-
-.gallery-item {
-    position: relative;
-    background: #ffffff; 
-    box-shadow: var(--soft-shadow); 
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-    overflow: hidden;
-    aspect-ratio: 4 / 5; /* Kicsit kevésbé magas (4:5 arány), így kellemesebb a szemnek */
-
-    flex: 0 0 calc((100% - 70px) / 3); /* Pontosan 3 elem látszik (2x 35px gap levonva) */
-    scroll-snap-align: start;
-
-        /* Normál, egységes kerekítés a többi szekcióhoz hasonlóan */
-        border-radius: var(--border-radius-lg); 
-        opacity: 0;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%; /* A fókuszt feljebb helyezi, így a fejek nagyobb eséllyel benne maradnak */
-    border-radius: inherit; /* Átveszi az organikus formát */
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    display: block;
-}
-
-/* PRÉMIUM OVERLAY: Clare saját mély tónusát használja a fekete helyett */
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(28, 30, 33, 0.55) 0%, rgba(28, 30, 33, 0) 70%);
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 3; /* Biztosítjuk, hogy a szöveg a peremfény felett maradjon */
-}
-
-.gallery-overlay span {
-    color: #ffffff;
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 1.25rem;
-    transform: translateY(15px);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Hover interakciók */
-.gallery-item:hover {
-    box-shadow: 0 25px 50px rgba(108, 122, 101, 0.15); /* Halvány zsályazöldes árnyék-fátyol */
-    transform: translateY(-8px); /* Egységes felemelkedés hover esetén */
-}
-
-.gallery-item:hover img {
-    transform: scale(1.04);
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-item:hover .gallery-overlay span {
-    transform: translateY(0);
-}
-
-/* Mobilos nézet a galéria sliderhez */
-@media (max-width: 768px) {
-    .gallery-item {
-        flex: 0 0 calc(100% - 20px); /* 1 teljes kép mobilon */
-    }
-    .prev-btn { left: -10px; }
-    .next-btn { right: -10px; }
+    .subscribe-glass-card { padding: 40px 24px; }
+    .subscribe-form { flex-direction: column; gap: 12px; }
+    .btn { width: 100%; }
 }

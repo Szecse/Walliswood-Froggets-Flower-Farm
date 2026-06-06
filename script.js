@@ -67,12 +67,42 @@ const nextBtn = document.getElementById('gallery-next');
 
 if (galleryTrack && prevBtn && nextBtn) {
     nextBtn.addEventListener('click', () => {
-        const itemWidth = galleryTrack.querySelector('.gallery-item').offsetWidth + 35; // 35px gap
+        const itemWidth = galleryTrack.querySelector('.gallery-item').offsetWidth + 40; // 40px gap
         galleryTrack.scrollBy({ left: itemWidth, behavior: 'smooth' });
     });
 
     prevBtn.addEventListener('click', () => {
-        const itemWidth = galleryTrack.querySelector('.gallery-item').offsetWidth + 35; // 35px gap
+        const itemWidth = galleryTrack.querySelector('.gallery-item').offsetWidth + 40; // 40px gap
         galleryTrack.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+    });
+}
+
+// Lightbox Logic
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+if (lightbox && lightboxImg && lightboxClose && lightboxTriggers.length > 0) {
+    lightboxTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault(); // Megakadályozza a link alapértelmezett viselkedését
+            const imageUrl = trigger.getAttribute('href');
+            lightboxImg.src = imageUrl;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Megakadályozza a háttér görgetését
+        });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Visszaállítja a háttér görgetését
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) { // Csak akkor záródjon be, ha az overlay-re kattintunk, nem a képre
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 }
