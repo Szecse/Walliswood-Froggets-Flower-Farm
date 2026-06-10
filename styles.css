@@ -4,8 +4,8 @@
 
 :root {
     /* --- Color Palette --- */
-    --bg-primary: #FCFBF9;       /* Alabaster / Warm Luxury Off-White */
-    --bg-secondary: #FAF6F0;     /* Rich Cream */
+    --bg-primary: #FFFFFF;       /* Pure White */
+    --bg-secondary: #F9F9F9;     /* Light Gray for subtle separation */
     --text-primary: #1C1E21;     /* Deep Anthracite / Soft Premium Charcoal */
     --text-secondary: #5F656D;   /* Muted Slate Gray for Subtitles */
     --white: #FFFFFF;
@@ -224,8 +224,10 @@ button {
     pointer-events: none;
 }
 
+
+
 /* ----------------------------------------------------
-   4. Header & Navigation (Javított, letisztult verzió)
+   4. Header & Navigation (Egységesített, fix háttérrel)
    ---------------------------------------------------- */
 .main-header {
     position: fixed;
@@ -234,16 +236,11 @@ button {
     width: 100%;
     z-index: 1000;
     padding: 20px 0;
-    transition: var(--transition-smooth);
-}
-
-.main-header.scrolled {
-    padding: 16px 0;
-    background-color: rgba(252, 251, 249, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+    /* Tiszta fehér, áttetsző háttér */
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
 }
 
 .header-container {
@@ -257,69 +254,68 @@ button {
 
 .logo {
     font-family: var(--font-serif);
-    font-size: clamp(1.1rem, 1.2vw + 0.1rem, 1.3rem); 
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: var(--text-primary);
-    white-space: nowrap; 
-    text-shadow: 0 0 10px rgba(252, 251, 249, 0.9);
-    flex-shrink: 0; 
+    text-decoration: none;
+    letter-spacing: -0.5px;
 }
 
 .logo-accent {
-    font-family: var(--font-serif);
     font-style: italic;
-    font-weight: 400;
+    color: var(--text-secondary);
 }
 
 .nav-menu ul {
     display: flex;
     list-style: none;
-    align-items: center;
-    gap: clamp(20px, 2.5vw, 36px); /* Elegáns, dinamikus térköz a menüpontoknak */
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-link {
-    font-size: var(--font-nav); 
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+.nav-menu a {
+    text-decoration: none;
     color: var(--text-primary);
-    opacity: 0.85;
-    text-shadow: 0 0 8px rgba(252, 251, 249, 0.8);
-    white-space: nowrap; 
-    transition: var(--transition-fast);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
-.nav-link:hover {
-    opacity: 1;
+.nav-menu a:hover {
     color: var(--text-secondary);
 }
 
-/* Tiszta, !important-mentes gomb stílus */
-.nav-menu .contact-cta {
-    background-color: transparent;
-    color: var(--text-primary); 
-    border: 1px solid var(--text-primary);
-    padding: 10px 20px; 
-    border-radius: 30px;
-    white-space: nowrap; 
-    flex-shrink: 0;
-    transition: var(--transition-fast);
-}
-
-.nav-menu .contact-cta:hover {
-    background-color: var(--text-primary); 
-    color: var(--white);
-    transform: translateY(-1px);
-}
-
-.mobile-nav-toggle {
-    display: none;
+/* Ha a JS-ed hozzáadja a .scrolled osztályt, az csak egy kis méretcsökkentést csinál */
+.main-header.scrolled {
+    padding: 12px 0;
 }
 
 /* ----------------------------------------------------
-   5. Hero Section (Középre rendezett - Opció A)
+   Kiemelt gomb a navigációban (Join the Club)
+   ---------------------------------------------------- */
+.nav-menu .contact-cta {
+    background-color: var(--text-primary); /* Sötét antracit/fekete háttér */
+    color: var(--white); /* Hófehér felirat */
+    border: 1px solid var(--text-primary);
+    padding: 10px 24px; 
+    border-radius: 30px;
+    white-space: nowrap; 
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.nav-menu .contact-cta:hover {
+    background-color: transparent; /* Hovernél átfordul áttetszőre */
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ----------------------------------------------------
+   5. Hero Section (Balra zárt elrendezés + Prémium fehér betűk)
    ---------------------------------------------------- */
 .hero-section {
     position: relative;
@@ -328,7 +324,9 @@ button {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 120px 0;
+    /* JAVÍTVA: Felülről jobban behúzzuk a fix fejléc alól, 
+       alul pedig hagyunk egy kis plusz levegőt az optikai középponthoz */
+    padding: 160px 0 80px 0; 
 }
 
 .hero-bg-wrapper {
@@ -339,20 +337,17 @@ button {
 
 .hero-bg-img {
     width: 100%; height: 100%; object-fit: cover;
-    filter: blur(12px) scale(1.05); 
     transition: var(--transition-smooth);
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    /* KIZÁRÓLAG a felső menü mögötti sávot világosítjuk (0-tól 20%-ig), alatta a fotó 100%-ban kristálytiszta marad! */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 20%);
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Minimális, 20%-os tónus, hogy a hófehér betűk tűélesek 
+       maradjanak a színes szirmok felett is */
+    background: rgba(0, 0, 0, 0.2); 
     z-index: 1;
-    pointer-events: none; /* Biztonsági beállítás: így a fátyol véletlenül sem blokkolja a menü kattintásait */
+    pointer-events: none;
 }
 
 .hero-container {
@@ -361,20 +356,23 @@ button {
     padding: 0 var(--container-padding);
     width: 100%;
     display: flex;
-    justify-content: center; 
+    justify-content: flex-start; /* JAVÍTVA: A teljes szövegdoboz bal oldalra került */
     align-items: center;
     min-height: calc(100vh - 240px);
+    z-index: 2; 
 }
 
-.hero-glass-card {
-    max-width: 800px; 
+.hero-text-container {
+    max-width: 750px; 
     width: 100%;
-    padding: 90px 50px; 
-    background: rgba(255, 255, 255, 0.65); 
-    text-align: center; 
+    padding: 0; 
+    background: transparent; 
+    border: none;
+    box-shadow: none;
+    text-align: left; 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; 
 }
 
 .card-subtitle {
@@ -382,7 +380,7 @@ button {
     font-size: var(--font-small);
     letter-spacing: 0.2em;
     font-weight: 700;
-    color: var(--text-primary); 
+    color: var(--white); /* JAVÍTVA: Tiszta fehér */
     display: block;
     margin-bottom: 24px;
     text-transform: uppercase;
@@ -390,8 +388,9 @@ button {
 
 .hero-title {
     font-size: var(--font-h1);
-    line-height: 1.25; /* EZ AZ ÚJ: Kényelmesebb, szellősebb sorköz */
+    line-height: 1.25; 
     margin-bottom: 24px;
+    color: var(--white); /* JAVÍTVA: Tiszta fehér */
 }
 
 .hero-title em {
@@ -400,17 +399,49 @@ button {
 
 .hero-description {
     font-size: var(--font-subtitle);
-    color: var(--text-primary); 
+    color: rgba(255, 255, 255, 0.95); /* JAVÍTVA: Lágy, elegáns selyemfehér */
     margin-bottom: 40px;
     font-weight: 400; 
 }
 
 .hero-actions {
     display: flex;
-    justify-content: center; 
+    justify-content: flex-start; 
     gap: 20px;
 }
 
+/* --- Gombok áthangolása a fehér szöveges környezethez --- */
+.hero-text-container .btn-primary {
+    background-color: var(--white);
+    color: var(--text-primary);
+    border-color: var(--white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.hero-text-container .btn-primary:hover {
+    background-color: transparent;
+    color: var(--white);
+}
+
+.hero-text-container .btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.hero-text-container .btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--text-primary);
+}
+
+/* --- Mobilnézet a Hero szekcióhoz --- */
+@media (max-width: 768px) {
+    .hero-container { justify-content: center; }
+    .hero-text-container { text-align: center; align-items: center; }
+    .hero-actions { justify-content: center; }
+}
+
+/* --- Globális Animációk --- */
 @keyframes sectionFadeIn {
     from { opacity: 0; transform: translateY(60px); }
     to { opacity: 1; transform: translateY(0); }
@@ -436,21 +467,24 @@ button {
     opacity: 0;
 }
 
+/* JAVÍTVA: Grid helyett Flexbox, tökéletes 50-50 aránnyal */
 .about-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 100px;
+    display: flex;
     align-items: center;
+    gap: 80px; /* Szellős térköz a szöveg és a kép között */
+    flex-direction: row-reverse; /* MÓDOSÍTVA: A kép kerül a bal oldalra, a szöveg a jobbra */
+    flex-wrap: wrap; /* Mobilon és tableten okosan egymás alá törik */
 }
 
 .story-content {
-    flex: 1;
+    flex: 1; /* Egyenlő helyelosztás */
     min-width: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
+/* A szövegek stílusai maradhatnak... */
 .story-text {
     font-size: var(--font-body);
     line-height: 1.6;
@@ -460,9 +494,12 @@ button {
 }
 
 .about-visual {
+    flex: 1; /* Egyenlő helyelosztás a képnek is */
+    min-width: 300px;
     position: relative;
 }
 
+/* A képek stílusai változatlanok maradnak... */
 .image-frame {
     position: relative;
     border-radius: var(--border-radius-lg);
@@ -532,16 +569,20 @@ button {
 
 .product-badge {
     position: absolute;
-    top: 24px; left: 24px;
-    background-color: rgba(255, 255, 255, 0.85);
+    top: 16px;  /* Feszesebben a sarokba húzva */
+    left: 16px; 
+    background-color: rgba(255, 255, 255, 0.95); /* Kicsit telítettebb, stabilabb fehér */
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Apple eszközök miatt érdemes betenni */
     color: var(--text-primary);
-    padding: 6px 14px;
-    font-size: var(--font-small);
+    padding: 6px 12px; /* Picit diszkrétebb belső margók */
+    font-size: 0.7rem; /* Egy pici finomítás a méreten */
     font-weight: 600;
     letter-spacing: 0.05em;
     border-radius: 20px;
     text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* EZ ragasztja rá a képre! */
+    z-index: 2;
 }
 
 .product-info {
@@ -549,17 +590,19 @@ button {
 }
 
 .product-title {
-    font-size: var(--font-h3);
-    margin-bottom: 6px;
+    /* HTML-ben marad <h3> a SEO miatt, de vizuálisan visszavesszük h4 méretre! */
+    font-size: var(--font-h4); 
+    line-height: 1.3;
+    margin-bottom: 6px; /* Szorosabbra húzva a kategóriával */
     transition: var(--transition-fast);
 }
 
 .product-category {
-    font-size: var(--font-small);
+    font-size: var(--font-small); /* Kicsi, letisztult, elegáns (kb. 12-14px) */
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .product-footer {
@@ -572,7 +615,8 @@ button {
 
 .product-price {
     font-family: var(--font-serif);
-    font-size: var(--font-h3);
+    /* Az ár sem kiabálhat, visszavettük az elegáns h4 méretre */
+    font-size: var(--font-h4); 
     color: var(--text-primary);
 }
 
@@ -580,7 +624,7 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: var(--font-small);
+    font-size: var(--font-small); /* A gomb felirata is diszkrét lett */
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -612,6 +656,9 @@ button {
 /* ----------------------------------------------------
    8 & 9. Farm Editorial Sections (PYO & Community)
    ---------------------------------------------------- */
+/* ----------------------------------------------------
+   8 & 9. Farm Editorial Sections (PYO & Community)
+   ---------------------------------------------------- */
 .farm-editorial-section {
     padding: var(--section-padding) 0;
     background-color: var(--bg-primary);
@@ -635,12 +682,13 @@ button {
 }
 
 .editorial-image-block {
-    flex: 1.2;
+    flex: 1;
 }
 
+/* JAVÍTVA: Magasság megemelve a többi kép arányaihoz */
 .editorial-display-img {
     width: 100%;
-    height: 520px;
+    height: 560px; /* 520px helyett szép, nyújtott magazin-magasság */
     object-fit: cover;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--soft-shadow);
@@ -717,49 +765,32 @@ button {
     width: 100%; 
 }
 
-.learning-images-grid {
-    flex: 1.5;
+/* JAVÍTVA: 1.5-ről 1-re csökkentettük, így kevesebb helyet követel magának */
+/* JAVÍTVA: Egymásra csúszó (Overlapping) elrendezés */
+.learning-image-wrapper {
+    flex: 1;
     min-width: 340px;
-    display: flex;
-    gap: var(--gap-md);
-    align-items: flex-start;
+    position: relative; /* Ez rögzíti a DofE plecsnit a sarokba */
 }
 
-.img-col-1 {
-    flex: 1;
-    margin-top: 80px; 
-}
-
-.img-col-1 img {
+.learning-single-img {
     width: 100%;
-    height: 600px; 
+    height: 660px; /* Pontosan megegyezik a felső képek prémium magasságával */
     object-fit: cover;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--soft-shadow);
 }
-
-.img-col-2 {
-    flex: 1;
-    position: relative;
-}
-
-.img-col-2 img {
-    width: 100%;
-    height: 520px;
-    object-fit: cover;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--soft-shadow);
-}
-
+/* A DofE Badge pozíciójának apró finomítása az új elrendezéshez */
 .learning-badge {
     position: absolute;
-    bottom: -20px;
-    right: -10px;
-    padding: 15px 25px;
+    bottom: 24px;
+    right: 24px;
+    padding: 12px 20px;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.75) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(16px);
-    box-shadow: var(--soft-shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    z-index: 3;
 }
 
 .learning-badge span {
@@ -770,27 +801,37 @@ button {
     font-size: var(--font-small);
 }
 
+/* JAVÍTVA: 1-ről 1.2-re emeltük. A szöveg végre fellélegezhet! */
 .learning-content {
-    flex: 1;
+    flex: 1.1; 
     min-width: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
+.learning-content .section-subtitle {
+    /* Felül 0, Jobb 0, Alul a kis térközöd, Bal 0 (ez öli meg a jobbra csúszást) */
+    margin: 0 0 var(--gap-sm) 0; 
+    
+    /* Felülírjuk a 600px-es korlátot is, hogy szépen kitöltse a flexbox által adott helyet */
+    max-width: 100%; 
+}
+
+/* A lista térközeit is feszesebbre húzzuk, hogy spóroljunk a magassággal */
 .learning-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 var(--gap-md) 0;
+    margin: 0 0 30px 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px; /* 16px-ről visszavéve */
     width: 100%;
 }
 
 .learning-list li {
     text-align: left;
-    line-height: 1.6;
+    line-height: 1.5; /* Szorosabb sorköz a bekezdéseken belül */
     font-size: var(--font-body);
     color: var(--text-secondary);
 }
@@ -799,7 +840,6 @@ button {
     color: var(--text-primary);
     display: inline;
 }
-
 /* ----------------------------------------------------
    11. Testimonials Section 
    ---------------------------------------------------- */
@@ -830,10 +870,10 @@ button {
 .testimonial-card {
     flex: 1;
     min-width: 300px; 
-    background: #fdfbf9; 
+    background: var(--white); 
     padding: 40px 35px;
     border-radius: 16px;
-    border: 1px solid #f3ece5; 
+    border: 1px solid rgba(0, 0, 0, 0.05); 
     position: relative;
     display: flex;
     flex-direction: column;
@@ -851,7 +891,7 @@ button {
 .quote-icon {
     font-family: 'Playfair Display', serif;
     font-size: 4rem;
-    color: #e2d6ca; 
+    color: #EAEAEA; 
     line-height: 1;
     position: absolute;
     top: 15px; left: 25px;
@@ -874,7 +914,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-top: 1px solid #eaddcf;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     padding-top: 20px;
 }
 
@@ -887,7 +927,7 @@ button {
 
 .testimonial-author span {
     font-size: var(--font-small);
-    color: #a3998d;
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 4px;
@@ -1031,13 +1071,6 @@ button {
     background-position: center;
     background-attachment: fixed;
 }
-
-.subscribe-bg {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(252, 251, 249, 0.4);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-}
-
 .subscribe-glass-card {
     max-width: 800px; margin: 0 auto; padding: 80px;
     display: flex; flex-direction: column; align-items: center; z-index: 2;
