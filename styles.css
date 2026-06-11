@@ -269,21 +269,28 @@ button {
 .nav-menu ul {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 30px; /* JAVÍTVA: 30px-ről visszavettük, hogy közelebb lépjenek egymáshoz */
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .nav-menu a {
     text-decoration: none;
     color: var(--text-primary);
-    font-size: 0.95rem;
+    font-size: 0.85rem; /* JAVÍTVA: Kicsit kisebb, diszkrétebb méret */
     font-weight: 500;
+    letter-spacing: 0.03em; /* JAVÍTVA: Pici extra betűköz, hogy a kisebb méret is tökéletesen olvasható legyen */
     transition: color 0.2s ease;
 }
 
 .nav-menu a:hover {
     color: var(--text-secondary);
+}
+
+/* --- Mobilos menü gomb elrejtése asztali nézetben --- */
+.mobile-nav-toggle {
+    display: none;
 }
 
 /* Ha a JS-ed hozzáadja a .scrolled osztályt, az csak egy kis méretcsökkentést csinál */
@@ -510,7 +517,8 @@ button {
 
 .about-img {
     width: 100%;
-    height: 550px;
+    height: auto; /* JAVÍTVA: A régi fix 550px felülírása */
+    aspect-ratio: 4 / 5; /* EZ AZ ÚJ: Megkapja a prémium portré arányt */
     object-fit: cover;
     transition: var(--transition-smooth);
 }
@@ -554,12 +562,14 @@ button {
 
 .product-img-wrapper {
     position: relative;
-    height: 380px;
+    aspect-ratio: 1 / 1; /* EZ AZ ÚJ: A fix 380px magasság helyett arányt használunk */
     overflow: hidden;
 }
 
 .product-img {
-    width: 100%; height: 100%; object-fit: cover;
+    width: 100%; 
+    height: 100%; /* Kitölti a fenti 3:4 arányt */
+    object-fit: cover;
     transition: var(--transition-smooth);
 }
 
@@ -688,7 +698,8 @@ button {
 /* JAVÍTVA: Magasság megemelve a többi kép arányaihoz */
 .editorial-display-img {
     width: 100%;
-    height: 560px; /* 520px helyett szép, nyújtott magazin-magasság */
+    height: auto; /* Felülírja a korábbi fix magasságot */
+    aspect-ratio: 4 / 5; /* Megadja a magazin portré arányt */
     object-fit: cover;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--soft-shadow);
@@ -775,7 +786,8 @@ button {
 
 .learning-single-img {
     width: 100%;
-    height: 660px; /* Pontosan megegyezik a felső képek prémium magasságával */
+    height: auto; /* Felülírja a korábbi fix magasságot */
+    aspect-ratio: 4 / 5; /* Tökéletes szinkron a felső képekkel */
     object-fit: cover;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--soft-shadow);
