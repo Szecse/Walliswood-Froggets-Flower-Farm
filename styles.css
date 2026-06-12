@@ -550,6 +550,11 @@ button {
     align-items: flex-start;
 }
 
+.story-content .section-subtitle {
+    margin: 0 0 24px 0; /* Balra zárja és leveszi a 60px-es űrt 24px-re */
+    max-width: 100%;    /* Engedi kitölteni a teljes oszlopot */
+}
+
 /* A szövegek stílusai maradhatnak... */
 .story-text {
     font-size: var(--font-body);
