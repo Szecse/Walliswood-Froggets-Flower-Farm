@@ -205,7 +205,7 @@ button {
     font-size: var(--font-subtitle);
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto 60px;
+    margin: 0 auto var(--gap-lg); /* 60px helyett a változó! */
     font-weight: 300;
     line-height: 1.6;
 }
@@ -551,8 +551,8 @@ button {
 }
 
 .story-content .section-subtitle {
-    margin: 0 0 24px 0; /* Balra zárja és leveszi a 60px-es űrt 24px-re */
-    max-width: 100%;    /* Engedi kitölteni a teljes oszlopot */
+    margin: 0 0 var(--gap-sm) 0; /* 24px helyett a pici változó! Balra zárva. */
+    max-width: 100%;
 }
 
 /* A szövegek stílusai maradhatnak... */
