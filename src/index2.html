@@ -290,16 +290,17 @@
         .main-footer { background-color: var(--text-primary); color: var(--white); padding: 100px 0 50px; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 80px; margin-bottom: 80px; }
         .footer-logo { color: var(--white); margin-bottom: 24px; display: inline-block; }
-        .footer-desc { color: rgba(255, 255, 255, 0.6); font-size: var(--font-body); line-height: 1.6; font-weight: 300; max-width: 320px; }
-        .footer-heading { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-bottom: 24px; }
+        .main-footer .logo-accent { color: var(--white); opacity: 0.9; }
+        .footer-desc { color: rgba(255, 255, 255, 0.85); font-size: var(--font-body); line-height: 1.6; font-weight: 300; max-width: 320px; }
+        .footer-heading { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.85); text-transform: uppercase; margin-bottom: 24px; }
         .footer-links ul { list-style: none; }
         .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: rgba(255, 255, 255, 0.65); font-size: var(--font-body); font-weight: 300; }
+       .footer-links a { color: rgba(255, 255, 255, 0.85); font-size: var(--font-body); font-weight: 300; }
         .footer-links a:hover { color: var(--white); transform: translateX(4px); }
-        .footer-contact p, .footer-hours p { color: rgba(255, 255, 255, 0.65); font-size: var(--font-body); font-weight: 300; margin-bottom: 8px; }
+        .footer-contact p, .footer-hours p { color: rgba(255, 255, 255, 0.85); font-size: var(--font-body); font-weight: 300; margin-bottom: 8px; }
         .contact-email { margin-top: 16px; color: var(--white) !important; font-weight: 400 !important; }
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 40px; text-align: center; }
-        .footer-bottom p { font-size: var(--font-small); color: rgba(255, 255, 255, 0.4); font-weight: 300; letter-spacing: 0.03em; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 40px; text-align: center; }
+        .footer-bottom p { font-size: var(--font-small); color: rgba(255, 255, 255, 0.7); font-weight: 300; letter-spacing: 0.03em; }
 
         @media (max-width: 1024px) {
             :root { --section-padding: 90px; }
@@ -368,7 +369,7 @@
 
     <section class="hero-section" id="hero">
         <div class="hero-bg-wrapper">
-            <img src="images/organic-flower-farm-pink-dahlias.webp" alt="Vibrant organic pink dahlia blooms grown at Froggetts Flower Farm in Surrey" class="hero-bg-img">
+            <img src="images/organic-flower-farm-pink-dahlias.webp" alt="Vibrant organic pink dahlia blooms grown at Froggetts Flower Farm in Surrey" class="hero-bg-img" fetchpriority="high" decoding="async">
             <div class="hero-overlay"></div>
         </div>
 
@@ -412,9 +413,15 @@
                 </div>
                 <div class="about-visual">
                     <div class="image-frame">
-                        <img src="images/clare-dahlia-grower-west-sussex.webp" alt="Clare, the founder of Froggetts Flower Farm, holding a freshly harvested bouquet of pink and peach dahlias in Surrey" class="about-img">
-                        <div class="frame-backdrop"></div>
-                    </div>
+                    <img src="images/clare-dahlia-grower-west-sussex-thumb.webp" 
+                        srcset="images/clare-dahlia-grower-west-sussex-thumb.webp 400w, 
+                                images/clare-dahlia-grower-west-sussex-hd.webp 575w" 
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        loading="lazy" width="575" height="719"
+                        alt="Clare, the founder of Froggetts Flower Farm, holding a freshly harvested bouquet of pink and peach dahlias in Surrey" 
+                        class="about-img">
+                    <div class="frame-backdrop"></div>
+                </div>
                 </div>
             </div>
         </div>
@@ -503,9 +510,11 @@
             
             <div class="editorial-image-block">
                     <img src="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp" 
-                    srcset="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp 500w, 
-                            images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp 1080w" 
+                    srcset="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp 1x, 
+                            images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp 2x" 
+                    width="600" height="750"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
                     alt="Friends Esme and Dilly holding large colourful dahlia bouquets at the flower farm" 
                     class="editorial-display-img">
             </div>
@@ -542,11 +551,13 @@
         <div class="section-container learning-flex-container">
             
             <div class="learning-image-wrapper">
-                <img src="images/dofe-volunteering-planting-seeds.webp" 
-                     srcset="images/dofe-volunteering-flower-farm-thumb.webp 500w, 
-                             images/dofe-volunteering-flower-farm-hd.webp 800w" 
+                <img src="images/dofe-volunteering-flower-farm-thumb.webp" 
+                     srcset="images/dofe-volunteering-flower-farm-thumb.webp 1x, 
+                             images/dofe-volunteering-flower-farm-hd.webp 2x" 
+                     width="600" height="750"
                      sizes="(max-width: 768px) 100vw, 50vw"
                      alt="Clare guiding Duke of Edinburgh volunteers in planting seeds and potting plants at the flower farm" 
+                     loading="lazy"
                      class="learning-single-img">
                      
                 <div class="glass-card learning-badge">
@@ -586,96 +597,100 @@
     </section>
 
     <section class="gallery-section" id="gallery">
-        <div class="section-container">
-            
-            <div class="gallery-header">
-                <span class="section-tag">VISUAL JOURNEY</span>
-                <h2 class="section-title">Life <em>on the</em> Flower Farm</h2>
-            </div>
+    <div class="section-container">
+        
+        <div class="gallery-header">
+            <span class="section-tag">VISUAL JOURNEY</span>
+            <h2 class="section-title">Life <em>on the</em> Flower Farm</h2>
+        </div>
 
-            <div class="gallery-slider-container">
-                <button class="slider-btn prev-btn" id="gallery-prev" aria-label="Previous images">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                
-                <div class="gallery-grid">
+        <div class="gallery-slider-container">
+            <button class="slider-btn prev-btn" id="gallery-prev" aria-label="Previous images">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
             
-                    <div class="gallery-item">
-                        <a href="images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp" class="lightbox-trigger">
-                            <img src="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp"
-                                 srcset="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp 500w,
-                                         images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp 1080w"
-                                 sizes="(max-width: 768px) 100vw, 33vw"
-                                 alt="Friends Esme and Dilly holding large colourful dahlia bouquets at the flower farm">
-                            <div class="gallery-overlay"><span>Dahlia Harvest</span></div>
-                        </a>
-                    </div>
+            <div class="gallery-grid">
+        
+                <div class="gallery-item">
+                    <a href="images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp" class="lightbox-trigger">
+                        <img src="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp"
+                             srcset="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp 1x,
+                                     images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp 2x"
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                             loading="lazy" width="483" height="859"
+                             alt="Esme and Dilly holding large colorful dahlia bouquets at Froggetts Flower Farm">
+                        <div class="gallery-overlay"><span>Dahlia Harvest</span></div>
+                    </a>
+                </div>
 
-                   <div class="gallery-item">
+                <div class="gallery-item">
                     <a href="images/gallery/pale-pink-garden-roses-flower-farm-hd.webp" class="lightbox-trigger">
                         <img src="images/gallery/pale-pink-garden-roses-flower-farm-thumb.webp"
-                            srcset="images/gallery/pale-pink-garden-roses-flower-farm-thumb.webp 1x,
-                                    images/gallery/pale-pink-garden-roses-flower-farm-hd.webp 2x"
-                            width="483"
-                            height="859"
-                            alt="Pale pink blooming roses in the lush garden of the flower farm"
-                            loading="lazy">
+                             srcset="images/gallery/pale-pink-garden-roses-flower-farm-thumb.webp 1x,
+                                     images/gallery/pale-pink-garden-roses-flower-farm-hd.webp 2x"
+                             width="483" height="859"
+                             loading="lazy"
+                             alt="Pale pink blooming roses in the lush garden of the flower farm">
                         <div class="gallery-overlay"><span>Garden Roses</span></div>
                     </a>
                 </div>
 
-                    <div class="gallery-item">
-                        <a href="images/gallery/friendly-farm-dog-thursdays-hd.webp" class="lightbox-trigger">
-                            <img src="images/gallery/friendly-farm-dog-thursdays-thumb.webp"
-                                 srcset="images/gallery/friendly-farm-dog-thursdays-thumb.webp 500w,
-                                         images/gallery/friendly-farm-dog-thursdays-hd.webp 720w"
-                                 sizes="(max-width: 768px) 100vw, 33vw"
-                                 alt="A friendly farm dog being held during a sunny Thursday at the flower farm">
-                            <div class="gallery-overlay"><span>Farm Life</span></div>
-                        </a>
-                    </div>
-
-                    <div class="gallery-item">
-                        <a href="images/gallery/colourful-wildflower-meadow-bouquet-hd.webp" class="lightbox-trigger">
-                            <img src="images/gallery/colourful-wildflower-meadow-bouquet-thumb.webp"
-                                 srcset="images/gallery/colourful-wildflower-meadow-bouquet-thumb.webp 500w,
-                                         images/gallery/colourful-wildflower-meadow-bouquet-hd.webp 800w"
-                                 sizes="(max-width: 768px) 100vw, 33vw"
-                                 alt="Close-up of a colourful freshly gathered seasonal wildflower bouquet">
-                            <div class="gallery-overlay"><span>Wildflower Bouquet</span></div>
-                        </a>
-                    </div>
-
-                    <div class="gallery-item">
-                        <a href="images/gallery/clare-harvesting-fresh-dahlias-hd.webp" class="lightbox-trigger">
-                            <img src="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp"
-                                 srcset="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp 500w,
-                                         images/gallery/clare-harvesting-fresh-dahlias-hd.webp 1080w"
-                                 sizes="(max-width: 768px) 100vw, 33vw"
-                                 alt="Clare smiling and holding a bucket of freshly harvested pink and peach dahlias">
-                            <div class="gallery-overlay"><span>Clare's Harvest</span></div>
-                        </a>
-                    </div>
-
-                    <div class="gallery-item">
-                        <a href="images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp" class="lightbox-trigger">
-                            <img src="images/gallery/freshly-cut-dahlia-buckets-harvest-thumb.webp"
-                                 srcset="images/gallery/freshly-cut-dahlia-buckets-harvest-thumb.webp 500w,
-                                         images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp 800w"
-                                 sizes="(max-width: 768px) 100vw, 33vw"
-                                 alt="Buckets overflowing with freshly cut colourful dahlias resting in the farm grass">
-                            <div class="gallery-overlay"><span>Fresh Cut Stems</span></div>
-                        </a>
-                    </div>
-                    
+                <div class="gallery-item">
+                    <a href="images/gallery/friendly-farm-dog-thursdays-hd.webp" class="lightbox-trigger">
+                        <img src="images/gallery/friendly-farm-dog-thursdays-thumb.webp"
+                             srcset="images/gallery/friendly-farm-dog-thursdays-thumb.webp 1x,
+                                     images/gallery/friendly-farm-dog-thursdays-hd.webp 2x"
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                             loading="lazy" width="483" height="859"
+                             alt="Friendly farm dog being held during a sunny Thursday at Froggetts Flower Farm">
+                        <div class="gallery-overlay"><span>Farm Life</span></div>
+                    </a>
                 </div>
 
-                <button class="slider-btn next-btn" id="gallery-next" aria-label="Next images">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
+                <div class="gallery-item">
+                    <a href="images/gallery/colourful-wildflower-meadow-bouquet-hd.webp" class="lightbox-trigger">
+                        <img src="images/gallery/colourful-wildflower-meadow-bouquet-thumb.webp"
+                             srcset="images/gallery/colourful-wildflower-meadow-bouquet-thumb.webp 1x,
+                                     images/gallery/colourful-wildflower-meadow-bouquet-hd.webp 2x"
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                             loading="lazy" width="483" height="859"
+                             alt="Close-up of a colorful freshly gathered seasonal wildflower bouquet">
+                        <div class="gallery-overlay"><span>Wildflower Bouquet</span></div>
+                    </a>
+                </div>
+
+                <div class="gallery-item">
+                    <a href="images/gallery/clare-harvesting-fresh-dahlias-hd.webp" class="lightbox-trigger">
+                        <img src="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp"
+                             srcset="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp 1x,
+                                     images/gallery/clare-harvesting-fresh-dahlias-hd.webp 2x"
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                             loading="lazy" width="483" height="859"
+                             alt="Clare, founder of Froggetts Flower Farm, harvesting fresh pink and peach dahlias">
+                        <div class="gallery-overlay"><span>Clare's Harvest</span></div>
+                    </a>
+                </div>
+
+                <div class="gallery-item">
+                    <a href="images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp" class="lightbox-trigger">
+                        <img src="images/gallery/freshly-cut-dahlia-buckets-harvest-thumb.webp"
+                             srcset="images/gallery/freshly-cut-dahlia-buckets-harvest-thumb.webp 1x,
+                                     images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp 2x"
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                             loading="lazy" width="483" height="859"
+                             alt="Buckets overflowing with freshly cut colorful dahlias resting in the farm grass">
+                        <div class="gallery-overlay"><span>Fresh Cut Stems</span></div>
+                    </a>
+                </div>
+                
             </div>
+
+            <button class="slider-btn next-btn" id="gallery-next" aria-label="Next images">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="testimonials-section" id="testimonials">
         <div class="section-container">
@@ -749,7 +764,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo footer-logo" id="footer-logo">
-                        <span class="logo-accent">Froggets</span> Farm
+                        <span class="logo-accent">Froggetts</span> Farm
                     </a>
                     <p class="footer-desc">
                         A slow flower farm dedicated to restoring ecological balance and spreading beauty through
@@ -757,7 +772,7 @@
                     </p>
                 </div>
                 <div class="footer-links">
-                    <h4 class="footer-heading">Navigate</h4>
+                    <h3 class="footer-heading">Navigate</h3>
                     <ul>
                         <li><a href="#hero">Home</a></li>
                         <li><a href="#about">Our Story</a></li>
@@ -766,19 +781,19 @@
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4 class="footer-heading">Visit Us</h4>
+                    <h3 class="footer-heading">Visit Us</h3>
                     <p> Froggetts Lane<br>Walliswood RH5 5RJ</p>
                     <p class="contact-email">clare@froggettsfarm.com</p>
                 </div>
                 <div class="footer-hours">
-                    <h4 class="footer-heading">Farm Stand Hours</h4>
+                    <h3 class="footer-heading">Farm Stand Hours</h3>
                     <p>Friday &bull; 10:00 AM - 6:00 PM</p>
                     <p>Saturday &bull; 9:00 AM - 4:00 PM</p>
                     <p>Sunday &bull; Closed for Harvest</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Froggets Farm Co. All rights reserved. Created in harmony with nature.</p>
+                <p>&copy; 2026 Froggetts Flower Farm. All rights reserved. Created in harmony with nature.</p>
             </div>
         </div>
     </footer>
