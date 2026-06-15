@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Froggets Farm | Premium Organic Flower Farm</title>
-    <meta name="description" content="Welcome to Froggets Farm, a boutique flower farm cultivating premium, organic, hand-harvested blooms in harmony with nature. Experience the beauty of seasonal flora.">
+    <meta name="description" content="Welcome to Froggetts Farm, a boutique flower farm cultivating premium, organic, hand-harvested blooms in harmony with nature. Experience the beauty of seasonal flora.">
 
     <link rel="preload" href="fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/playfair-display-v40-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
-    <meta name="robots" content="noindex, nofollow"> <style>
+    <meta name="robots" content="noindex, nofollow"> 
+    
+    <style>
         /* ----------------------------------------------------
            Froggetts Farm - Design System & Modern Aesthetics
            ---------------------------------------------------- */
@@ -121,7 +123,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html { scroll-behavior: smooth; font-size: var(--font-body); background-color: var(--bg-primary); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
-        body { font-family: var(--font-sans); line-height: 1.7; overflow-x: hidden; }
+        body { font-family: var(--font-sans); line-height: 1.7; overflow-x: clip; }
 
         h1 { font-size: var(--font-h1); line-height: 1.1; }
         h2 { font-size: var(--font-h2); line-height: 1.15; }
@@ -134,7 +136,7 @@
         img { max-width: 100%; display: block; height: auto; }
         button { background: none; border: none; font: inherit; cursor: pointer; }
 
-        .section-container { max-width: 1280px; margin: 0 auto; padding: 0 var(--container-padding); }
+        .section-container { max-width: 1120px; margin: 0 auto; padding: 0 var(--container-padding); }
         .text-center { text-align: center; }
 
         .section-tag { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; letter-spacing: 0.15em; color: var(--text-secondary); text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
@@ -151,8 +153,8 @@
         .glass-card { background: var(--glass-bg); backdrop-filter: blur(25px) saturate(190%); -webkit-backdrop-filter: blur(25px) saturate(190%); border: 1px solid var(--glass-border); border-radius: var(--border-radius-lg); box-shadow: var(--glass-shadow); position: relative; z-index: 1; }
         .glass-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; padding: 1px; background: linear-gradient( 135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.4) 100% ); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.06); transition: all 0.3s ease; }
-        .header-container { max-width: 1280px; margin: 0 auto; padding: 0 var(--container-padding); display: flex; justify-content: space-between; align-items: center; }
+        .main-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.06); transition: all 0.3s ease; }
+        .header-container { max-width: 1120px; margin: 0 auto; padding: 0 var(--container-padding); display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--text-primary); text-decoration: none; letter-spacing: -0.5px; }
         .logo-accent { font-style: italic; color: var(--text-secondary); }
         .nav-menu ul { display: flex; list-style: none; gap: 18px; margin: 0; padding: 0; align-items: center; }
@@ -163,11 +165,12 @@
         .nav-menu .contact-cta { background-color: var(--text-primary); color: var(--white); border: 1px solid var(--text-primary); padding: 10px 24px; border-radius: 30px; white-space: nowrap; flex-shrink: 0; transition: var(--transition-smooth); }
         .nav-menu .contact-cta:hover { background-color: transparent; color: var(--text-primary); border-color: var(--text-primary); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
 
+        /* --- PARALLAX HERO --- */
         .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 160px 0 80px 0; }
-        .hero-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+        .hero-bg-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -2; }
         .hero-bg-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 1; pointer-events: none; }
-        .hero-container { max-width: 1280px; margin: 0 auto; padding: 0 var(--container-padding); width: 100%; display: flex; justify-content: flex-start; align-items: center; min-height: calc(100vh - 240px); z-index: 2; }
+        .hero-container { max-width: 1120px; margin: 0 auto; padding: 0 var(--container-padding); width: 100%; display: flex; justify-content: flex-start; align-items: center; min-height: calc(100vh - 240px); z-index: 2; }
         .hero-text-container { max-width: 750px; width: 100%; padding: 0; background: transparent; border: none; box-shadow: none; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
         .card-subtitle { font-family: var(--font-sans); font-size: var(--font-small); letter-spacing: 0.2em; font-weight: 700; color: var(--white); display: block; margin-bottom: 24px; text-transform: uppercase; }
         .hero-title { font-size: var(--font-h1); line-height: 1.25; margin-bottom: 24px; color: var(--white); }
@@ -179,26 +182,47 @@
         .hero-text-container .btn-secondary { background-color: transparent; color: var(--white); border-color: var(--white); }
         .hero-text-container .btn-secondary:hover { background-color: var(--white); color: var(--text-primary); }
 
+        /* --- ANIMÁCIÓK ÉS ELREJTÉSEK --- */
         @keyframes sectionFadeIn { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes cardFadeIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in-section { animation: sectionFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        /* CSAK a tartalmi dobozokat rejtjük el betöltéskor, hogy a szekciók fehér háttere takarja a Hero képet */
+        .about-section .section-container,
+        .collections-section .section-container,
+        .farm-editorial-section .section-container,
+        .learning-section .section-container,
+        .gallery-section .section-container,
+        .journal-teaser-section .section-container,
+        .subscribe-section .section-container,
+        .testimonials-section .testimonial-wrapper {
+            opacity: 0;
+        }
+        
+        /* Amikor a szekció láthatóvá válik, CSAK a tartalma úszik be */
+        .fade-in-section .section-container,
+        .fade-in-section .testimonial-wrapper { 
+            animation: sectionFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+        }
+
         .fade-in-card { animation: cardFadeIn 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
         .fade-in-card:nth-child(1) { animation-delay: 0.1s; }
         .fade-in-card:nth-child(2) { animation-delay: 0.2s; }
         .fade-in-card:nth-child(3) { animation-delay: 0.3s; }
 
-        .about-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); opacity: 0; }
-        .about-grid { display: flex; align-items: center; gap: 80px; flex-direction: row-reverse; flex-wrap: wrap; }
-        .story-content { flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; }
+        /* --- ABOUT --- */
+        .about-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }
+        .about-grid { display: flex; align-items: flex-start; gap: 80px; flex-direction: row-reverse; flex-wrap: wrap; }
+        .story-content { flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; min-height: 120vh; justify-content: center; }
         .story-content .section-subtitle { margin: 0 0 var(--gap-sm) 0; max-width: 100%; }
         .story-text { font-size: var(--font-body); line-height: 1.6; color: var(--text-secondary); margin-bottom: 20px; text-align: left; }
-        .about-visual { flex: 1; min-width: 300px; position: relative; }
+        .about-visual { flex: 1; min-width: 300px; position: sticky; top: 40px; }
         .image-frame { position: relative; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--soft-shadow); z-index: 2; }
-        .about-img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; transition: var(--transition-smooth); }
+        .about-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; transition: var(--transition-smooth); }
         .about-img:hover { transform: scale(1.03); }
         .frame-backdrop { position: absolute; top: 40px; right: -40px; bottom: -40px; left: 40px; background-color: var(--bg-secondary); border-radius: var(--border-radius-lg); z-index: -1; }
 
-        .collections-section { padding: var(--section-padding) 0; background-color: var(--bg-secondary); opacity: 0; }
+        /* --- COLLECTIONS --- */
+        .collections-section { padding: var(--section-padding) 0; background-color: var(--bg-secondary); position: relative; z-index: 10; }
         .collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-md); }
         .product-card { background-color: var(--white); border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--soft-shadow); border: 1px solid rgba(0, 0, 0, 0.02); transition: var(--transition-smooth); opacity: 0; }
         .product-img-wrapper { position: relative; aspect-ratio: 1 / 1; overflow: hidden; }
@@ -217,35 +241,37 @@
         .glass-hover-card { transition: var(--transition-smooth); }
         .glass-hover-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06); border-color: rgba(255, 255, 255, 0.5); }
 
-        .farm-editorial-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); width: 100%; display: flex; align-items: center; }
+        /* --- FARM EDITORIAL (PYO / COMMUNITY) --- */
+        .farm-editorial-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); width: 100%; position: relative; z-index: 10; }
         .farm-editorial-section.bg-cream-alt { background-color: var(--bg-secondary); }
-        .editorial-flex-container { display: flex; align-items: center; gap: 80px; }
+        .editorial-flex-container { display: flex; align-items: flex-start; gap: 80px; }
         .editorial-flex-container.row-reversed { flex-direction: row-reverse; }
-        .editorial-image-block { flex: 1; }
-        .editorial-display-img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--border-radius-lg); box-shadow: var(--soft-shadow); transition: transform 0.4s ease; }
+        .editorial-image-block { flex: 1; position: sticky; top: 40px; }
+        .editorial-display-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--border-radius-lg); box-shadow: var(--soft-shadow); transition: transform 0.4s ease; }
         .editorial-display-img:hover { transform: scale(1.015); }
-        .editorial-text-block { flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
+        .editorial-text-block { flex: 1; display: flex; flex-direction: column; align-items: flex-start; min-height: 120vh; justify-content: center; }
         .editorial-subtitle { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 12px; }
         .editorial-title { font-size: var(--font-h2); margin-bottom: 24px; }
         .editorial-description { font-size: var(--font-body); color: var(--text-secondary); font-weight: 300; line-height: 1.75; margin-bottom: 32px; }
         .editorial-cta-link { font-family: var(--font-sans); font-size: var(--font-btn); font-weight: 600; color: var(--text-primary); letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-bottom: 1px solid rgba(28, 30, 33, 0.2); padding-bottom: 4px; }
         .editorial-cta-link:hover { color: var(--text-secondary); border-bottom: 1px solid var(--text-primary); transform: translateX(4px); }
 
-        .learning-section#learning { background-color: var(--bg-primary) !important; width: 100%; padding: var(--section-padding) 0; }
-        .learning-flex-container { display: flex; align-items: center; gap: var(--gap-xl); flex-wrap: wrap; width: 100%; }
-        .learning-image-wrapper { flex: 1; min-width: 340px; position: relative; }
-        .learning-single-img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--border-radius-lg); box-shadow: var(--soft-shadow); }
+        /* --- LEARNING --- */
+        .learning-section#learning { background-color: var(--bg-primary) !important; width: 100%; padding: var(--section-padding) 0; position: relative; z-index: 10; }
+        .learning-flex-container { display: flex; align-items: flex-start; gap: var(--gap-xl); flex-wrap: wrap; width: 100%; }
+        .learning-image-wrapper { flex: 1; min-width: 340px; position: sticky; top: 40px; }
+        .learning-single-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--border-radius-lg); box-shadow: var(--soft-shadow); }
         .learning-badge { position: absolute; bottom: 24px; right: 24px; padding: 12px 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(16px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); z-index: 3; }
         .learning-badge span { font-family: var(--font-serif); font-style: italic; color: var(--text-primary); font-weight: 500; font-size: var(--font-small); }
-        .learning-content { flex: 1.1; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; }
+        .learning-content { flex: 1.1; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; min-height: 120vh; justify-content: center; }
         .learning-content .section-subtitle { margin: 0 0 var(--gap-sm) 0; max-width: 100%; }
         .learning-list { list-style: none; padding: 0; margin: 0 0 30px 0; display: flex; flex-direction: column; gap: 12px; width: 100%; }
         .learning-list li { text-align: left; line-height: 1.5; font-size: var(--font-body); color: var(--text-secondary); }
         .learning-list li strong { color: var(--text-primary); display: inline; }
 
 
-        /* --- ÚJ, ELEGÁNS TESTIMONIAL SLIDER --- */
-        .testimonials-section { background-color: var(--bg-primary) !important; padding: 120px 0; width: 100%; overflow: hidden; }
+        /* --- TESTIMONIAL SLIDER --- */
+        .testimonials-section { background-color: var(--bg-primary) !important; padding: 120px 0; width: 100%; overflow: hidden; position: relative; z-index: 10; }
         .testimonial-wrapper { position: relative; max-width: 900px; margin: 0 auto; padding: 0 var(--container-padding); }
         .testimonials-header { text-align: center; margin-bottom: 50px; }
         
@@ -257,12 +283,31 @@
         .testimonial-single.active { opacity: 1; transform: scale(1); pointer-events: auto; }
         
         .quote-mark { font-family: var(--font-serif); font-size: 5rem; color: var(--text-primary); opacity: 0.08; line-height: 0.5; margin-bottom: 25px; }
-        .testimonial-text-large { font-family: var(--font-serif); font-size: clamp(1.2rem, 2vw + 0.6rem, 1.8rem); line-height: 1.5; color: var(--text-primary); margin-bottom: 40px; max-width: 750px; font-style: italic; font-weight: 400; }
+        
+        .testimonial-text-large { 
+            font-family: var(--font-serif); 
+            font-size: clamp(1.2rem, 2vw + 0.6rem, 1.8rem); 
+            line-height: 1.5; 
+            color: var(--text-primary); 
+            margin-bottom: 40px; 
+            max-width: 750px; 
+            font-style: italic; 
+            font-weight: 400; 
+            opacity: 0; 
+            transform: translateX(-40px); 
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+
+        .testimonial-single.active .testimonial-text-large {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 0.1s; 
+        }
+        
         .testimonial-author-center { display: flex; flex-direction: column; align-items: center; }
         .testimonial-author-center strong { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.08em; text-transform: uppercase; }
         .testimonial-author-center span { font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px; font-style: italic; }
 
-        /* --- Testimonial Avatár Formázása --- */
         .testimonial-avatar {
             width: 100px;
             height: 100px;
@@ -286,13 +331,8 @@
         .prev-arrow { left: -20px; }
         .next-arrow { right: -20px; }
 
-        @media (max-width: 768px) {
-            .testimonial-single { padding: 0 30px; }
-            .prev-arrow { left: -10px; }
-            .next-arrow { right: -10px; }
-            .testimonial-text-large { font-size: 1.15rem; }
-        }
-        .gallery-section { background-color: var(--bg-secondary); padding: var(--section-padding) 0; width: 100%; }
+        /* --- GALLERY --- */
+        .gallery-section { background-color: var(--bg-secondary); padding: var(--section-padding) 0; width: 100%; position: relative; z-index: 10; }
         .gallery-header { text-align: center; margin-bottom: 60px; display: flex; flex-direction: column; align-items: center; }
         .gallery-slider-container { position: relative; display: block; width: 100%; }
         .slider-btn { display: none; }
@@ -316,24 +356,13 @@
         .lightbox-trigger { cursor: pointer; }
         .lightbox-close:hover { background: var(--white); color: var(--text-secondary); }
 
-        .subscribe-section { position: relative; padding: 140px 0; display: flex; align-items: center; justify-content: center; background-image: url('images/hero_bg.webp'); background-size: cover; background-position: center; background-attachment: fixed; }
-        .subscribe-glass-card { max-width: 800px; margin: 0 auto; padding: 80px; display: flex; flex-direction: column; align-items: center; z-index: 2; }
-        .subscribe-description { font-size: var(--font-subtitle); font-weight: 300; color: var(--text-secondary); max-width: 550px; margin-bottom: 40px; }
-        .subscribe-form { display: flex; width: 100%; max-width: 550px; gap: 16px; }
-        .subscribe-input { flex: 1; padding: 16px 28px; border-radius: 40px; background: rgba(255, 255, 255, 0.65); border: 1px solid rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); color: var(--text-primary); font-family: var(--font-sans); font-size: var(--font-body); transition: var(--transition-fast); outline: none; }
-        .subscribe-input::placeholder { color: var(--text-secondary); opacity: 0.7; }
-        .subscribe-input:focus { background: var(--white); border-color: var(--text-primary); box-shadow: 0 0 0 4px rgba(28, 30, 33, 0.1); }
-        .btn-submit { border: none; cursor: pointer; }
-
-        /* ----------------------------------------------------
-           Farm Journal Teaser Section
-           ---------------------------------------------------- */
-        .journal-teaser-section { padding: var(--section-padding) 0; background-color: var(--bg-secondary); opacity: 0; }
+        /* --- JOURNAL TEASER --- */
+        .journal-teaser-section { padding: var(--section-padding) 0; background-color: var(--bg-secondary); position: relative; z-index: 10; }
         .journal-header { text-align: center; margin-bottom: 60px; display: flex; flex-direction: column; align-items: center; }
         .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-md); }
         .journal-card { background-color: var(--white); border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--soft-shadow); border: 1px solid rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; opacity: 0; }
         .journal-img-wrapper { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
-        .journal-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .journal-img { width: 100%; height: 100%; object-fit: cover !important; object-position: center center; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .journal-card:hover .journal-img { transform: scale(1.05); }
         .journal-content { padding: 35px 30px; display: flex; flex-direction: column; flex-grow: 1; }
         .journal-meta { font-family: var(--font-sans); font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; font-weight: 600; }
@@ -342,14 +371,19 @@
         .journal-card:hover .journal-title { color: var(--text-secondary); }
         .journal-excerpt { font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 30px; font-weight: 300; flex-grow: 1; }
         
-        @media (max-width: 1024px) {
-            .journal-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-        }
-        @media (max-width: 768px) {
-            .journal-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
+        /* --- SUBSCRIBE --- */
+        .subscribe-section { position: relative; padding: 140px 0; display: flex; align-items: center; justify-content: center; background-image: url('images/hero_bg.webp'); background-size: cover; background-position: center; background-attachment: fixed; z-index: 10; }
+        .subscribe-glass-card { max-width: 800px; margin: 0 auto; padding: 80px; display: flex; flex-direction: column; align-items: center; z-index: 2; background: rgba(255, 255, 255, 0.85) !important; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); border: 1px solid rgba(255, 255, 255, 1); }
+        .subscribe-glass-card .section-title, .subscribe-glass-card .section-tag { color: #111 !important; }
+        .subscribe-description { font-size: var(--font-subtitle); font-weight: 400; color: #333 !important; max-width: 550px; margin-bottom: 40px; }
+        .subscribe-form { display: flex; width: 100%; max-width: 550px; gap: 16px; }
+        .subscribe-input { flex: 1; padding: 16px 28px; border-radius: 40px; background: rgba(255, 255, 255, 0.65); border: 1px solid rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); color: var(--text-primary); font-family: var(--font-sans); font-size: var(--font-body); transition: var(--transition-fast); outline: none; }
+        .subscribe-input::placeholder { color: var(--text-secondary); opacity: 0.7; }
+        .subscribe-input:focus { background: var(--white); border-color: var(--text-primary); box-shadow: 0 0 0 4px rgba(28, 30, 33, 0.1); }
+        .btn-submit { border: none; cursor: pointer; }
 
-        .main-footer { background-color: var(--text-primary); color: var(--white); padding: 100px 0 50px; }
+        /* --- FOOTER --- */
+        .main-footer { background-color: var(--text-primary); color: var(--white); padding: 100px 0 50px; position: relative; z-index: 10; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 80px; margin-bottom: 80px; }
         .footer-logo { color: var(--white); margin-bottom: 24px; display: inline-block; }
         .main-footer .logo-accent { color: var(--white); opacity: 0.9; }
@@ -364,13 +398,15 @@
         .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 40px; text-align: center; }
         .footer-bottom p { font-size: var(--font-small); color: rgba(255, 255, 255, 0.7); font-weight: 300; letter-spacing: 0.03em; }
 
+        /* --- RESPONSIVE RESPONSIVE --- */
         @media (max-width: 1024px) {
-            :root { --section-padding: 90px; }
+            :root { --section-padding: 90px; --container-padding: 30px; --gap-xl: 50px; }
             .about-grid { gap: 50px; }
             .collections-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 50px; }
             .editorial-flex-container { gap: 40px; }
             .editorial-display-img { height: 420px; }
+            .journal-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
         }
 
         @media (max-width: 768px) {
@@ -401,6 +437,11 @@
             .subscribe-glass-card { padding: 40px 24px; }
             .subscribe-form { flex-direction: column; gap: 12px; }
             .btn { width: 100%; }
+            .testimonial-single { padding: 0 30px; }
+            .prev-arrow { left: -10px; }
+            .next-arrow { right: -10px; }
+            .testimonial-text-large { font-size: 1.15rem; }
+            .journal-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
@@ -586,9 +627,9 @@
                 <span class="editorial-subtitle">The Farm Experience</span>
                 <h2 class="editorial-title">Pick Your Own & Tea Afternoons</h2>
                 <p class="editorial-description">
-                    Wander through our vibrant dahlia beds and compose your own unique, freshly cut bouquet. After harvesting, relax in our scenic garden with a delightful blend of artisanal teas and homemade cakes, baked fresh right here on the farm.
+                    Wander through our vibrant dahlia beds and compose your own unique, freshly cut bouquet. We provide all the necessary tools and gentle guidance, making it a perfect, peaceful escape for both beginners and seasoned flower lovers. After harvesting, relax in our scenic garden with a delightful blend of artisanal teas and homemade cakes, baked fresh right here on the farm.
                 </p>
-                <a href="/pick-your-own-tea" class="btn btn-primary">Book an Afternoon</a>
+                <a href="/pick-your-own-tea" class="btn btn-primary" style="margin-bottom: 100px;">Book an Afternoon</a>
             </div>
 
         </div>
@@ -605,7 +646,7 @@
                 <p class="editorial-description">
                     Support sustainable local farming and enjoy a weekly curated basket of our freshest seasonal stems. We are also a proud host to Duke of Edinburgh students and local volunteers, creating a space where generations connect and learn organic farming first-hand.
                 </p>
-                <a href="/contact" class="btn btn-primary">Join Our Club</a>
+                <a href="/contact" class="btn btn-primary" style="margin-bottom: 100px;">Join Our Club</a>
             </div>
         </div>
     </section>
@@ -833,7 +874,15 @@
                 
                 <article class="journal-card glass-hover-card">
                     <a href="posts/summer-dahlia-harvest.html" class="journal-img-wrapper" aria-label="Read article: The Magic of Summer Dahlia Harvest">
-                        <img src="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp" alt="Clare harvesting fresh pink dahlias" class="journal-img" loading="lazy">
+                        <img src="images/blog/summer-dahlia-harvest-thumb.webp" 
+                             srcset="images/blog/summer-dahlia-harvest-thumb.webp 400w, 
+                                     images/blog/summer-dahlia-harvest-hd.webp 600w" 
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                             alt="Clare harvesting fresh pink and peach dahlias at dawn" 
+                             class="journal-img" 
+                             loading="lazy" 
+                             width="600" 
+                             height="600">
                     </a>
                     <div class="journal-content">
                         <span class="journal-meta">July 15, 2026 &bull; Farm Life</span>
@@ -849,7 +898,15 @@
 
                 <article class="journal-card glass-hover-card">
                     <a href="posts/peat-free-compost.html" class="journal-img-wrapper" aria-label="Read article: Why We Choose Peat-Free Compost">
-                        <img src="images/dofe-volunteering-flower-farm-thumb.webp" alt="Working with soil at the farm" class="journal-img" loading="lazy">
+                        <img src="images/blog/peat-free-compost-thumb.webp" 
+                             srcset="images/blog/peat-free-compost-thumb.webp 400w, 
+                                     images/blog/peat-free-compost-hd.webp 600w" 
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                             alt="Hands mixing rich, organic peat-free compost soil for seedlings" 
+                             class="journal-img" 
+                             loading="lazy" 
+                             width="600" 
+                             height="600">
                     </a>
                     <div class="journal-content">
                         <span class="journal-meta">June 28, 2026 &bull; Sustainability</span>
@@ -865,7 +922,15 @@
 
                 <article class="journal-card glass-hover-card">
                     <a href="posts/spring-seed-sowing.html" class="journal-img-wrapper" aria-label="Read article: Planning the Spring Seed Sowing">
-                        <img src="images/sussex-wildflower-jug.webp" alt="Spring flowers" class="journal-img" loading="lazy">
+                        <img src="images/blog/spring-seed-sowing-thumb.webp" 
+                             srcset="images/blog/spring-seed-sowing-thumb.webp 400w, 
+                                     images/blog/spring-seed-sowing-hd.webp 600w" 
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                             alt="Seed packets and terracotta pots neatly arranged on a greenhouse potting bench" 
+                             class="journal-img" 
+                             loading="lazy" 
+                             width="600" 
+                             height="600">
                     </a>
                     <div class="journal-content">
                         <span class="journal-meta">April 12, 2026 &bull; Guides</span>
@@ -1002,7 +1067,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in-section');
-                    const cards = entry.target.querySelectorAll('.product-card, .experience-card, .gallery-item, .testimonial-card, .img-col-1, .img-col-2, .learning-content, .journal-card');
+                    const cards = entry.target.querySelectorAll('.product-card, .editorial-text-block, .gallery-item, .learning-content, .journal-card');
                     cards.forEach((card, index) => {
                         card.style.animationDelay = `${index * 0.2}s`;
                         card.classList.add('fade-in-card');
@@ -1012,7 +1077,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.about-section, .collections-section, .experience-section, .learning-section, .gallery-section, .testimonials-section, .subscribe-section, .journal-teaser-section').forEach(section => {
+        document.querySelectorAll('.about-section, .collections-section, .farm-editorial-section, .learning-section, .gallery-section, .testimonials-section, .subscribe-section, .journal-teaser-section').forEach(section => {
             observer.observe(section);
         });
 
@@ -1033,7 +1098,7 @@
             });
         }
 
-        // Lightbox Logic - HD KÉPEKRE HANGOLVA
+        // Lightbox Logic 
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
