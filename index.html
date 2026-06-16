@@ -88,7 +88,7 @@
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             
             --font-h1: clamp(2.6rem, 4.5vw + 1rem, 4.2rem);     
-            --font-h2: clamp(2rem, 3vw + 1rem, 3.2rem);         
+            --font-h2: clamp(1.8rem, 2.5vw + 0.8rem, 2.8rem);        
             --font-h3: clamp(1.4rem, 1.5vw + 0.8rem, 1.8rem);   
             --font-h4: clamp(1.1rem, 1vw + 0.8rem, 1.3rem);     
             
@@ -126,7 +126,7 @@
         body { font-family: var(--font-sans); line-height: 1.7; overflow-x: clip; }
 
         h1 { font-size: var(--font-h1); line-height: 1.1; }
-        h2 { font-size: var(--font-h2); line-height: 1.15; }
+        h2 { font-size: var(--font-h2); line-height: 1.25; }
         h3 { font-size: var(--font-h3); line-height: 1.3; }
         h4 { font-size: var(--font-h4); line-height: 1.4; }
 
@@ -145,8 +145,8 @@
         .section-subtitle { font-size: var(--font-subtitle); color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--gap-lg); font-weight: 300; line-height: 1.6; }
 
         .btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px 36px; font-size: var(--font-btn); font-weight: 500; border-radius: 40px; transition: var(--transition-smooth); letter-spacing: 0.05em; position: relative; overflow: hidden; }
-        .btn-primary { background-color: var(--text-primary); color: var(--white); box-shadow: 0 4px 15px rgba(28, 30, 33, 0.15); }
-        .btn-primary:hover { background-color: #33373C; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(28, 30, 33, 0.25); }
+        .btn-primary { background-color: #8A9A86; color: var(--white); box-shadow: 0 4px 15px rgba(138, 154, 134, 0.3); border: none; }
+        .btn-primary:hover { background-color: #768672; color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(138, 154, 134, 0.4); }
         .btn-secondary { background-color: rgba(255, 255, 255, 0.85); color: var(--text-primary); border: 1px solid rgba(0, 0, 0, 0.05); backdrop-filter: blur(10px); }
         .btn-secondary:hover { background-color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05); }
 
@@ -253,7 +253,7 @@
         .editorial-subtitle { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 12px; }
         .editorial-title { font-size: var(--font-h2); margin-bottom: 24px; }
         .editorial-description { font-size: var(--font-body); color: var(--text-secondary); font-weight: 300; line-height: 1.75; margin-bottom: 32px; }
-        .editorial-cta-link { font-family: var(--font-sans); font-size: var(--font-btn); font-weight: 600; color: var(--text-primary); letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-bottom: 1px solid rgba(28, 30, 33, 0.2); padding-bottom: 4px; }
+        .editorial-cta-link { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; color: var(--text-primary); letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-bottom: 1px solid rgba(28, 30, 33, 0.2); padding-bottom: 4px; }
         .editorial-cta-link:hover { color: var(--text-secondary); border-bottom: 1px solid var(--text-primary); transform: translateX(4px); }
 
         /* --- LEARNING --- */
@@ -369,7 +369,18 @@
         .journal-title { font-size: var(--font-h4); line-height: 1.3; margin-bottom: 16px; transition: var(--transition-fast); }
         .journal-title a { text-decoration: none; color: inherit; }
         .journal-card:hover .journal-title { color: var(--text-secondary); }
-        .journal-excerpt { font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 30px; font-weight: 300; flex-grow: 1; }
+        .journal-excerpt { 
+                    font-size: var(--font-body); 
+                    color: var(--text-secondary); 
+                    line-height: 1.6; 
+                    margin-bottom: 24px; 
+                    font-weight: 400; 
+                    flex-grow: 1;
+                    display: -webkit-box; 
+                    -webkit-line-clamp: 3; /* Ez mondja meg, hogy pontosan 3 sornál vágja el a szöveget */
+                    -webkit-box-orient: vertical;  
+                    overflow: hidden; 
+                }
         
         /* --- SUBSCRIBE --- */
         .subscribe-section { position: relative; padding: 140px 0; display: flex; align-items: center; justify-content: center; background-image: url('images/hero_bg.webp'); background-size: cover; background-position: center; background-attachment: fixed; z-index: 10; }
@@ -421,7 +432,7 @@
             .nav-menu.active { right: 0; }
             .nav-menu ul { flex-direction: column; align-items: flex-start; gap: 30px; }
             .hero-glass-card { padding: 40px 24px; }
-            .about-grid { grid-template-columns: 1fr; gap: 60px; }
+            .about-grid { flex-direction: column; gap: 60px; }
             .about-visual { order: -1; }
             .about-img { height: 400px; }
             .frame-backdrop { right: -20px; bottom: -20px; left: 20px; top: 20px; }
@@ -455,12 +466,12 @@
             </a>
             <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
               <ul>
-                <li><a href="index.html" class="nav-link" aria-current="page">Home</a></li>
+                <!-- A Home eltávolítva, mert a logó ellátja ezt a funkciót -->
                 <li><a href="about-farm.html" class="nav-link">The Farm</a></li>
                 <li><a href="seasonal-flowers.html" class="nav-link">Seasonal Flowers</a></li>
                 <li><a href="pick-your-own.html" class="nav-link">Pick Your Own</a></li>
-                <li><a href="workshops.html" class="nav-link">Workshops & Ecotherapy</a></li>
-                <li><a href="journal.html" class="nav-link">Farm Journal</a></li>
+                <li><a href="workshops.html" class="nav-link">Workshops</a></li>
+                <li><a href="journal.html" class="nav-link">Journal</a></li>
                 <li><a href="contact.html" class="nav-link contact-cta">Join the Club</a></li>
             </ul>
             </nav>
@@ -505,15 +516,15 @@
                     <span class="section-tag">DAHLIA SPECIALIST & GROWER</span>
                     <h2 class="section-title">The Art <em>of</em> Nurturing Extraordinary Dahlias</h2>
                     
-                    <p class="section-subtitle mb-24">
+                    <p class="section-subtitle" style="margin-bottom: 20px;">
                         Froggetts Flower Farm is a dedicated Surrey sanctuary for British-grown dahlias, born from Clare’s deep passion for these spectacular blooms.
                     </p>
                     
-                    <p class="paragraph-body">
+                    <p style="font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 40px; font-weight: 300;">
                         From carefully conditioning rare varieties to cultivating the earth with sustainable, peat-free methods, we pour both heart and science into every single tuber we grow.
                     </p>
 
-                    <a href="/our-story" class="btn btn-primary" style="margin-top: 20px;">Discover Our Story</a>
+                    <a href="/our-story" class="btn btn-primary">Discover Our Story</a>
                 </div>
                 <div class="about-visual">
                     <div class="image-frame">
@@ -626,10 +637,12 @@
             <div class="editorial-text-block">
                 <span class="editorial-subtitle">The Farm Experience</span>
                 <h2 class="editorial-title">Pick Your Own & Tea Afternoons</h2>
-                <p class="editorial-description">
+                
+                <p style="font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px; font-weight: 300;">
                     Wander through our vibrant dahlia beds and compose your own unique, freshly cut bouquet. We provide all the necessary tools and gentle guidance, making it a perfect, peaceful escape for both beginners and seasoned flower lovers. After harvesting, relax in our scenic garden with a delightful blend of artisanal teas and homemade cakes, baked fresh right here on the farm.
                 </p>
-                <a href="/pick-your-own-tea" class="btn btn-primary" style="margin-bottom: 100px;">Book an Afternoon</a>
+                
+                <a href="/pick-your-own-tea" class="btn btn-primary">Book an Afternoon</a>
             </div>
 
         </div>
@@ -646,7 +659,7 @@
                 <p class="editorial-description">
                     Support sustainable local farming and enjoy a weekly curated basket of our freshest seasonal stems. We are also a proud host to Duke of Edinburgh students and local volunteers, creating a space where generations connect and learn organic farming first-hand.
                 </p>
-                <a href="/contact" class="btn btn-primary" style="margin-bottom: 100px;">Join Our Club</a>
+                <a href="/contact" class="btn btn-primary">Join Our Club</a>
             </div>
         </div>
     </section>
@@ -670,29 +683,14 @@
             </div>
 
             <div class="learning-content">
-                <span class="section-tag">WORKSHOPS & ECOTHERAPY</span>
+                <span class="section-tag">WORKSHOPS</span>
                 <h2 class="section-title">Learning <em>&</em> Growing Together</h2>
                 
-                <p class="section-subtitle mb-24">
-                    Froggetts Flower Farm is rooted in community and sharing the joy of nature. Join us on the farm to learn seasonal floristry crafts or take part in our dedicated educational and volunteering programmes.
+                <p style="font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; font-weight: 300;">
+                    Froggetts Flower Farm is rooted in community and sharing the joy of nature. Join us on the farm for hands-on Dahlia Masterclasses and seasonal floristry crafts, or take part in our dedicated educational visits and official DofE volunteering programmes.
                 </p>
 
-                <ul class="learning-list">
-                    <li>
-                        <strong>Dahlia & Creative Workshops:</strong> 
-                        From summer Dahlia Masterclasses and bouquet conditioning to festive winter wreath making.
-                    </li>   
-                    <li>
-                        <strong>School Visits:</strong> 
-                        Engaging, nature-focused educational days exploring biodiversity and British flowers.
-                    </li>
-                    <li>
-                        <strong>DofE Volunteering:</strong> 
-                        Empowering local youth through official Duke of Edinburgh Award volunteering opportunities.
-                    </li>
-                </ul>
-
-                <a href="workshops.html" class="btn btn-primary" aria-label="Explore our workshops and educational programs">
+                <a href="workshops.html" class="btn btn-primary" aria-label="Explore our workshops and educational programs" style="margin-top: 20px;">
                     Explore Our Programs
                 </a>
             </div>
@@ -987,11 +985,12 @@
                 <div class="footer-links">
                     <h3 class="footer-heading">Navigate</h3>
                     <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#about">Our Story</a></li>
-                        <li><a href="#collections">Collections</a></li>
-                        <li><a href="#experience">The Experience</a></li>
-                        <li><a href="journal.html">Farm Journal</a></li>
+                        <li><a href="about-farm.html" class="nav-link">The Farm</a></li>
+                        <li><a href="seasonal-flowers.html" class="nav-link">Seasonal Flowers</a></li>
+                        <li><a href="pick-your-own.html" class="nav-link">Pick Your Own</a></li>
+                        <li><a href="workshops.html" class="nav-link">Workshops</a></li>
+                        <li><a href="journal.html" class="nav-link">Journal</a></li>
+                        <li><a href="contact.html" class="nav-link contact-cta">Join the Club</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -1020,85 +1019,111 @@
     </div>
     
     <script>
-        // Header scroll effect
+        // 1. Fejléc görgetési effektus (Zökkenőmentes rögzítés)
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
             if (header) {
-                if (window.scrollY > 50) {
+                if (window.scrollY > 20) { // 50-ről lecsökkentve, hogy azonnal reagáljon
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
             }
-        });
+        }, { passive: true }); // Teljesítmény optimalizálás görgetéshez
 
-        // Mobile nav toggle
+        // 2. Mobil menü vezérlés
         const toggle = document.getElementById('mobile-nav-toggle');
         const menu = document.getElementById('nav-menu');
         if (toggle && menu) {
-            toggle.addEventListener('click', () => {
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation(); // Meggátolja, hogy a kattintás azonnal bezárja
                 menu.classList.toggle('active');
                 toggle.classList.toggle('active');
             });
+
+            // Ha a menün kívülre kattintanak, záródjon be automatic
+            document.addEventListener('click', (e) => {
+                if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                    menu.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
+            });
         }
 
-        // Smooth scroll for anchors
+        // 3. Finom görgetés a horgony (anchor) linkekhez
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
                 if (target) {
                     if (menu) menu.classList.remove('active');
                     if (toggle) toggle.classList.remove('active');
-                    target.scrollIntoView({
+                    
+                    // Kiszámoljuk a fix fejléc magasságát, hogy ne takarja ki a címsort
+                    const headerOffset = document.getElementById('main-header')?.offsetHeight || 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Intersection Observer for fade-in animations
+        // 4. Javított és biztonságos Görgetési Animáció (Intersection Observer)
         const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -150px 0px'
+            threshold: 0.1, // 0.15-ről csökkentve, hogy kisebb kijelzőkön is hamarabb elinduljon
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in-section');
+                    
+                    // Csak azokat az elemeket animáljuk, amik valóban bent vannak a szekcióban
                     const cards = entry.target.querySelectorAll('.product-card, .editorial-text-block, .gallery-item, .learning-content, .journal-card');
                     cards.forEach((card, index) => {
-                        card.style.animationDelay = `${index * 0.2}s`;
+                        card.style.animationDelay = `${index * 0.15}s`; // Finomabb, 0.15s-es lépcsőzetesség
                         card.classList.add('fade-in-card');
                     });
+                    
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
+        // Csak akkor figyeljük, ha léteznek a szekciók
         document.querySelectorAll('.about-section, .collections-section, .farm-editorial-section, .learning-section, .gallery-section, .testimonials-section, .subscribe-section, .journal-teaser-section').forEach(section => {
             observer.observe(section);
         });
 
-        // Gallery Slider Logic
+        // 5. Galéria Csúszka (Slider) logika mobilra
         const galleryTrack = document.querySelector('.gallery-grid');
         const prevBtn = document.getElementById('gallery-prev');
         const nextBtn = document.getElementById('gallery-next');
 
         if (galleryTrack && prevBtn && nextBtn) {
+            const getScrollAmount = () => {
+                const firstItem = galleryTrack.querySelector('.gallery-item');
+                return firstItem ? firstItem.offsetWidth + 35 : 300; // 35px a gap mérete a CSS-ben
+            };
+
             nextBtn.addEventListener('click', () => {
-                const itemWidth = galleryTrack.querySelector('.gallery-item').offsetWidth + 40;
-                galleryTrack.scrollBy({ left: itemWidth, behavior: 'smooth' });
+                galleryTrack.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
             });
 
             prevBtn.addEventListener('click', () => {
-                const itemWidth = galleryTrack.querySelector('.gallery-item').offsetWidth + 40;
-                galleryTrack.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+                galleryTrack.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
             });
         }
 
-        // Lightbox Logic 
+        // 6. Nagyméretű Képnézegető (Lightbox) - Golyóálló verzió
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
@@ -1109,26 +1134,36 @@
                 trigger.addEventListener('click', (e) => {
                     e.preventDefault(); 
                     const hdImageUrl = trigger.getAttribute('href'); 
-                    lightboxImg.src = hdImageUrl;
-                    lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    if (hdImageUrl) {
+                        lightboxImg.src = hdImageUrl;
+                        lightbox.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // Meggátolja a háttér görgetését
+                    }
                 });
             });
 
-            lightboxClose.addEventListener('click', () => {
+            const closeLightbox = () => {
                 lightbox.classList.remove('active');
                 document.body.style.overflow = '';
+                setTimeout(() => { lightboxImg.src = ''; }, 300); // Törli a képet bezárás után, hogy legközelebb ne villanjon be a régi
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            
+            // Bezárás ha a fekete háttérre kattintanak
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
             });
 
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    lightbox.classList.remove('active');
-                    document.body.style.overflow = '';
+            // Bezárás az ESC billentyűvel
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
                 }
             });
         }
 
-        // Testimonial Slider Logic
+        // 7. Vélemények (Testimonials) Csúszka
         const testiTrack = document.getElementById('testi-track');
         const testiSlides = document.querySelectorAll('.testimonial-single');
         const testiPrev = document.getElementById('testi-prev');
@@ -1136,18 +1171,14 @@
         let currentTesti = 0;
 
         function updateTestimonialSlider() {
-            if (!testiTrack) return;
+            if (!testiTrack || testiSlides.length === 0) return;
             testiTrack.style.transform = `translateX(-${currentTesti * 100}%)`;
             testiSlides.forEach((slide, index) => {
-                if (index === currentTesti) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
+                slide.classList.toggle('active', index === currentTesti);
             });
         }
 
-        if (testiPrev && testiNext) {
+        if (testiPrev && testiNext && testiSlides.length > 0) {
             testiNext.addEventListener('click', () => {
                 currentTesti = (currentTesti + 1) % testiSlides.length;
                 updateTestimonialSlider();
