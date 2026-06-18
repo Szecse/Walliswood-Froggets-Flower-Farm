@@ -153,8 +153,7 @@
         .glass-card { background: var(--glass-bg); backdrop-filter: blur(25px) saturate(190%); -webkit-backdrop-filter: blur(25px) saturate(190%); border: 1px solid var(--glass-border); border-radius: var(--border-radius-lg); box-shadow: var(--glass-shadow); position: relative; z-index: 1; }
         .glass-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; padding: 1px; background: linear-gradient( 135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.4) 100% ); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 
-        .main-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.06); transition: all 0.3s ease; }
-        .header-container { max-width: 1120px; margin: 0 auto; padding: 0 var(--container-padding); display: flex; justify-content: space-between; align-items: center; }
+        .main-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: none; transition: all 0.3s ease; }        .header-container { max-width: 1120px; margin: 0 auto; padding: 0 var(--container-padding); display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--text-primary); text-decoration: none; letter-spacing: -0.5px; }
         .logo-accent { font-style: italic; color: var(--text-secondary); }
         .nav-menu ul { display: flex; list-style: none; gap: 18px; margin: 0; padding: 0; align-items: center; }
@@ -162,31 +161,183 @@
         .nav-menu a:hover { color: var(--text-secondary); }
         .mobile-nav-toggle { display: none; }
         .main-header.scrolled { padding: 12px 0; }
-        .nav-menu .contact-cta { background-color: var(--text-primary); color: var(--white); border: 1px solid var(--text-primary); padding: 10px 24px; border-radius: 30px; white-space: nowrap; flex-shrink: 0; transition: var(--transition-smooth); }
-        .nav-menu .contact-cta:hover { background-color: transparent; color: var(--text-primary); border-color: var(--text-primary); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        .nav-menu .contact-cta { background-color: #8A9A86; color: var(--white); border: none; padding: 10px 24px; border-radius: 30px; white-space: nowrap; flex-shrink: 0; transition: var(--transition-smooth); }
+        .nav-menu .contact-cta:hover { background-color: #768672; color: var(--white); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(138, 154, 134, 0.4); }
 
-        /* --- PARALLAX HERO --- */
-        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 160px 0 80px 0; }
-        .hero-bg-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -2; }
-        .hero-bg-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 1; pointer-events: none; }
-        .hero-container { max-width: 1120px; margin: 0 auto; padding: 0 var(--container-padding); width: 100%; display: flex; justify-content: flex-start; align-items: center; min-height: calc(100vh - 240px); z-index: 2; }
-        .hero-text-container { max-width: 750px; width: 100%; padding: 0; background: transparent; border: none; box-shadow: none; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
-        .card-subtitle { font-family: var(--font-sans); font-size: var(--font-small); letter-spacing: 0.2em; font-weight: 700; color: var(--white); display: block; margin-bottom: 24px; text-transform: uppercase; }
-        .hero-title { font-size: var(--font-h1); line-height: 1.25; margin-bottom: 24px; color: var(--white); }
-        .hero-title em { font-style: italic; }
-        .hero-description { font-size: var(--font-subtitle); color: rgba(255, 255, 255, 0.95); margin-bottom: 40px; font-weight: 400; }
-        .hero-actions { display: flex; justify-content: flex-start; gap: 20px; }
-        .hero-text-container .btn-primary { background-color: var(--white); color: var(--text-primary); border-color: var(--white); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); }
-        .hero-text-container .btn-primary:hover { background-color: transparent; color: var(--white); }
-        .hero-text-container .btn-secondary { background-color: transparent; color: var(--white); border-color: var(--white); }
-        .hero-text-container .btn-secondary:hover { background-color: var(--white); color: var(--text-primary); }
+        /* ----------------------------------------------------
+           Levegős Editorial Hero Szekció - Fókuszban a fehér terek
+           ---------------------------------------------------- */
+        
+        .airy-hero-section { 
+            background-color: var(--bg-primary); 
+            padding: calc(var(--section-padding) + 40px) 0 80px 0; /* Felső térköz a fejléc miatt, alsó térköz a fehér térért */
+            min-height: 100vh; /* Függőleges kiterjedés megtartása nagy képernyőkön */
+            display: flex;
+            align-items: center;
+        }
+
+        .airy-hero-grid { 
+            max-width: 1120px; 
+            margin: 0 auto; 
+            padding: 0 var(--container-padding); 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 50px; /* 80px-ről csökkentve, hogy közelebb húzzuk a szöveget a képhez */
+            align-items: center; 
+            width: 100%;
+        }
+
+        /* Szöveg oszlop stílusai */
+        .airy-hero-content { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: flex-start; 
+        }
+        
+        .airy-hero-content .editorial-tag { 
+            font-family: var(--font-sans); 
+            font-size: var(--font-small); 
+            letter-spacing: 0.2em; 
+            font-weight: 700; 
+            color: var(--text-secondary); /* Mostantól sötét szövegszín */
+            text-transform: uppercase; 
+            display: inline-block;
+            margin-bottom: 24px; 
+        }
+
+        .airy-hero-title { 
+            font-size: clamp(2.2rem, 3vw + 0.8rem, 3.2rem); 
+            line-height: 1.15; 
+            margin-bottom: 24px; 
+            color: var(--text-primary); 
+            text-wrap: balance; /* Ez felel a tökéletes sortörésekért */
+        }
+        
+        .airy-hero-title em { 
+            font-style: italic; 
+        }
+
+        .airy-hero-description { 
+            font-size: var(--font-subtitle); 
+            color: var(--text-secondary); 
+            margin-bottom: 40px; 
+            font-weight: 400; 
+            max-width: 90%; /* 550px-ről megnövelve, hogy szellősebb legyen a szöveg */
+        }
+
+        .airy-hero-actions { 
+            display: flex; /* EZ HIÁNYZOTT! Ez kapcsolja be a gap működését */
+            justify-content: flex-start; 
+            gap: 20px; /* Alapértelmezett térköz nagy képernyőn */
+        }
+        
+        /* A gombok "szöveg a fehéren" verziói */
+        .airy-hero-content .btn-primary { 
+            /* Az elsődleges gombszíned jó, csak ügyeljünk rá, hogy kiugorjon */
+            background-color: #8A9A86; 
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(138, 154, 134, 0.3);
+        }
+        
+        .airy-hero-content .btn-secondary { 
+            background-color: transparent; 
+            color: var(--text-primary); /* A szövegszínnek egyeznie kell */
+            border: 2px solid var(--text-primary); 
+            transition: var(--transition-fast);
+        }
+        
+        .airy-hero-content .btn-secondary:hover { 
+            background-color: var(--text-primary); 
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Kép oszlop stílusai */
+        .airy-hero-image-block { 
+            position: relative; 
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        /* Az 'About' szekció elegáns keretének újrahasznosítása */
+        .airy-hero-image-block .image-frame { 
+            position: relative; 
+            border-radius: var(--border-radius-lg); 
+            overflow: hidden; 
+            box-shadow: var(--soft-shadow); 
+            z-index: 2; 
+        }
+        
+        .airy-hero-display-img { 
+            width: 100%; 
+            height: auto; 
+            aspect-ratio: 4 / 5; 
+            object-fit: cover; 
+            display: block;
+            transform: scale(1.03); /* Enyhe nagyítás, hogy az ujj kicsússzon a látható területről */
+        }
+
+        /* Reszponzív stílusok (Fontos ennél az elrendezésnél) */
+        @media (max-width: 1024px) {
+            .airy-hero-grid { 
+                gap: 50px; 
+            }
+            .airy-hero-display-img { 
+                height: 420px; /* Csökkentett fix magasság a kisebb laptopokhoz */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .airy-hero-section {
+                padding: calc(var(--section-padding) + 20px) 0 40px 0; /* Csökkentett térköz mobilon */
+                min-height: auto;
+            }
+            .airy-hero-grid { 
+                grid-template-columns: 1fr; /* Egymás alá rakás egyetlen oszlopba */
+                gap: 40px; 
+                text-align: left; /* Balra igazítás megtartása */
+            }
+            .airy-hero-content {
+                order: 2; /* Szöveg a kép alá mozgatása mobilon */
+                align-items: flex-start;
+            }
+            .airy-hero-image-block {
+                order: 1; /* Kép felülre mozgatása mobilon */
+                width: 100%;
+                justify-content: center; /* Kép középre igazítása mobilon */
+            }
+            .airy-hero-display-img { 
+                width: 100%;         /* Kitölti a teljes rendelkezésre álló szélességet */
+                height: auto;        /* A magasságot automatikusan kiszámolja */
+                aspect-ratio: 1 / 1; /* Megtartja a levegős négyzetes arányt mobilon */
+            }
+            .airy-hero-display-img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            }
+
+            .airy-hero-actions { 
+                flex-direction: column; 
+                width: 100%; 
+                gap: var(--gap-sm); 
+            }
+    
+        }
 
         /* --- ANIMÁCIÓK ÉS ELREJTÉSEK --- */
         @keyframes sectionFadeIn { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes cardFadeIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* CSAK a tartalmi dobozokat rejtjük el betöltéskor, hogy a szekciók fehér háttere takarja a Hero képet */
+       /* --- ANIMÁCIÓK ÉS ELREJTÉSEK --- */
+        @keyframes sectionFadeIn { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes cardFadeIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* EZ A SOR VESZETT EL! Ez felel a kártyák megjelenéséért: */
+        .fade-in-card { animation: cardFadeIn 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* --- ANIMÁCIÓS ELREJTÉS (Végleges, hibátlan verzió) --- */
         .about-section .section-container,
         .collections-section .section-container,
         .farm-editorial-section .section-container,
@@ -196,22 +347,18 @@
         .subscribe-section .section-container,
         .testimonials-section .testimonial-wrapper {
             opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
-        /* Amikor a szekció láthatóvá válik, CSAK a tartalma úszik be */
+        /* A "beúszott" állapotok */
         .fade-in-section .section-container,
         .fade-in-section .testimonial-wrapper { 
-            animation: sectionFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        .fade-in-card { animation: cardFadeIn 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .fade-in-card:nth-child(1) { animation-delay: 0.1s; }
-        .fade-in-card:nth-child(2) { animation-delay: 0.2s; }
-        .fade-in-card:nth-child(3) { animation-delay: 0.3s; }
-
         /* --- ABOUT --- */
-        .about-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }
-        .about-grid { display: flex; align-items: center; gap: 80px; flex-direction: row-reverse; flex-wrap: wrap; }
+        .about-section { padding: var(--section-padding) 0; background-color: var(--bg-secondary); position: relative; z-index: 10; }        .about-grid { display: flex; align-items: center; gap: 80px; flex-direction: row-reverse; flex-wrap: wrap; }
         .story-content { flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
         .story-content .section-subtitle { margin: 0 0 var(--gap-sm) 0; max-width: 100%; }
         .story-text { font-size: var(--font-body); line-height: 1.6; color: var(--text-secondary); margin-bottom: 20px; text-align: left; }
@@ -482,28 +629,31 @@
         </div>
     </header>
 
-    <section class="hero-section" id="hero">
-        <div class="hero-bg-wrapper">
-            <img src="images/organic-flower-farm-pink-dahlias.webp" alt="Vibrant organic pink dahlia blooms grown at Froggetts Flower Farm in Surrey" class="hero-bg-img" fetchpriority="high" decoding="async">
-            <div class="hero-overlay"></div>
-        </div>
-
-        <div class="hero-container">
-            <div class="hero-text-container" id="hero-card">
-                <span class="card-subtitle">Established 2021 &bull; Organic farming</span>
-                <h1 class="hero-title">
-                 Organic Flower Farm <br>
-                 & Dahlia Specialist <br>
-                  <em>in Surrey</em>
+    <section class="airy-hero-section" id="hero">
+        <div class="airy-hero-grid">
+            <div class="airy-hero-content">
+                <span class="editorial-tag">Established 2021 &bull; Organic farming</span>
+                <h1 class="airy-hero-title">
+                 Organic Flower Farm & Dahlia Specialist <em>in Surrey</em>
                 </h1>
-                <p class="hero-description">
+                <p class="airy-hero-description">
                     We grow premium British flowers on our boutique social enterprise farm in Surrey. 
                     Harvesting each stem with patience, we blend organic dahlia cultivation with community ecotherapy, 
                     delivering fresh, sustainable blooms near Loxwood.
                 </p>
-                <div class="hero-actions">
-                    <a href="#collections" class="btn btn-primary" id="cta-explore">Explore Collections</a>
-                    <a href="#about" class="btn btn-secondary" id="cta-story">Our Story</a>
+                <div class="airy-hero-actions">
+                    <a href="#collections" class="btn btn-primary">Explore Collections</a>
+                    <a href="#about" class="btn btn-secondary">Our Story</a>
+                </div>
+            </div>
+
+            <div class="airy-hero-image-block">
+                <div class="image-frame">
+                    <img src="images/froggetts-organic-flower-farm-central-pink-dahlia.webp" 
+                         alt="Vibrant organic pink dahlia bloom, centrally focused at Froggetts Flower Farm in Surrey" 
+                         class="airy-hero-display-img" 
+                         fetchpriority="high" 
+                         decoding="async">
                 </div>
             </div>
         </div>
@@ -1075,10 +1225,10 @@
             });
         });
 
-        // 4. Javított és biztonságos Görgetési Animáció (Intersection Observer)
+        //4. Javított és egységesített Görgetési Animáció
         const observerOptions = {
-            threshold: 0.1, // 0.15-ről csökkentve, hogy kisebb kijelzőkön is hamarabb elinduljon
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1086,10 +1236,10 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in-section');
                     
-                    // Csak azokat az elemeket animáljuk, amik valóban bent vannak a szekcióban
-                    const cards = entry.target.querySelectorAll('.product-card, .editorial-text-block, .gallery-item, .learning-content, .journal-card');
+                    // Kártyák animációja az adott szekción belül
+                    const cards = entry.target.querySelectorAll('.product-card, .editorial-text-block, .gallery-item, .journal-card');
                     cards.forEach((card, index) => {
-                        card.style.animationDelay = `${index * 0.15}s`; // Finomabb, 0.15s-es lépcsőzetesség
+                        card.style.animationDelay = `${index * 0.15}s`;
                         card.classList.add('fade-in-card');
                     });
                     
@@ -1098,8 +1248,8 @@
             });
         }, observerOptions);
 
-        // Csak akkor figyeljük, ha léteznek a szekciók
-        document.querySelectorAll('.about-section, .collections-section, .farm-editorial-section, .learning-section, .gallery-section, .testimonials-section, .subscribe-section, .journal-teaser-section').forEach(section => {
+        // Az összes fő szekció figyelése
+        document.querySelectorAll('.about-section, .collections-section, .farm-editorial-section, .learning-section, .gallery-section, .testimonials-section, .journal-teaser-section, .subscribe-section').forEach(section => {
             observer.observe(section);
         });
 
