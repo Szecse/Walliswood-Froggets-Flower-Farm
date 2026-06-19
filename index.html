@@ -318,17 +318,7 @@
                 width: 100%;
                 justify-content: center; /* Kép középre igazítása mobilon */
             }
-            .airy-hero-display-img { 
-                width: 100%;         /* Kitölti a teljes rendelkezésre álló szélességet */
-                height: auto;        /* A magasságot automatikusan kiszámolja */
-                aspect-ratio: 1 / 1; /* Megtartja a levegős négyzetes arányt mobilon */
-            }
-            .airy-hero-display-img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1 / 1;
-            }
-
+            
             .airy-hero-actions { 
                 flex-direction: column; 
                 width: 100%; 
@@ -621,19 +611,22 @@
             .hero-glass-card { padding: 40px 24px; }
             .about-grid { flex-direction: column; gap: var(--gap-lg); }
             .about-visual { order: -1; width: 100%; }
-            .about-img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
             .frame-backdrop { right: -20px; bottom: -20px; left: 20px; top: 20px; }
             .collections-grid { grid-template-columns: 1fr; gap: var(--gap-md); }
             .editorial-flex-container, .editorial-flex-container.row-reversed { flex-direction: column; gap: var(--gap-md); }
             .editorial-image-block, .editorial-text-block { width: 100%; }
-            .editorial-display-img { 
-            width: 100%; 
-            height: auto; 
-            aspect-ratio: 4 / 5; /* Visszaállítjuk az eredeti álló arányra */
-            object-fit: cover; 
-        }
+            /* Egységesített 7/8 arány minden portré jellegű képre mobilon */
+            .airy-hero-display-img,
+            .about-img,
+            .editorial-display-img,
+            .learning-single-img { 
+                width: 100%; 
+                height: auto; 
+                aspect-ratio: 7 / 8; 
+                object-fit: cover; 
+            }
             .gallery-grid { display: flex; gap: var(--gap-sm); overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px var(--container-padding); scrollbar-width: none; }
-            .gallery-item { flex: 0 0 calc(100% - 40px); scroll-snap-align: center; aspect-ratio: auto; height: 400px; }
+            .gallery-item { flex: 0 0 calc(100% - 40px); scroll-snap-align: center; height: auto; aspect-ratio: 7 / 8; }            
             .slider-btn { display: flex; position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--white); border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.1); color: var(--text-primary); align-items: center; justify-content: center; z-index: 10; cursor: pointer; }
             .prev-btn { left: 10px; }
             .next-btn { right: 10px; }
