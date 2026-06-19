@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Froggetts Farm | Premium Organic Flowers</title>
+    <meta name="description" content="Welcome to Froggetts Farm, a boutique flower farm cultivating premium, organic, hand-harvested blooms in harmony with nature.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ----------------------------------------------------
+           Froggetts Farm - SERENE OFFICIAL DESIGN SYSTEM
+           ---------------------------------------------------- */
+
+        :root {
+            --bp-sr-primary: #143613;
+            --bp-sr-primary-t-5: hsla(118, 48%, 14%, 0.45);
+            --bp-sr-primary-t-8: hsla(118, 48%, 14%, 0.73);
+            
+            --bp-sr-secondary: #89B18A;
+            --bp-sr-secondary-t-7: hsla(121, 20%, 62%, 0.64);
+            
+            --bp-sr-bg-body: #030E03;
+            --bp-sr-white: #FFFFFF;
+            --bp-sr-white-t-8: hsla(0, 0%, 100%, 0.73);
+            --bp-sr-black: #000000;
+
+            --font-serif: 'Bona Nova', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --bp-sr-text-xs: clamp(1.6rem, 1vw + 1rem, 2rem);
+            --bp-sr-text-s: clamp(2rem, 1.2vw + 1rem, 2.4rem);
+            --bp-sr-text-m: clamp(2.2rem, 1.5vw + 1rem, 3.2rem);
+            --bp-sr-text-l: clamp(2.4rem, 2vw + 1rem, 4rem);
+            --bp-sr-text-xl: clamp(2.8rem, 3vw + 1rem, 4.8rem);
+            --bp-sr-text-2xl: clamp(3.2rem, 3.5vw + 1rem, 6.4rem);
+            --bp-sr-text-3xl: clamp(3.4rem, 4vw + 1rem, 8rem);
+
+            --bp-sr-space-3xs: clamp(1.5rem, 1vw + 1rem, 1.6rem);
+            --bp-sr-space-2xs: clamp(1.6rem, 1.2vw + 1rem, 2rem);
+            --bp-sr-space-xs: clamp(2rem, 1.5vw + 1rem, 2.4rem);
+            --bp-sr-space-s: clamp(2.4rem, 2vw + 1rem, 3.2rem);
+            --bp-sr-space-m: clamp(3.2rem, 3vw + 1rem, 4.8rem);
+            --bp-sr-space-l: clamp(4.8rem, 4vw + 1rem, 5.6rem);
+            --bp-sr-space-xl: clamp(5.6rem, 5vw + 1rem, 6rem);
+            --bp-sr-space-3xl: clamp(8rem, 8vw + 1rem, 10rem);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; font-size: 62.5%; } 
+        body { font-family: var(--font-sans); background-color: var(--bp-sr-white); color: var(--bp-sr-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+        h1 { font-family: var(--font-serif); font-size: var(--bp-sr-text-3xl); font-weight: 400; line-height: 1.1em; }
+        h2 { font-family: var(--font-serif); font-size: var(--bp-sr-text-2xl); font-weight: 400; line-height: 1.2em; }
+        h3 { font-family: var(--font-serif); font-size: var(--bp-sr-text-xl); font-weight: 400; line-height: 1.2em; }
+        p { font-family: var(--font-sans); font-size: var(--bp-sr-text-xs); line-height: 1.4em; color: var(--bp-sr-primary-t-8); }
+        em { font-style: italic; }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; height: auto; }
+
+        .bp-sr-container { max-width: 1360px; margin: 0 auto; padding: 0 var(--bp-sr-space-2xs); }
+        
+        /* ----------------------------------------------------
+           HEADER & NAV
+           ---------------------------------------------------- */
+        .main-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 1000; padding: var(--bp-sr-space-s) 0; transition: all 0.4s ease; }        
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-serif); font-size: var(--bp-sr-text-m); color: var(--bp-sr-primary); font-weight: 400; }
+        .logo-accent { font-style: italic; color: var(--bp-sr-secondary); }
+        
+        .nav-menu ul { display: flex; list-style: none; gap: var(--bp-sr-space-s); align-items: center; }
+        .nav-menu a { font-size: 1.4rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s; }
+        .nav-menu a:hover { color: var(--bp-sr-secondary); }
+        
+        /* Small version of the button for the header */
+        .nav-btn-wrapper { display: flex; align-items: center; cursor: pointer; }
+        .nav-btn-text { padding: 10px 24px; border: 1px solid var(--bp-sr-primary-t-5); border-radius: 40px; font-family: var(--font-serif); font-size: 1.6rem; color: var(--bp-sr-black); transition: all 0.5s; }
+        .nav-btn-icon { width: 44px; height: 44px; background-color: var(--bp-sr-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bp-sr-white); margin-left: -15px; transition: all 0.5s; }
+        .nav-btn-wrapper:hover .nav-btn-text { background-color: var(--bp-sr-secondary); color: var(--bp-sr-white); border-color: var(--bp-sr-secondary); }
+        .nav-btn-wrapper:hover .nav-btn-icon { transform: rotate(45deg); }
+
+        .main-header.scrolled { position: fixed; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: var(--bp-sr-space-2xs) 0; box-shadow: 0 4px 30px rgba(0,0,0,0.05); }
+
+        /* ----------------------------------------------------
+           SERENE UI ELEMEK
+           ---------------------------------------------------- */
+        .bp-sr-div__tag { display: flex; align-items: center; gap: calc(var(--bp-sr-space-3xs) * 0.5); margin-bottom: var(--bp-sr-space-3xs); }
+        .bp-sr-tag { font-family: var(--font-serif); font-size: 1.4rem; color: var(--bp-sr-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .bp-sr-div__button { display: flex; align-items: center; cursor: pointer; margin-top: var(--bp-sr-space-xs); }
+        .bp-sr-btn { padding: var(--bp-sr-space-3xs) var(--bp-sr-space-s); border: 1px solid var(--bp-sr-primary-t-5); border-radius: 100px; font-family: var(--font-serif); font-size: var(--bp-sr-text-s); color: var(--bp-sr-black); background: transparent; transition: all 0.5s ease; }
+        .bp-sr-div__toggle { width: 64px; height: 64px; min-width: 64px; min-height: 64px; background-color: var(--bp-sr-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bp-sr-white); margin-left: -20px; transition: all 0.5s ease; }
+        .bp-sr-div__button:hover .bp-sr-btn { background-color: var(--bp-sr-secondary); color: var(--bp-sr-white); border-color: var(--bp-sr-secondary); }
+        .bp-sr-div__button:hover .bp-sr-div__toggle { transform: rotate(45deg); }
+
+        .bp-sr-bg-blur { position: absolute; width: 80%; height: 380px; background: radial-gradient(ellipse at center, var(--bp-sr-secondary-t-7), transparent); filter: blur(150px); border-radius: 50%; z-index: -1; pointer-events: none; }
+
+        /* ----------------------------------------------------
+           SZEKCIÓK
+           ---------------------------------------------------- */
+        .hero-section { position: relative; padding: calc(var(--bp-sr-space-3xl) * 1.5) 0 var(--bp-sr-space-3xl) 0; overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--bp-sr-space-m); align-items: center; position: relative; z-index: 2; }
+        
+        .about-section { padding: var(--bp-sr-space-3xl) 0; position: relative; }
+        .about-grid { display: flex; justify-content: space-between; gap: var(--bp-sr-space-m); align-items: center; }
+        .about-image { width: 40%; border-radius: 24px; object-fit: cover; }
+        .about-content { width: 52%; display: flex; flex-direction: column; gap: var(--bp-sr-space-xs); }
+
+        .services-section { padding: var(--bp-sr-space-3xl) 0; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--bp-sr-space-2xs); margin-top: var(--bp-sr-space-l); }
+        .bp-sr-block__services { position: relative; border-radius: 24px; overflow: hidden; height: 600px; }
+        .bp-sr-block__services img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .bp-sr-block__services:hover img { transform: scale(1.05); }
+        
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        .bp-sr-div__consult { position: absolute; right: var(--bp-sr-space-s); top: var(--bp-sr-space-s); width: 119px; height: 119px; background-color: var(--bp-sr-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.5s ease; animation: float 3s ease-in-out infinite; }
+        .bp-sr-block__services:hover .bp-sr-div__consult { opacity: 1; }
+        .bp-sr-text-consult { color: var(--bp-sr-white); font-family: var(--font-serif); font-size: 1.8rem; }
+        .bp-sr-div__consult:hover .bp-sr-text-consult { color: var(--bp-sr-primary); }
+
+        .service-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: var(--bp-sr-space-m) var(--bp-sr-space-s); background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: var(--bp-sr-white); }
+        .service-info h4 { color: var(--bp-sr-white); font-family: var(--font-serif); font-size: var(--bp-sr-text-m); margin-bottom: 8px; transition: all 0.5s ease; transform: translateY(20px); }
+        .service-info p { color: var(--bp-sr-white-t-8); font-size: 1.6rem; opacity: 0; transition: all 0.5s ease; transform: translateY(20px); }
+        .bp-sr-block__services:hover .service-info h4 { transform: translateY(0); }
+        .bp-sr-block__services:hover .service-info p { opacity: 1; transform: translateY(0); }
+
+        /* --- PROCESS / EXPERIENCE --- */
+        .process-section { padding: var(--bp-sr-space-3xl) 0; position: relative; }
+        .process-container { display: flex; flex-direction: column; gap: var(--bp-sr-space-l); }
+        .process-header { max-width: 60%; }
+        .process-grid { display: flex; justify-content: space-between; align-items: stretch; gap: var(--bp-sr-space-l); }
+        
+        /* A kép keskenyebb lett, a lépések szélesebbek a fotóhoz hasonlóan */
+        .process-img-wrapper { width: 35%; border-radius: 32px; overflow: hidden; position: relative; z-index: 2; }
+        .process-steps { width: 60%; display: flex; flex-direction: column; gap: var(--bp-sr-space-s); justify-content: center; }
+        
+        .bp-sr-block__process { 
+            background-color: hsla(112, 31%, 81%, 0.15); /* Picit erősebb, gyönyörű zöld háttér */
+            padding: var(--bp-sr-space-s) var(--bp-sr-space-m); /* Bőséges, prémium térközök */
+            border-radius: 32px; 
+            display: flex; 
+            gap: var(--bp-sr-space-m); 
+            align-items: center; 
+        }
+        
+        .bp-sr-process-text { 
+            font-family: var(--font-sans); 
+            font-weight: 300; 
+            font-size: clamp(6rem, 8vw, 12rem); /* Óriási, reszponzív számok */
+            color: hsla(121, 20%, 62%, 0.73); 
+            line-height: 0.8; 
+        }
+
+        .testimonial-section { background-color: var(--bp-sr-bg-body); padding: var(--bp-sr-space-3xl) 0; }
+        .testimonial-grid { display: flex; justify-content: space-between; gap: var(--bp-sr-space-l); align-items: center; }
+        .testimonial-title { width: 40%; }
+        .testimonial-title h2 { color: var(--bp-sr-white); }
+        .testimonial-content { width: 55%; color: var(--bp-sr-white); }
+        .testimonial-content h5 { font-family: var(--font-serif); font-size: var(--bp-sr-text-m); font-weight: 400; margin-bottom: var(--bp-sr-space-m); line-height: 1.4; color: var(--bp-sr-white); }
+        
+        /* JOURNAL (Új szekció Serene stílusban) */
+        .journal-section { padding: var(--bp-sr-space-3xl) 0; position: relative; }
+        .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--bp-sr-space-m); margin-top: var(--bp-sr-space-l); }
+        .journal-card { display: block; text-decoration: none; }
+        .journal-img-wrapper { border-radius: 24px; overflow: hidden; aspect-ratio: 4/3; margin-bottom: var(--bp-sr-space-xs); }
+        .journal-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .journal-card:hover img { transform: scale(1.05); }
+        .journal-meta { font-size: 1.2rem; color: var(--bp-sr-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; display: block; margin-bottom: 8px; }
+        .journal-title { font-family: var(--font-serif); font-size: var(--bp-sr-text-m); color: var(--bp-sr-primary); margin-bottom: 12px; transition: color 0.3s; }
+        .journal-card:hover .journal-title { color: var(--bp-sr-secondary); }
+
+        /* FOOTER (Visszaállítva Serene dizájnnal) */
+        .main-footer { background-color: var(--bp-sr-bg-body); color: var(--bp-sr-white); padding: var(--bp-sr-space-3xl) 0 var(--bp-sr-space-m); position: relative; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: var(--bp-sr-space-xl); margin-bottom: var(--bp-sr-space-xl); }
+        .footer-logo { color: var(--bp-sr-white); margin-bottom: var(--bp-sr-space-xs); display: inline-block; font-size: var(--bp-sr-text-l); }
+        .footer-desc { color: var(--bp-sr-white-t-8); max-width: 320px; font-size: 1.6rem; }
+        .footer-heading { font-family: var(--font-serif); font-size: var(--bp-sr-text-s); color: var(--bp-sr-white); margin-bottom: var(--bp-sr-space-s); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: var(--bp-sr-space-3xs); }
+        .footer-links a, .footer-contact p { color: var(--bp-sr-white-t-8); font-size: 1.6rem; transition: color 0.3s; line-height: 1.8; }
+        .footer-links a:hover { color: var(--bp-sr-secondary); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--bp-sr-space-m); text-align: center; color: var(--bp-sr-white-t-8); font-size: 1.4rem; }
+
+        @media (max-width: 1024px) {
+            .hero-grid, .about-grid, .process-grid, .testimonial-grid { grid-template-columns: 1fr; flex-direction: column; gap: var(--bp-sr-space-xl); }
+            .about-image, .about-content, .process-img-wrapper, .process-steps, .testimonial-title, .testimonial-content { width: 100%; }
+            .services-grid, .journal-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: var(--bp-sr-space-l); }
+            .bp-sr-btn { padding: calc(var(--bp-sr-space-4xs)*3) var(--bp-sr-space-xs); font-size: var(--bp-sr-text-xs); }
+            .bp-sr-div__toggle { width: 50px; height: 50px; min-width: 50px; min-height: 50px; }
+            .bp-sr-block__services { height: 450px; }
+            .nav-menu ul { display: none; } /* Mobil menüt itt lehetne majd kifejteni */
+        }
+
+        @media (max-width: 768px) {
+            .services-grid, .journal-grid, .footer-grid { grid-template-columns: 1fr; }
+            .bp-sr-block__process { flex-direction: column; text-align: center; }
+            .bp-sr-div__consult { width: 90px; height: 90px; }
+            .bp-sr-text-consult { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg style="display: none;">
+        <symbol id="icon-arrow-tr" viewBox="0 0 24 24">
+            <line x1="7" y1="17" x2="17" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="7 7 17 7 17 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+    </svg>
+
+    <header class="main-header" id="main-header">
+        <div class="bp-sr-container header-container">
+            <a href="/" class="logo">
+                <span class="logo-accent">Froggetts</span> Farm
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="about-farm.html">The Farm</a></li>
+                    <li><a href="seasonal-flowers.html">Seasonal Flowers</a></li>
+                    <li><a href="pick-your-own.html">Pick Your Own</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li>
+                        <div class="nav-btn-wrapper">
+                            <a href="contact.html" class="nav-btn-text">Join the Club</a>
+                            <div class="nav-btn-icon">
+                                <svg width="18" height="18"><use href="#icon-arrow-tr"></use></svg>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="bp-sr-bg-blur" style="top: 50%; left: 10%; transform: translateY(-50%);"></div>
+            <div class="bp-sr-container hero-grid">
+                <div>
+                    <div class="bp-sr-div__tag">
+                        <span style="font-size: 1.2rem; color: var(--bp-sr-secondary);">✦</span> 
+                        <p class="bp-sr-tag">Established 2021 &bull; Organic</p>
+                    </div>
+                    <h1>Organic Dahlias <span style="font-style:italic;">in Surrey.</span></h1>
+                    <p style="margin-top: var(--bp-sr-space-s); max-width: 500px;">We grow premium British flowers on our boutique farm. Harvesting each stem with patience, blending organic cultivation with community ecotherapy.</p>
+                    
+                    <div class="bp-sr-div__button">
+                        <a href="#collections" class="bp-sr-btn">Explore Collections</a>
+                        <div class="bp-sr-div__toggle">
+                            <svg width="24" height="24"><use href="#icon-arrow-tr"></use></svg>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/froggetts-organic-flower-farm-central-pink-dahlia.webp" alt="Vibrant organic pink dahlia bloom" style="border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="bp-sr-container about-grid">
+                
+                <img src="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp" alt="Clare harvesting fresh dahlias" class="about-image">
+                
+                <div class="about-content">
+                    <div class="bp-sr-div__tag">
+                        <span style="font-size: 1.2rem; color: var(--bp-sr-secondary);">✦</span> 
+                        <p class="bp-sr-tag">DAHLIA SPECIALIST</p>
+                    </div>
+                    <h2>The Art of Nurturing <span style="font-style:italic;">Extraordinary Dahlias.</span></h2>
+                    <p>Froggetts Flower Farm is a dedicated Surrey sanctuary for British-grown dahlias. From carefully conditioning rare varieties to cultivating the earth with sustainable, peat-free methods, we pour both heart and science into every single tuber we grow.</p>
+                    
+                    <div class="bp-sr-div__button">
+                        <a href="#services" class="bp-sr-btn">Discover Our Story</a>
+                        <div class="bp-sr-div__toggle">
+                            <svg width="24" height="24"><use href="#icon-arrow-tr"></use></svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="services-section" id="collections">
+            <div class="bp-sr-container">
+                <div style="max-width: 60%;">
+                    <div class="bp-sr-div__tag">
+                        <span style="font-size: 1.2rem; color: var(--bp-sr-secondary);">✦</span> 
+                        <p class="bp-sr-tag">THE SEASON'S BEST</p>
+                    </div>
+                    <h2><span style="font-style:italic;">Fresh</span> from the Field.</h2>
+                    <p>Carefully selected bouquets and arrangements showing off the absolute best of our current blooms.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="bp-sr-block__services">
+                        <img src="images/sussex-wildflower-jug.webp" alt="The Meadow Pitcher">
+                        <div class="bp-sr-div__consult">
+                            <p class="bp-sr-text-consult">Reserve</p>
+                        </div>
+                        <div class="service-info">
+                            <h4>The Meadow Pitcher</h4>
+                            <p>Delicate Seasonal Mix. £65.00</p>
+                        </div>
+                    </div>
+
+                    <div class="bp-sr-block__services">
+                        <img src="images/sweet-pea-cornflower-harvest.webp" alt="Sweet Pea Harvest">
+                        <div class="bp-sr-div__consult">
+                            <p class="bp-sr-text-consult">Reserve</p>
+                        </div>
+                        <div class="service-info">
+                            <h4>Sweet Pea Harvest</h4>
+                            <p>Freshly Gathered Stems. £85.00</p>
+                        </div>
+                    </div>
+
+                    <div class="bp-sr-block__services">
+                        <img src="images/signature-dahlia-urn.webp" alt="Signature Dahlia Urn">
+                        <div class="bp-sr-div__consult">
+                            <p class="bp-sr-text-consult">Reserve</p>
+                        </div>
+                        <div class="service-info">
+                            <h4>Signature Dahlia Urn</h4>
+                            <p>Estate Grown Dahlias. £55.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="bp-sr-bg-blur" style="top: 20%; right: -20%;"></div>
+            
+            <div class="bp-sr-container process-container">
+                
+                <div class="process-header">
+                    <div class="bp-sr-div__tag">
+                        <span style="font-size: 1.2rem; color: var(--bp-sr-secondary);">✦</span> 
+                        <p class="bp-sr-tag">FARM EXPERIENCE</p>
+                    </div>
+                    <h2 style="margin-bottom: var(--bp-sr-space-xs);">Pick Your Own <span style="font-style: italic;">& Tea Afternoons</span></h2>
+                    <p style="max-width: 450px;">Wander through our vibrant dahlia beds and compose your own unique bouquet. A perfect, peaceful escape.</p>
+                </div>
+
+                <div class="process-grid">
+                    
+                    <div class="process-img-wrapper">
+                        <img src="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp" alt="Friends holding bouquets" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <div class="process-steps">
+                        
+                        <div class="bp-sr-block__process">
+                            <span class="bp-sr-process-text">01</span>
+                            <div>
+                                <h3 style="margin-bottom: 8px;">Pause & Wander</h3>
+                                <p>Arrive at the farm, grab a basket, and take your time exploring the fields.</p>
+                            </div>
+                        </div>
+
+                        <div class="bp-sr-block__process">
+                            <span class="bp-sr-process-text">02</span>
+                            <div>
+                                <h3 style="margin-bottom: 8px;">Harvest & Connect</h3>
+                                <p>We provide tools and gentle guidance as you carefully cut your stems.</p>
+                            </div>
+                        </div>
+
+                        <div class="bp-sr-block__process">
+                            <span class="bp-sr-process-text">03</span>
+                            <div>
+                                <h3 style="margin-bottom: 8px;">Relax & Enjoy</h3>
+                                <p>Finish your visit in our garden with artisanal teas and homemade cakes.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="testimonial-section">
+            <div class="bp-sr-container testimonial-grid">
+                <div class="testimonial-title">
+                    <div class="bp-sr-div__tag">
+                        <span style="font-size: 1.2rem; color: var(--bp-sr-secondary);">✦</span> 
+                        <p class="bp-sr-tag" style="color: var(--bp-sr-secondary);">KIND WORDS</p>
+                    </div>
+                    <h2>Loved by <span style="font-style:italic;">Our Community</span></h2>
+                </div>
+                
+                <div class="testimonial-content">
+                    <h5>“Clare’s dahlias are absolute perfection. We ordered fresh stems for our summer event, and guests are still talking about the vibrant colours and incredible size.”</h5>
+                    
+                    <div style="display: flex; align-items: center; gap: 16px; margin-top: var(--bp-sr-space-m); padding-bottom: var(--bp-sr-space-s); border-bottom: 1px solid hsla(121, 20%, 62%, 0.45);">
+                        <img src="images/margaret-testimonial.webp" alt="Sarah L." style="width: 71px; height: 71px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <span style="font-family: var(--font-serif); font-size: var(--bp-sr-text-s); color: var(--bp-sr-white); display: block;">Sarah L.</span>
+                            <span style="font-family: var(--font-sans); font-size: 1.4rem; color: hsla(121, 20%, 62%, 0.73);">Client & Visitor, Horsham</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="journal-section" id="journal">
+            <div class="bp-sr-container">
+                <div style="text-align: center; margin-bottom: var(--bp-sr-space-l);">
+                    <div class="bp-sr-div__tag" style="justify-content: center;">
+                        <span style="font-size: 1.2rem; color: var(--bp-sr-secondary);">✦</span> 
+                        <p class="bp-sr-tag">FIELD NOTES</p>
+                    </div>
+                    <h2>Farm <span style="font-style:italic;">Journal</span></h2>
+                </div>
+
+                <div class="journal-grid">
+                    <a href="posts/summer-dahlia-harvest.html" class="journal-card">
+                        <div class="journal-img-wrapper">
+                            <img src="images/blog/summer-dahlia-harvest-thumb.webp" alt="Dahlia harvest">
+                        </div>
+                        <span class="journal-meta">July 15, 2026 &bull; Farm Life</span>
+                        <h3 class="journal-title">The Magic of Summer Dahlia Harvest</h3>
+                        <p>Mid-summer brings a vibrant explosion of colour to the farm. Join us as we explore our morning harvesting routine.</p>
+                    </a>
+
+                    <a href="posts/peat-free-compost.html" class="journal-card">
+                        <div class="journal-img-wrapper">
+                            <img src="images/blog/peat-free-compost-thumb.webp" alt="Compost">
+                        </div>
+                        <span class="journal-meta">June 28, 2026 &bull; Sustainability</span>
+                        <h3 class="journal-title">Why We Choose Peat-Free Compost</h3>
+                        <p>Protecting our local ecosystems starts from the ground up. Discover the passion behind our 100% peat-free methods.</p>
+                    </a>
+
+                    <a href="posts/spring-seed-sowing.html" class="journal-card">
+                        <div class="journal-img-wrapper">
+                            <img src="images/blog/spring-seed-sowing-thumb.webp" alt="Seed sowing">
+                        </div>
+                        <span class="journal-meta">April 12, 2026 &bull; Guides</span>
+                        <h3 class="journal-title">Planning the Spring Seed Sowing</h3>
+                        <p>Before the first blooms appear, careful planning takes place in the greenhouse. Here is our step-by-step guide.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="bp-sr-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo footer-logo">
+                        <span class="logo-accent">Froggetts</span> Farm
+                    </a>
+                    <p class="footer-desc">
+                        A slow flower farm dedicated to restoring ecological balance and spreading beauty through organic heirloom blooms.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Navigate</h3>
+                    <ul>
+                        <li><a href="about-farm.html">The Farm</a></li>
+                        <li><a href="seasonal-flowers.html">Seasonal Flowers</a></li>
+                        <li><a href="pick-your-own.html">Pick Your Own</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="journal.html">Journal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Visit Us</h3>
+                    <p>Froggetts Lane<br>Walliswood RH5 5RJ<br><br><span style="color: var(--bp-sr-white);">clare@froggettsfarm.com</span></p>
+                </div>
+                <div class="footer-hours">
+                    <h3 class="footer-heading">Farm Stand Hours</h3>
+                    <div class="footer-contact">
+                        <p>Friday &bull; 10:00 AM - 6:00 PM<br>
+                        Saturday &bull; 9:00 AM - 4:00 PM<br>
+                        Sunday &bull; Closed for Harvest</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Froggetts Flower Farm. All rights reserved. Created in harmony with nature.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header görgetési effektus
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
