@@ -7,15 +7,72 @@
     <title>Froggetts Farm | Premium Organic Flowers</title>
     <meta name="description" content="Welcome to Froggetts Farm, a boutique flower farm cultivating premium, organic, hand-harvested blooms in harmony with nature.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/playfair-display-v40-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
     <style>
         /* ----------------------------------------------------
            Froggetts Farm - SERENE OFFICIAL DESIGN SYSTEM
            ---------------------------------------------------- */
+        /* --- INTER --- */
+        @font-face {
+          font-display: swap; 
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 300;
+          src: url('./fonts/inter-v20-latin-300.woff2') format('woff2');
+        }
+        @font-face {
+          font-display: swap; 
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 400;
+          src: url('./fonts/inter-v20-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+          font-display: swap; 
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          src: url('./fonts/inter-v20-latin-500.woff2') format('woff2');
+        }
+        @font-face {
+          font-display: swap; 
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          src: url('./fonts/inter-v20-latin-600.woff2') format('woff2');
+        }
 
+        /* --- PLAYFAIR DISPLAY V4A RESTORED --- */
+        @font-face {
+          font-display: swap; 
+          font-family: 'Playfair Display';
+          font-style: normal;
+          font-weight: 400;
+          src: url('./fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
+        }
+        @font-face {
+          font-display: swap; 
+          font-family: 'Playfair Display';
+          font-style: italic;
+          font-weight: 400;
+          src: url('./fonts/playfair-display-v40-latin-italic.woff2') format('woff2');
+        }
+        @font-face {
+          font-display: swap; 
+          font-family: 'Playfair Display';
+          font-style: normal;
+          font-weight: 500;
+          src: url('./fonts/playfair-display-v40-latin-500.woff2') format('woff2');
+        }
+        @font-face {
+          font-display: swap; 
+          font-family: 'Playfair Display';
+          font-style: normal;
+          font-weight: 600;
+          src: url('./fonts/playfair-display-v40-latin-600.woff2') format('woff2');
+        }
         :root {
             --bp-sr-primary: #143613;
             --bp-sr-primary-t-5: hsla(118, 48%, 14%, 0.45);
@@ -28,8 +85,8 @@
             --bp-sr-white: #FFFFFF;
             --bp-sr-white-t-8: hsla(0, 0%, 100%, 0.73);
             --bp-sr-black: #000000;
-
-            --font-serif: 'Bona Nova', serif;
+            
+            --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Inter', sans-serif;
             
             --bp-sr-text-xs: clamp(1.6rem, 1vw + 1rem, 2rem);
@@ -58,7 +115,12 @@
         h1 { font-family: var(--font-serif); font-size: var(--bp-sr-text-3xl); font-weight: 400; line-height: 1.1em; }
         h2 { font-family: var(--font-serif); font-size: var(--bp-sr-text-2xl); font-weight: 400; line-height: 1.2em; }
         h3 { font-family: var(--font-serif); font-size: var(--bp-sr-text-xl); font-weight: 400; line-height: 1.2em; }
-        p { font-family: var(--font-sans); font-size: var(--bp-sr-text-xs); line-height: 1.4em; color: var(--bp-sr-primary-t-8); }
+        p { 
+            font-family: var(--font-serif); 
+            font-size: var(--bp-sr-text-xs); 
+            line-height: 1.8; 
+            color: var(--bp-sr-primary-t-8); 
+        }
         em { font-style: italic; }
         a { text-decoration: none; color: inherit; }
         img { display: block; max-width: 100%; height: auto; }
@@ -163,6 +225,80 @@
         .testimonial-content { width: 55%; color: var(--bp-sr-white); }
         .testimonial-content h5 { font-family: var(--font-serif); font-size: var(--bp-sr-text-m); font-weight: 400; margin-bottom: var(--bp-sr-space-m); line-height: 1.4; color: var(--bp-sr-white); }
         
+/* --- FAQ SECTION (SERENE OFFICIAL ACCORDION STYLE) --- */
+        .faq-section { padding: var(--bp-sr-space-3xl) 0; background-color: var(--bp-sr-white); }
+        .faq-container { display: flex; flex-direction: column; gap: calc(var(--bp-sr-space-3xl) * 1.2); }
+        
+        /* A cím bal oldalt */
+        .faq-header-block { width: 50%; }
+        .faq-header-block h2 { font-size: var(--bp-sr-text-2xl); line-height: 1.2; color: var(--bp-sr-black); }
+        
+        /* Az Accordion maga (60%-os szélességgel, ahogy a JSON kéri) */
+        .bp-sr-accordion { width: 60%; margin-left: auto; display: flex; flex-direction: column; }
+        
+        .accordion-item { border-bottom: 1px solid hsla(118, 48%, 14%, 0.27); /* bp-sr-primary-t-3 */ }
+        
+        .accordion-trigger { 
+            width: 100%; display: flex; justify-content: space-between; align-items: center; 
+            text-align: left; background: none; border: none; cursor: pointer; 
+            
+            /* JAVÍTÁS: Szellős, nagy térköz (padding) a kérdés alatt és felett */
+            padding: var(--bp-sr-space-s) 0; 
+            
+            transition: color 0.5s ease;
+        }
+        
+        /* A kérdés szövege */
+        .accordion-title { 
+            font-family: var(--font-serif); font-size: var(--bp-sr-text-s); 
+            color: var(--bp-sr-primary-t-8); line-height: 1.3em; 
+            transition: color 0.5s ease;
+        }
+        
+        /* Az Ikon (+) */
+        .accordion-icon { 
+            font-size: var(--bp-sr-text-m); font-weight: 300; 
+            color: var(--bp-sr-primary); 
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
+            display: inline-block;
+        }
+        
+        /* A tartalom doboz */
+        .accordion-content-wrapper { 
+            max-height: 0; overflow: hidden; 
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        
+        /* A válasz szövege */
+        .accordion-content-wrapper p { 
+            font-family: var(--font-serif); 
+            font-size: calc(var(--bp-sr-text-2xs) * 1.15); line-height: 1.4em; 
+            color: var(--bp-sr-primary-t-8); 
+            
+            /* JAVÍTÁS: Több hely a válasz szövege és az alsó vonal között */
+            padding-bottom: var(--bp-sr-space-l); 
+            
+            width: 80%; 
+            margin-top: 0;
+        }
+        
+        /* Aktív (Nyitott) Állapotok */
+        .accordion-item.active .accordion-title { color: var(--bp-sr-primary); } /* titleActiveTypography */
+        .accordion-item.active .accordion-icon { transform: rotate(45deg); } /* x-szé alakul */
+
+        @media (max-width: 1024px) {
+            .faq-container { gap: var(--bp-sr-space-3xl); }
+            .faq-header-block { width: 80%; }
+            .bp-sr-accordion { width: 80%; margin-left: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .faq-container { gap: var(--bp-sr-space-l); }
+            .faq-header-block { width: 100%; }
+            .bp-sr-accordion { width: 100%; }
+            .accordion-content-wrapper p { width: 100%; font-size: var(--bp-sr-text-xs); }
+        }
+
         /* JOURNAL (Új szekció Serene stílusban) */
         .journal-section { padding: var(--bp-sr-space-3xl) 0; position: relative; }
         .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--bp-sr-space-m); margin-top: var(--bp-sr-space-l); }
@@ -413,6 +549,63 @@
             </div>
         </section>
 
+<section class="faq-section" id="faq">
+            <div class="bp-sr-container faq-container">
+                
+                <div class="faq-header-block">
+                    <div class="bp-sr-div__tag">
+                        <span style="font-size: 1.2rem; color: var(--bp-sr-secondary);">✦</span> 
+                        <p class="bp-sr-tag">faqs</p>
+                    </div>
+                    <h2>Have some questions? <span style="font-style:italic;">We got the answers.</span></h2>
+                </div>
+                
+                <div class="bp-sr-accordion">
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-trigger">
+                            <span class="accordion-title">When is the best time to visit for the Dahlia harvest?</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content-wrapper">
+                            <p>Our organic dahlias bloom beautifully from mid-July through late October. If you are looking for the absolute peak of color and variety, we highly recommend booking your visit or Pick Your Own tea afternoon between August and September.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger">
+                            <span class="accordion-title">Do you offer flower delivery near Loxwood and Surrey?</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content-wrapper">
+                            <p>Yes, we provide sustainable, fresh-cut flower deliveries to our local community surrounding Walliswood, Loxwood, and the wider Surrey area. You can also join our weekly Community Flower Club for regular field-to-vase arrangements.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger">
+                            <span class="accordion-title">Are your growing methods fully sustainable and peat-free?</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content-wrapper">
+                            <p>Absolutely. We are deeply committed to organic horticulture and biodiversity. Every single tuber and stem is cultivated using 100% peat-free compost, and we completely avoid synthetic chemicals to maintain a healthy ecosystem for local wildlife.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger">
+                            <span class="accordion-title">How do your educational and DofE programmes work?</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content-wrapper">
+                            <p>As a proud social enterprise, we offer approved volunteering placements for Duke of Edinburgh award students and local volunteers. Participants gain hands-on experience in organic farming, seed sowing, and ecological land care in a supportive environment.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <section class="journal-section" id="journal">
             <div class="bp-sr-container">
                 <div style="text-align: center; margin-bottom: var(--bp-sr-space-l);">
@@ -505,6 +698,29 @@
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+        // Serene Lightweight Accordion Logic
+        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const parent = trigger.parentElement;
+                const content = trigger.nextElementSibling;
+                const isActive = parent.classList.contains('active');
+                
+                // Összes többi bezárása
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.accordion-content-wrapper').style.maxHeight = null;
+                });
+                
+                // Aktuális nyitása/zárása
+                if (!isActive) {
+                    parent.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    parent.classList.remove('active');
+                    content.style.maxHeight = null;
+                }
+            });
         });
     </script>
 </body>
