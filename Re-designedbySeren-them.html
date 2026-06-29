@@ -165,17 +165,50 @@
         /* ----------------------------------------------------
            SZEKCIÓK
            ---------------------------------------------------- */
-        .hero-section { position: relative; padding: calc(var(--bp-sr-space-3xl) * 1.5) 0 var(--bp-sr-space-3xl) 0; overflow: hidden; }
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--bp-sr-space-m); align-items: center; position: relative; z-index: 2; }
+        .hero-section {
+            position: relative;
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--bp-sr-white);
+            background-image: url('images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp');
+            background-size: cover;
+            background-position: center 70%;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(20, 54, 19, 0.5), rgba(20, 54, 19, 0.2));
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero-section h1 { color: var(--bp-sr-white); }
+        .hero-section p { color: var(--bp-sr-white-t-8); margin-top: var(--bp-sr-space-s); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero-section .bp-sr-btn { color: var(--bp-sr-white); border-color: hsla(0, 0%, 100%, 0.5); }
+        .hero-section .bp-sr-div__button:hover .bp-sr-btn {
+            background-color: var(--bp-sr-white);
+            color: var(--bp-sr-primary);
+            border-color: var(--bp-sr-white);
+        }
+        .hero-section .bp-sr-div__tag, .hero-section .bp-sr-div__button { justify-content: center; }
         
         .about-section { padding: var(--bp-sr-space-3xl) 0; position: relative; }
-        .about-grid { display: flex; justify-content: space-between; gap: var(--bp-sr-space-m); align-items: center; }
-        .about-image { width: 40%; border-radius: 24px; object-fit: cover; }
-        .about-content { width: 52%; display: flex; flex-direction: column; gap: var(--bp-sr-space-xs); }
+        .about-grid { display: flex; justify-content: space-between; gap: var(--bp-sr-space-m); align-items: flex-end; }
+        .about-image { width: 45%; border-radius: 24px; object-fit: cover; max-height: 75vh; }
+        .about-image { width: 45%; object-fit: cover; max-height: 75vh; }
+        .about-content { width: 50%; display: flex; flex-direction: column; gap: var(--bp-sr-space-xs); }
 
         .services-section { padding: var(--bp-sr-space-3xl) 0; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--bp-sr-space-2xs); margin-top: var(--bp-sr-space-l); }
         .bp-sr-block__services { position: relative; border-radius: 24px; overflow: hidden; height: 600px; }
+        .bp-sr-block__services { position: relative; overflow: hidden; height: 600px; }
         .bp-sr-block__services img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
         .bp-sr-block__services:hover img { transform: scale(1.05); }
         
@@ -199,6 +232,7 @@
         
         /* A kép keskenyebb lett, a lépések szélesebbek a fotóhoz hasonlóan */
         .process-img-wrapper { width: 35%; border-radius: 32px; overflow: hidden; position: relative; z-index: 2; }
+        .process-img-wrapper { width: 35%; overflow: hidden; position: relative; z-index: 2; }
         .process-steps { width: 60%; display: flex; flex-direction: column; gap: var(--bp-sr-space-s); justify-content: center; }
         
         .bp-sr-block__process { 
@@ -304,6 +338,7 @@
         .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--bp-sr-space-m); margin-top: var(--bp-sr-space-l); }
         .journal-card { display: block; text-decoration: none; }
         .journal-img-wrapper { border-radius: 24px; overflow: hidden; aspect-ratio: 4/3; margin-bottom: var(--bp-sr-space-xs); }
+        .journal-img-wrapper { overflow: hidden; aspect-ratio: 4/3; margin-bottom: var(--bp-sr-space-xs); }
         .journal-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
         .journal-card:hover img { transform: scale(1.05); }
         .journal-meta { font-size: 1.2rem; color: var(--bp-sr-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; display: block; margin-bottom: 8px; }
@@ -378,15 +413,14 @@
 
     <main>
         <section class="hero-section">
-            <div class="bp-sr-bg-blur" style="top: 50%; left: 10%; transform: translateY(-50%);"></div>
-            <div class="bp-sr-container hero-grid">
-                <div>
+            <div class="bp-sr-container">
+                <div class="hero-content">
                     <div class="bp-sr-div__tag">
                         <span style="font-size: 1.2rem; color: var(--bp-sr-secondary);">✦</span> 
                         <p class="bp-sr-tag">Established 2021 &bull; Organic</p>
                     </div>
                     <h1>Organic Dahlias <span style="font-style:italic;">in Surrey.</span></h1>
-                    <p style="margin-top: var(--bp-sr-space-s); max-width: 500px;">We grow premium British flowers on our boutique farm. Harvesting each stem with patience, blending organic cultivation with community ecotherapy.</p>
+                    <p>We grow premium British flowers on our boutique farm. Harvesting each stem with patience, blending organic cultivation with community ecotherapy.</p>
                     
                     <div class="bp-sr-div__button">
                         <a href="#collections" class="bp-sr-btn">Explore Collections</a>
@@ -394,9 +428,6 @@
                             <svg width="24" height="24"><use href="#icon-arrow-tr"></use></svg>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <img src="images/froggetts-organic-flower-farm-central-pink-dahlia.webp" alt="Vibrant organic pink dahlia bloom" style="border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </section>
@@ -540,6 +571,7 @@
                     
                     <div style="display: flex; align-items: center; gap: 16px; margin-top: var(--bp-sr-space-m); padding-bottom: var(--bp-sr-space-s); border-bottom: 1px solid hsla(121, 20%, 62%, 0.45);">
                         <img src="images/margaret-testimonial.webp" alt="Sarah L." style="width: 71px; height: 71px; border-radius: 50%; object-fit: cover;">
+                        <img src="images/margaret-testimonial.webp" alt="Sarah L." style="width: 71px; height: 71px; object-fit: cover;">
                         <div>
                             <span style="font-family: var(--font-serif); font-size: var(--bp-sr-text-s); color: var(--bp-sr-white); display: block;">Sarah L.</span>
                             <span style="font-family: var(--font-sans); font-size: 1.4rem; color: hsla(121, 20%, 62%, 0.73);">Client & Visitor, Horsham</span>

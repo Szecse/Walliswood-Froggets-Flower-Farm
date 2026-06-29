@@ -274,7 +274,6 @@
         /* Az 'About' szekció elegáns keretének újrahasznosítása */
         .airy-hero-image-block .image-frame { 
             position: relative; 
-            border-radius: var(--border-radius-lg); 
             overflow: hidden; 
             box-shadow: var(--float-shadow); 
             z-index: 2; 
@@ -385,9 +384,7 @@
         .story-text { font-size: var(--font-body); line-height: 1.6; color: var(--text-secondary); margin-bottom: var(--gap-sm); text-align: left; }
         .about-visual { flex: 1; min-width: 300px; position: relative; }
         /* A hagyományos border-radius helyett: */
-        .about-visual .image-frame { 
-            border-radius: 200px 200px 24px 24px; /* Felül hatalmas ív, alul kicsi */
-        }
+        
         .rotating-badge {
             position: absolute;
             bottom: -30px;
@@ -434,7 +431,7 @@
         @keyframes spin {
             100% { transform: rotate(360deg); }
         }
-        .image-frame { position: relative; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--soft-shadow); z-index: 2; }
+        .image-frame { position: relative; overflow: hidden; box-shadow: var(--soft-shadow); z-index: 2; }
         .about-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; transition: var(--transition-smooth); }
         .about-img:hover { transform: scale(1.03); }
         .frame-backdrop { position: absolute; top: 40px; right: -40px; bottom: -40px; left: 40px; background-color: var(--bg-secondary); border-radius: var(--border-radius-lg); z-index: -1; }
@@ -465,7 +462,7 @@
         .editorial-flex-container { display: flex; align-items: center; gap: var(--gap-xl); }
         .editorial-flex-container.row-reversed { flex-direction: row-reverse; }
         .editorial-image-block { flex: 1; position: relative; }
-        .editorial-display-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--border-radius-lg); box-shadow: var(--soft-shadow); transition: transform 0.4s ease; }
+        .editorial-display-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: var(--soft-shadow); transition: transform 0.4s ease; }
         .editorial-display-img:hover { transform: scale(1.015); }
         .editorial-text-block { flex: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
         .editorial-subtitle { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 12px; }
@@ -477,7 +474,7 @@
         /* --- LEARNING --- */
         .learning-section { padding: var(--section-padding) 0; background-color: var(--bg-secondary); width: 100%; position: relative; z-index: 10; }        .learning-flex-container { display: flex; align-items: center; gap: var(--gap-xl); flex-wrap: wrap; width: 100%; }
         .learning-image-wrapper { flex: 1; min-width: 340px; position: relative; }
-        .learning-single-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--border-radius-lg); box-shadow: var(--soft-shadow); }
+        .learning-single-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: var(--soft-shadow); }
         .learning-badge { position: absolute; bottom: 24px; right: 24px; padding: 12px 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(16px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); z-index: 3; }
         .learning-badge span { font-family: var(--font-serif); font-style: italic; color: var(--text-primary); font-weight: 500; font-size: var(--font-small); }
         .learning-content { flex: 1.1; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
@@ -722,7 +719,7 @@
             <div class="airy-hero-content">
                 <span class="editorial-tag">Established 2021 &bull; Organic farming</span>
                 <h1 class="airy-hero-title">
-                 Organic Flower Farm & Dahlia Specialist <em>in Surrey</em>
+                 Flower Farm & Dahlia Specialist <em>in Surrey</em>
                 </h1>
                 <p class="airy-hero-description">
                     We grow premium British flowers on our boutique social enterprise farm in Surrey. 
