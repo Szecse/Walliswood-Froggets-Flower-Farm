@@ -18,68 +18,20 @@
            ---------------------------------------------------- */
 
         /* --- INTER --- */
-        @font-face {
-          font-display: swap; 
-          font-family: 'Inter';
-          font-style: normal;
-          font-weight: 300;
-          src: url('./fonts/inter-v20-latin-300.woff2') format('woff2');
-        }
-        @font-face {
-          font-display: swap; 
-          font-family: 'Inter';
-          font-style: normal;
-          font-weight: 400;
-          src: url('./fonts/inter-v20-latin-regular.woff2') format('woff2');
-        }
-        @font-face {
-          font-display: swap; 
-          font-family: 'Inter';
-          font-style: normal;
-          font-weight: 500;
-          src: url('./fonts/inter-v20-latin-500.woff2') format('woff2');
-        }
-        @font-face {
-          font-display: swap; 
-          font-family: 'Inter';
-          font-style: normal;
-          font-weight: 600;
-          src: url('./fonts/inter-v20-latin-600.woff2') format('woff2');
-        }
+        @font-face { font-display: swap; font-family: 'Inter'; font-style: normal; font-weight: 300; src: url('./fonts/inter-v20-latin-300.woff2') format('woff2'); }
+        @font-face { font-display: swap; font-family: 'Inter'; font-style: normal; font-weight: 400; src: url('./fonts/inter-v20-latin-regular.woff2') format('woff2'); }
+        @font-face { font-display: swap; font-family: 'Inter'; font-style: normal; font-weight: 500; src: url('./fonts/inter-v20-latin-500.woff2') format('woff2'); }
+        @font-face { font-display: swap; font-family: 'Inter'; font-style: normal; font-weight: 600; src: url('./fonts/inter-v20-latin-600.woff2') format('woff2'); }
 
         /* --- PLAYFAIR DISPLAY --- */
-        @font-face {
-          font-display: swap; 
-          font-family: 'Playfair Display';
-          font-style: normal;
-          font-weight: 400;
-          src: url('./fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
-        }
-        @font-face {
-          font-display: swap; 
-          font-family: 'Playfair Display';
-          font-style: italic;
-          font-weight: 400;
-          src: url('./fonts/playfair-display-v40-latin-italic.woff2') format('woff2');
-        }
-        @font-face {
-          font-display: swap; 
-          font-family: 'Playfair Display';
-          font-style: normal;
-          font-weight: 500;
-          src: url('./fonts/playfair-display-v40-latin-500.woff2') format('woff2');
-        }
-        @font-face {
-          font-display: swap; 
-          font-family: 'Playfair Display';
-          font-style: normal;
-          font-weight: 600;
-          src: url('./fonts/playfair-display-v40-latin-600.woff2') format('woff2');
-        }
+        @font-face { font-display: swap; font-family: 'Playfair Display'; font-style: normal; font-weight: 400; src: url('./fonts/playfair-display-v40-latin-regular.woff2') format('woff2'); }
+        @font-face { font-display: swap; font-family: 'Playfair Display'; font-style: italic; font-weight: 400; src: url('./fonts/playfair-display-v40-latin-italic.woff2') format('woff2'); }
+        @font-face { font-display: swap; font-family: 'Playfair Display'; font-style: normal; font-weight: 500; src: url('./fonts/playfair-display-v40-latin-500.woff2') format('woff2'); }
+        @font-face { font-display: swap; font-family: 'Playfair Display'; font-style: normal; font-weight: 600; src: url('./fonts/playfair-display-v40-latin-600.woff2') format('woff2'); }
 
         :root {
             --bg-primary: #FFFFFF;       
-            --bg-secondary: #F9F9F9;     
+            --bg-secondary: #F9F9F9;
             --text-primary: #1C1E21;     
             --text-secondary: #5F656D;
             --text-muted: #6A727D;   
@@ -111,16 +63,13 @@
 
             --glass-bg: rgba(255, 255, 255, 0.45);
             --glass-border: rgba(255, 255, 255, 0.65);
-            --glass-shadow: 
-                0 4px 30px rgba(0, 0, 0, 0.03), 
-                inset 0 1px 1px rgba(255, 255, 255, 0.8),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.02);
-            --soft-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); /* Marad az alapértelmezett a kisebb kártyáknak */
-            --float-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Új, mély lebegő árnyék a kiemelt nagy elemeknek */
-}
-        {
+            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.8), inset 0 -1px 2px rgba(0, 0, 0, 0.02);
+            --soft-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); 
+            --float-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+
             --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-fast: all 0.3s ease;        }
+            --transition-fast: all 0.3s ease;        
+        }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -132,14 +81,9 @@
         h3 { font-size: var(--font-h3); line-height: 1.3; }
         h4 { font-size: var(--font-h4); line-height: 1.4; }
 
-        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em; color: var(--text-primary); font-feature-settings: "kern" 1, "liga" 1; text-wrap: balance; /* ÚJ: Bekapcsolja a professzionális betűközöket és az egybeolvadó betűpárokat */ }
+        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em; color: var(--text-primary); font-feature-settings: "kern" 1, "liga" 1; text-wrap: balance; }
 
-        p { 
-            text-wrap: pretty; 
-        }
-
-        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
-
+        p { text-wrap: pretty; }
         a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
         img { max-width: 100%; display: block; height: auto; }
         button { background: none; border: none; font: inherit; cursor: pointer; }
@@ -152,15 +96,41 @@
         .section-title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
         .section-subtitle { font-size: var(--font-subtitle); color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--gap-lg); font-weight: 300; line-height: 1.6; }
 
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px 36px; font-size: var(--font-btn); font-weight: 500; border-radius: 40px; transition: var(--transition-smooth); letter-spacing: 0.05em; position: relative; overflow: hidden; }
-        .btn-primary { background-color: #8A9A86; color: var(--white); box-shadow: 0 4px 15px rgba(138, 154, 134, 0.3); border: none; }
-        .btn-primary:hover { background-color: #768672; color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(138, 154, 134, 0.4); }
-        .btn-secondary { background-color: rgba(255, 255, 255, 0.85); color: var(--text-primary); border: 1px solid rgba(0, 0, 0, 0.05); backdrop-filter: blur(10px); }
-        .btn-secondary:hover { background-color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05); }
-
-        .glass-card { background: var(--glass-bg); backdrop-filter: blur(25px) saturate(190%); -webkit-backdrop-filter: blur(25px) saturate(190%); border: 1px solid var(--glass-border); border-radius: var(--border-radius-lg); box-shadow: var(--glass-shadow); position: relative; z-index: 1; }
-        .glass-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; padding: 1px; background: linear-gradient( 135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.4) 100% ); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
-
+.btn { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 16px 36px; 
+    font-size: var(--font-btn); 
+    font-weight: 500; 
+    transition: var(--transition-smooth); 
+    letter-spacing: 0.05em; 
+    position: relative; 
+    overflow: hidden; 
+}        .btn-primary {
+            background-color: var(--text-primary);
+            color: var(--white);
+            border: 1px solid var(--text-primary); /* A hover effektus miatt kell */
+            box-shadow: 0 4px 15px rgba(28, 30, 33, 0.15); /* A zöld árnyékot finom sötétre cseréltük */
+        }        
+                    .btn-primary:hover {
+                background-color: transparent;
+                color: var(--text-primary);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(28, 30, 33, 0.08);
+            }        
+.btn-secondary { 
+    background-color: transparent; 
+    color: var(--text-primary); 
+    border: 1px solid rgba(28, 30, 33, 0.2); 
+}
+.btn-secondary:hover { 
+    background-color: var(--text-primary); 
+    color: var(--white); 
+    border-color: var(--text-primary); 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 25px rgba(28, 30, 33, 0.08); 
+}
         .main-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: none; transition: all 0.3s ease; }        
         .header-container { max-width: 1200px; margin: 0 auto; padding: 0 var(--container-padding); display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--text-primary); text-decoration: none; letter-spacing: -0.5px; }
@@ -170,276 +140,98 @@
         .nav-menu a:hover { color: var(--text-secondary); }
         .mobile-nav-toggle { display: none; }
         .main-header.scrolled { padding: 12px 0; }
-        .nav-menu .contact-cta { background-color: #8A9A86; color: var(--white); border: none; padding: 10px 24px; border-radius: 30px; white-space: nowrap; flex-shrink: 0; transition: var(--transition-smooth); }
-        .nav-menu .contact-cta:hover { background-color: #768672; color: var(--white); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(138, 154, 134, 0.4); }
+/* --- NAVIGÁCIÓS KOSÁR IKON --- */
+        .nav-icon-cart { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative; 
+            color: var(--text-primary); 
+            padding: 4px; 
+            transition: transform var(--transition-fast), color var(--transition-fast);
+        }
+        
+        .nav-icon-cart:hover { 
+            color: var(--text-secondary); 
+            transform: translateY(-2px); 
+        }
+        
+        /* A kosáron lévő pici szám (Badge) */
+        .cart-badge { 
+            position: absolute; 
+            top: -4px; 
+            right: -6px; 
+            background-color: var(--text-primary); 
+            color: var(--white); 
+            font-family: var(--font-sans);
+            font-size: 0.6rem; 
+            font-weight: 600; 
+            width: 16px; 
+            height: 16px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        /* --- MODERN SECTION DIVIDER (Magazin stílusú elválasztó) --- */
+        .modern-hairline-divider {
+            width: 80px;
+            height: 1px;
+            background-color: var(--text-primary);
+            opacity: 0.15;
+            margin: 0 auto 80px auto; 
+            transition: var(--transition-smooth);
+        }
 
         /* ----------------------------------------------------
-           Levegős Editorial Hero Szekció - Fókuszban a fehér terek
+           Levegős Editorial Hero Szekció
            ---------------------------------------------------- */
-        
-        .airy-hero-section { 
-            background-color: var(--bg-primary); 
-            padding: calc(var(--section-padding) + 40px) 0 80px 0;
-            min-height: 100vh; /* Függőleges kiterjedés megtartása nagy képernyőkön */
-            display: flex;
-            align-items: center;
-        }
+        .airy-hero-section { background-color: var(--bg-primary); padding: calc(var(--section-padding) + 40px) 0 80px 0; min-height: 100vh; display: flex; align-items: center; }
+        .airy-hero-grid { max-width: 1200px; margin: 0 auto; padding: 0 var(--container-padding); display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; align-items: center; width: 100%; }
+        .airy-hero-content { display: flex; flex-direction: column; align-items: flex-start; }
+        .airy-hero-content .editorial-tag { font-family: var(--font-sans); font-size: var(--font-small); letter-spacing: 0.2em; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; display: inline-block; margin-bottom: 24px; }
+        .airy-hero-title { font-size: clamp(2.2rem, 3vw + 0.8rem, 3.2rem); line-height: 1.15; margin-bottom: var(--gap-sm); color: var(--text-primary); text-wrap: balance; }
+        .airy-hero-title em { font-style: italic; }
+        .airy-hero-description { font-size: var(--font-body); color: var(--text-muted); margin-bottom: var(--gap-md); font-weight: 400; max-width: 90%; line-height: 1.8; }
+        .airy-hero-actions { display: flex; justify-content: flex-start; gap: var(--gap-sm); }
+        .airy-hero-image-block { position: relative; display: flex; justify-content: flex-end; }
+        .airy-hero-image-block .image-frame { position: relative; overflow: hidden; box-shadow: var(--float-shadow); z-index: 2; }
+        .airy-hero-display-img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; transform: scale(1.03); animation: slowBreathe 15s ease-in-out infinite; }
 
-        .airy-hero-grid { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 var(--container-padding); 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 50px; /* 80px-ről csökkentve, hogy közelebb húzzuk a szöveget a képhez */
-            align-items: center; 
-            width: 100%;
-        }
-
-        /* Szöveg oszlop stílusai */
-        .airy-hero-content { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-start; 
-        }
-        
-        .airy-hero-content .editorial-tag { 
-            font-family: var(--font-sans); 
-            font-size: var(--font-small); 
-            letter-spacing: 0.2em; 
-            font-weight: 700; 
-            color: var(--text-secondary); /* Mostantól sötét szövegszín */
-            text-transform: uppercase; 
-            display: inline-block;
-            margin-bottom: 24px; 
-        }
-
-       .airy-hero-title { 
-            font-size: clamp(2.2rem, 3vw + 0.8rem, 3.2rem); 
-            line-height: 1.15; 
-            margin-bottom: var(--gap-sm); /* ITT A HIBA: a mínusz jel! */
-            color: var(--text-primary); 
-            text-wrap: balance; 
-        }
-        
-        .airy-hero-title em { 
-            font-style: italic; 
-        }
-
-        .airy-hero-description { 
-            font-size: var(--font-subtitle); 
-            color: var(--text-muted); 
-            margin-bottom: var(--gap-md); 
-            font-weight: 400; 
-            max-width: 90%; /* 550px-ről megnövelve, hogy szellősebb legyen a szöveg */
-            line-height: 1.8; /* Megnövelt sorköz a maximális levegősségért */
-        }
-
-        .airy-hero-actions { 
-            display: flex; /* EZ HIÁNYZOTT! Ez kapcsolja be a gap működését */
-            justify-content: flex-start; 
-            gap: var(--gap-sm); /* Alapértelmezett térköz nagy képernyőn */
-        }
-        
-        /* A gombok "szöveg a fehéren" verziói */
-        .airy-hero-content .btn-primary { 
-            /* Az elsődleges gombszíned jó, csak ügyeljünk rá, hogy kiugorjon */
-            background-color: #8A9A86; 
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(138, 154, 134, 0.3);
-        }
-        
-        .airy-hero-content .btn-secondary { 
-            background-color: transparent; 
-            color: var(--text-primary); 
-            border: 1px solid rgba(28, 30, 33, 0.2); /* 1px vastagság és lágy, 20%-os sötétszürke keret */
-            transition: var(--transition-fast);
-        }
-        
-        .airy-hero-content .btn-secondary:hover { 
-            background-color: var(--text-primary); 
-            border-color: var(--text-primary); /* Hoverre visszaugrik az éles kontraszt */
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Kép oszlop stílusai */
-        .airy-hero-image-block { 
-            position: relative; 
-            display: flex;
-            justify-content: flex-end;
-        }
-        
-        /* Az 'About' szekció elegáns keretének újrahasznosítása */
-        .airy-hero-image-block .image-frame { 
-            position: relative; 
-            overflow: hidden; 
-            box-shadow: var(--float-shadow); 
-            z-index: 2; 
-        }
-        
-        .airy-hero-display-img { 
-            width: 100%; 
-            height: auto; 
-            aspect-ratio: 4 / 5; 
-            object-fit: cover; 
-            display: block;
-            transform: scale(1.03); /* Enyhe nagyítás, hogy az ujj kicsússzon a látható területről */
-            animation: slowBreathe 15s ease-in-out infinite;
-        }
-
-        /* Reszponzív stílusok (Fontos ennél az elrendezésnél) */
-        @media (max-width: 1024px) {
-            .airy-hero-grid { 
-                gap: 50px; 
-            }
-            .airy-hero-display-img { 
-                height: 420px; /* Csökkentett fix magasság a kisebb laptopokhoz */
-            }
-        }
-
-        @media (max-width: 768px) {
-            .airy-hero-section {
-                padding: calc(var(--section-padding) + 20px) 0 40px 0; /* Csökkentett térköz mobilon */
-                min-height: auto;
-            }
-            .airy-hero-grid { 
-                grid-template-columns: 1fr; /* Egymás alá rakás egyetlen oszlopba */
-                gap: var(--gap-md); 
-                text-align: left; /* Balra igazítás megtartása */
-            }
-            .airy-hero-content {
-                order: 2; /* Szöveg a kép alá mozgatása mobilon */
-                align-items: flex-start;
-            }
-            .airy-hero-image-block {
-                order: 1; /* Kép felülre mozgatása mobilon */
-                width: 100%;
-                justify-content: center; /* Kép középre igazítása mobilon */
-            }
-            
-            .airy-hero-actions { 
-                flex-direction: column; 
-                width: 100%; 
-                gap: var(--gap-sm); 
-            }
-    
-        }
-
-        /* --- ANIMÁCIÓK ÉS ELREJTÉSEK --- */
-        @keyframes sectionFadeIn { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slowBreathe { 0% { transform: scale(1.03); } 50% { transform: scale(1.06); } 100% { transform: scale(1.03); } }
+        @keyframes heroFadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes cardFadeIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slowBreathe {
-            0% { transform: scale(1.03); }
-            50% { transform: scale(1.06); }
-            100% { transform: scale(1.03); }
-        }
 
-        /* --- HERO AZONNALI BETÖLTÉSI ANIMÁCIÓ --- */
-        @keyframes heroFadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* A szöveg azonnal indul */
-        .airy-hero-content {
-            animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* A fotó 0.3 másodpercet vár, mielőtt beúszik */
-        .airy-hero-image-block {
-            opacity: 0; /* Alapból elrejtjük, amíg a delay tart */
-            animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-        }
-        
-        /* EZ A SOR VESZETT EL! Ez felel a kártyák megjelenéséért: */
+        .airy-hero-content { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .airy-hero-image-block { opacity: 0; animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; }
         .fade-in-card { animation: cardFadeIn 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
    
-        /* --- ANIMÁCIÓS ELREJTÉS (Végleges, hibátlan verzió) --- */
-        .about-section .section-container,
-        .collections-section .section-container,
-        .farm-editorial-section .section-container,
-        .learning-section .section-container,
-        .gallery-section .section-container,
-        .journal-teaser-section .section-container,
-        .subscribe-section .section-container,
-        .testimonials-section .testimonial-wrapper {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        /* A "beúszott" állapotok */
-        .fade-in-section .section-container,
-        .fade-in-section .testimonial-wrapper { 
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* --- ABOUT --- */
-        .about-section { padding: var(--section-padding) 0; background-color: var(--bg-secondary); position: relative; z-index: 10; }        
+        .about-section .section-container, .collections-section .section-container, .farm-editorial-section .section-container, .learning-section .section-container, .gallery-section .section-container, .journal-teaser-section .section-container, .subscribe-section .section-container, .testimonials-section .testimonial-wrapper { opacity: 0; transform: translateY(60px); transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-in-section .section-container, .fade-in-section .testimonial-wrapper { opacity: 1; transform: translateY(0); }
+
+        /* --- EGYSÉGESÍTETT FEHÉR HÁTTERŰ SZEKCIÓK --- */
+        .about-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }        
+        .collections-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }       
+        .farm-editorial-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); width: 100%; position: relative; z-index: 10; }
+        .learning-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); width: 100%; position: relative; z-index: 10; }        
+        .gallery-section { background-color: var(--bg-primary); padding: var(--section-padding) 0; width: 100%; position: relative; z-index: 10; }
+        .testimonials-section { background-color: var(--bg-primary) !important; padding: 120px 0; width: 100%; overflow: hidden; position: relative; z-index: 10; }
+        .journal-teaser-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }
+
+        /* --- SZEKCIÓ BELSŐ STÍLUSOK --- */
         .about-grid { display: flex; align-items: center; gap: var(--gap-xl); flex-direction: row-reverse; flex-wrap: wrap; }
         .story-content { flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
         .story-content .section-subtitle { margin: 0 0 var(--gap-sm) 0; max-width: 100%; }
         .story-text { font-size: var(--font-body); line-height: 1.6; color: var(--text-secondary); margin-bottom: var(--gap-sm); text-align: left; }
         .about-visual { flex: 1; min-width: 300px; position: relative; }
-        /* A hagyományos border-radius helyett: */
         
-        .rotating-badge {
-            position: absolute;
-            bottom: -30px;
-            left: -30px;
-            width: 120px;
-            height: 120px;
-            background-color: var(--white);
-            color: var(--text-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--float-shadow);
-            z-index: 10;
-            animation: spin 15s linear infinite;
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-        }
-        .marquee-section {
-            background-color: var(--text-primary); /* Vagy zöld: #8A9A86 */
-            color: var(--white);
-            padding: 16px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            z-index: 20;
-        }
-
-        .marquee-content {
-            display: inline-block;
-            animation: marqueeText 25s linear infinite;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-        }
-
-        @keyframes marqueeText {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
         .image-frame { position: relative; overflow: hidden; box-shadow: var(--soft-shadow); z-index: 2; }
         .about-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; transition: var(--transition-smooth); }
         .about-img:hover { transform: scale(1.03); }
         .frame-backdrop { position: absolute; top: 40px; right: -40px; bottom: -40px; left: 40px; background-color: var(--bg-secondary); border-radius: var(--border-radius-lg); z-index: -1; }
         
-        /* --- COLLECTIONS --- */
-        .collections-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }       
         .collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-md); }
-        .product-card { background-color: var(--white); border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--soft-shadow); border: 1px solid rgba(0, 0, 0, 0.02); transition: var(--transition-smooth); opacity: 0; }
+        .product-card { background-color: var(--white); overflow: hidden; box-shadow: var(--soft-shadow); border: 1px solid rgba(0, 0, 0, 0.02); transition: var(--transition-smooth); opacity: 0; }
         .product-img-wrapper { position: relative; aspect-ratio: 1 / 1; overflow: hidden; }
         .product-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); }
         .product-card:hover .product-img { transform: scale(1.05); }
@@ -456,9 +248,6 @@
         .glass-hover-card { transition: var(--transition-smooth); }
         .glass-hover-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06); border-color: rgba(255, 255, 255, 0.5); }
 
-        /* --- FARM EDITORIAL (PYO / COMMUNITY) --- */
-        .farm-editorial-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); width: 100%; position: relative; z-index: 10; }
-        .farm-editorial-section.bg-cream-alt { background-color: var(--bg-secondary); }
         .editorial-flex-container { display: flex; align-items: center; gap: var(--gap-xl); }
         .editorial-flex-container.row-reversed { flex-direction: row-reverse; }
         .editorial-image-block { flex: 1; position: relative; }
@@ -471,8 +260,122 @@
         .editorial-cta-link { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; color: var(--text-primary); letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-bottom: 1px solid rgba(28, 30, 33, 0.2); padding-bottom: 4px; }
         .editorial-cta-link:hover { color: var(--text-secondary); border-bottom: 1px solid var(--text-primary); transform: translateX(4px); }
 
-        /* --- LEARNING --- */
-        .learning-section { padding: var(--section-padding) 0; background-color: var(--bg-secondary); width: 100%; position: relative; z-index: 10; }        .learning-flex-container { display: flex; align-items: center; gap: var(--gap-xl); flex-wrap: wrap; width: 100%; }
+        /* --- HOW IT WORKS / FARM EXPERIENCE SZEKCIÓ (ÚJ DIZÁJN) --- */
+        .how-it-works-section {
+            padding: var(--section-padding) 0;
+            background-color: #F8F7F3; /* A képen látható finom, meleg krém háttér */
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hiw-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        
+        .hiw-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 40px;
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+        
+        .hiw-title {
+            font-size: var(--font-h2);
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .hiw-intro {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 450px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        
+        .hiw-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px; /* Távolság a kártyák között */
+        }
+        
+        .hiw-card {
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px; /* Lágy sarkok a kártyáknak */
+            padding: 30px;
+            background-color: transparent;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .hiw-card:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255, 255, 255, 0.4); /* Finom felvillanás, ha rávisszük az egeret */
+        }
+        
+        .hiw-step {
+            display: block;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #8A9A86; /* Zsályazöld a számoknak, hogy passzoljon a gombokhoz */
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+        
+        .hiw-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .hiw-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .hiw-image-block {
+            position: relative;
+            height: 100%;
+        }
+        
+        .hiw-img {
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            object-fit: cover;
+            border-radius: 24px; /* A képen látható nagyobb lekerekítés a fotónak */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        /* Mobil nézet optimalizálása */
+        @media (max-width: 768px) {
+            .hiw-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .hiw-img {
+                min-height: auto;
+                aspect-ratio: 4 / 5;
+            }
+        }
+
+        .learning-flex-container { display: flex; align-items: center; gap: var(--gap-xl); flex-wrap: wrap; width: 100%; }
         .learning-image-wrapper { flex: 1; min-width: 340px; position: relative; }
         .learning-single-img { width: 100%; height: auto; max-height: 85vh; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: var(--soft-shadow); }
         .learning-badge { position: absolute; bottom: 24px; right: 24px; padding: 12px 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(16px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); z-index: 3; }
@@ -483,70 +386,27 @@
         .learning-list li { text-align: left; line-height: 1.5; font-size: var(--font-body); color: var(--text-secondary); }
         .learning-list li strong { color: var(--text-primary); display: inline; }
 
-
-        /* --- TESTIMONIAL SLIDER --- */
-        .testimonials-section { background-color: var(--bg-secondary) !important; padding: 120px 0; width: 100%; overflow: hidden; position: relative; z-index: 10; }
         .testimonial-wrapper { position: relative; max-width: 900px; margin: 0 auto; padding: 0 var(--container-padding); }
         .testimonials-header { text-align: center; margin-bottom: 50px; }
-        
         .testimonial-carousel { position: relative; display: flex; align-items: center; justify-content: center; }
         .testimonial-viewport { overflow: hidden; width: 100%; padding: 20px 0; }
         .testimonial-track { display: flex; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-        
         .testimonial-single { flex: 0 0 100%; width: 100%; padding: 0 60px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; transform: scale(0.95); pointer-events: none; }
         .testimonial-single.active { opacity: 1; transform: scale(1); pointer-events: auto; }
-        
         .quote-mark { font-family: var(--font-serif); font-size: 5rem; color: var(--text-primary); opacity: 0.08; line-height: 0.5; margin-bottom: 25px; }
-        
-        .testimonial-text-large { 
-            font-family: var(--font-serif); 
-            font-size: clamp(1.2rem, 2vw + 0.6rem, 1.8rem); 
-            line-height: 1.5; 
-            color: var(--text-primary); 
-            margin-bottom: var(--gap-md); 
-            max-width: 750px; 
-            font-style: italic; 
-            font-weight: 400; 
-            opacity: 0; 
-            transform: translateX(-40px); 
-            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-
-        .testimonial-single.active .testimonial-text-large {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 0.1s; 
-        }
-        
+        .testimonial-text-large { font-family: var(--font-serif); font-size: clamp(1.2rem, 2vw + 0.6rem, 1.8rem); line-height: 1.5; color: var(--text-primary); margin-bottom: var(--gap-md); max-width: 750px; font-style: italic; font-weight: 400; opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .testimonial-single.active .testimonial-text-large { opacity: 1; transform: translateX(0); transition-delay: 0.1s; }
         .testimonial-author-center { display: flex; flex-direction: column; align-items: center; }
         .testimonial-author-center strong { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.08em; text-transform: uppercase; }
         .testimonial-author-center span { font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px; font-style: italic; }
-
-        .testimonial-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 16px;
-            border: 3px solid var(--white);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease;
-        }
-        .testimonial-single.active .testimonial-avatar {
-            animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes popIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
+        .testimonial-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid var(--white); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.4s ease; }
+        .testimonial-single.active .testimonial-avatar { animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
         .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--text-secondary); cursor: pointer; padding: 10px; transition: var(--transition-fast); z-index: 10; display: flex; align-items: center; justify-content: center; opacity: 0.5; }
         .carousel-arrow:hover { color: var(--text-primary); opacity: 1; transform: translateY(-50%) scale(1.1); }
         .prev-arrow { left: -20px; }
         .next-arrow { right: -20px; }
 
-        /* --- GALLERY --- */
-        .gallery-section { background-color: var(--bg-primary); padding: var(--section-padding) 0; width: 100%; position: relative; z-index: 10; }
         .gallery-header { text-align: center; margin-bottom: var(--gap-lg); display: flex; flex-direction: column; align-items: center; }
         .gallery-slider-container { position: relative; display: block; width: 100%; }
         .slider-btn { display: none; }
@@ -570,144 +430,23 @@
         .lightbox-trigger { cursor: pointer; }
         .lightbox-close:hover { background: var(--white); color: var(--text-secondary); }
 
-        /* --- JOURNAL TEASER --- */
-        /* --- MINIMALIST JOURNAL SECTION --- */
-.journal-teaser-section { 
-    padding: var(--section-padding) 0; 
-    background-color: var(--bg-primary); 
-    position: relative; 
-    z-index: 10; 
-}
+        .journal-header { text-align: center; margin-bottom: 60px; display: flex; flex-direction: column; align-items: center; }
+        .journal-header .section-title { margin-bottom: 16px; }
+        .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .journal-card { display: flex; flex-direction: column; opacity: 0; }
+        .journal-img-wrapper { position: relative; aspect-ratio: 1 / 1; overflow: hidden; margin-bottom: 24px; border-radius: 0; }
+        .journal-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .journal-card:hover .journal-img { transform: scale(1.03); }
+        .journal-content { padding: 0; display: flex; flex-direction: column; align-items: flex-start; }
+        .journal-meta { font-family: var(--font-sans); font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 500; }
+        .journal-title { font-family: var(--font-serif); font-size: clamp(1.3rem, 1.5vw + 0.5rem, 1.5rem); font-weight: 400; line-height: 1.3; margin-bottom: 16px; color: var(--text-primary); }
+        .journal-title a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        .journal-card:hover .journal-title a { color: var(--text-secondary); }
+        .journal-link { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; display: inline-flex; align-items: center; }
+        .journal-card:hover .journal-link { color: var(--text-primary); }
+        .btn-journal-solid { display: inline-flex; align-items: center; justify-content: center; padding: 14px 40px; font-size: var(--font-btn); font-weight: 600; font-family: var(--font-sans); background-color: #576550; color: #ffffff; text-decoration: none; transition: all 0.3s ease; border-radius: 2px; letter-spacing: 0.05em; }
+        .btn-journal-solid:hover { background-color: #434f3e; }
 
-.journal-header { 
-    text-align: center; 
-    margin-bottom: 60px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-}
-
-.journal-header .section-title {
-    margin-bottom: 16px;
-}
-
-.journal-grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 40px; 
-}
-
-/* Kártya alap - semmi keret, semmi háttér */
-.journal-card { 
-    display: flex; 
-    flex-direction: column; 
-    opacity: 0; /* Animációhoz marad */
-}
-
-/* Kép tartó - Éles sarkok, 1:1 négyzetes arány */
-.journal-img-wrapper { 
-    position: relative; 
-    aspect-ratio: 1 / 1; /* Ha portrésabbat akarsz, írd át 4/5 -re */
-    overflow: hidden; 
-    margin-bottom: 24px; 
-    border-radius: 0; 
-}
-
-.journal-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-}
-
-.journal-card:hover .journal-img { 
-    transform: scale(1.03); 
-}
-
-/* Tartalom - Balra zárt, szellős tipográfia */
-.journal-content { 
-    padding: 0; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-}
-
-.journal-meta { 
-    font-family: var(--font-sans); 
-    font-size: 0.75rem; 
-    color: var(--text-secondary); 
-    text-transform: uppercase; 
-    letter-spacing: 0.1em; 
-    margin-bottom: 8px; 
-    font-weight: 500; 
-}
-
-.journal-title { 
-    font-family: var(--font-serif); 
-    font-size: clamp(1.3rem, 1.5vw + 0.5rem, 1.5rem); 
-    font-weight: 400; 
-    line-height: 1.3; 
-    margin-bottom: 16px; 
-    color: var(--text-primary); 
-}
-
-.journal-title a { 
-    text-decoration: none; 
-    color: inherit; 
-    transition: color 0.3s ease; 
-}
-
-.journal-card:hover .journal-title a { 
-    color: var(--text-secondary); 
-}
-
-/* Egyszerű nyilas link */
-.journal-link { 
-    font-family: var(--font-sans); 
-    font-size: 0.85rem; 
-    font-weight: 500; 
-    color: var(--text-secondary); 
-    text-decoration: none; 
-    transition: color 0.3s ease; 
-    display: inline-flex; 
-    align-items: center; 
-}
-
-.journal-card:hover .journal-link { 
-    color: var(--text-primary); 
-}
-
-/* Sötét, szögletes (vagy enyhén lekerekített) gomb */
-.btn-journal-solid { 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    padding: 14px 40px; 
-    font-size: var(--font-btn); 
-    font-weight: 600; 
-    font-family: var(--font-sans); 
-    background-color: #576550; /* A képen látható földes zöld árnyalat */
-    color: #ffffff; 
-    text-decoration: none; 
-    transition: all 0.3s ease; 
-    border-radius: 2px; /* Nagyon minimális lekerekítés */
-    letter-spacing: 0.05em; 
-}
-
-.btn-journal-solid:hover { 
-    background-color: #434f3e; 
-}
-
-/* Reszponzivitás megtartása */
-@media (max-width: 1024px) {
-    .journal-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-}
-
-@media (max-width: 768px) {
-    .journal-grid { grid-template-columns: 1fr; gap: 40px; }
-    .journal-img-wrapper { aspect-ratio: 4 / 3; /* Mobilon kicsit fekvőbb, hogy ne legyen túl magas */ }
-}
-        
         /* --- SUBSCRIBE --- */
         .subscribe-section { position: relative; padding: 140px 0; display: flex; align-items: center; justify-content: center; background-image: url('images/hero_bg.webp'); background-size: cover; background-position: center; background-attachment: fixed; z-index: 10; }
         .subscribe-glass-card { max-width: 800px; margin: 0 auto; padding: 80px; display: flex; flex-direction: column; align-items: center; z-index: 2; background: rgba(255, 255, 255, 0.85) !important; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); border: 1px solid rgba(255, 255, 255, 1); }
@@ -735,17 +474,14 @@
         .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 40px; text-align: center; }
         .footer-bottom p { font-size: var(--font-small); color: rgba(255, 255, 255, 0.7); font-weight: 300; letter-spacing: 0.03em; }
 
-        /* --- RESPONSIVE RESPONSIVE --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
             :root { --section-padding: 90px; --container-padding: 30px; --gap-xl: 50px; }
-            
             .collections-grid { grid-template-columns: repeat(2, 1fr); gap: var(--gap-sm); }            
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
             .editorial-flex-container { gap: var(--gap-xl); }
             .journal-grid { grid-template-columns: repeat(2, 1fr); gap: var(--gap-sm); }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: var(--gap-sm); }
-
-            /* --- INNENTŐL ÚJ: MOBIL MENÜ BEKAPCSOLÁSA TABLETEN --- */
             .mobile-nav-toggle { display: flex; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; z-index: 1100; }
             .mobile-nav-toggle span { display: block; height: 2px; width: 100%; background-color: var(--text-primary); border-radius: 2px; transition: var(--transition-fast); }
             .mobile-nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -771,19 +507,14 @@
             .about-grid { flex-direction: column; gap: var(--gap-lg); }
             .about-visual { order: -1; width: 100%; }
             .frame-backdrop { right: -20px; bottom: -20px; left: 20px; top: 20px; }
+            
+            .modern-hairline-divider { margin: 0 auto 40px auto; } 
+
             .collections-grid { grid-template-columns: 1fr; gap: var(--gap-md); }
             .editorial-flex-container, .editorial-flex-container.row-reversed { flex-direction: column; gap: var(--gap-md); }
             .editorial-image-block, .editorial-text-block { width: 100%; }
-            /* Egységesített 7/8 arány minden portré jellegű képre mobilon */
-            .airy-hero-display-img,
-            .about-img,
-            .editorial-display-img,
-            .learning-single-img { 
-                width: 100%; 
-                height: auto; 
-                aspect-ratio: 7 / 8; 
-                object-fit: cover; 
-            }
+            
+            .airy-hero-display-img, .about-img, .editorial-display-img, .learning-single-img { width: 100%; height: auto; aspect-ratio: 7 / 8; object-fit: cover; }
             .gallery-grid { display: flex; gap: var(--gap-sm); overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px var(--container-padding); scrollbar-width: none; }
             .gallery-item { flex: 0 0 calc(100% - 40px); scroll-snap-align: center; height: auto; aspect-ratio: 7 / 8; }            
             .slider-btn { display: flex; position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--white); border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.1); color: var(--text-primary); align-items: center; justify-content: center; z-index: 10; cursor: pointer; }
@@ -810,13 +541,23 @@
             </a>
             <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
               <ul>
-                <!-- A Home eltávolítva, mert a logó ellátja ezt a funkciót -->
                 <li><a href="about-farm.html" class="nav-link">The Farm</a></li>
                 <li><a href="seasonal-flowers.html" class="nav-link">Seasonal Flowers</a></li>
                 <li><a href="pick-your-own.html" class="nav-link">Pick Your Own</a></li>
                 <li><a href="workshops.html" class="nav-link">Workshops</a></li>
                 <li><a href="journal.html" class="nav-link">Journal</a></li>
-                <li><a href="contact.html" class="nav-link contact-cta">Join the Club</a></li>
+                <li>
+    <a href="cart.html" class="nav-icon-cart" aria-label="Shopping Cart">
+        <!-- Prémium "Shopping Bag" ikon -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <!-- Kosár tartalma számláló (Opcionális) -->
+        <span class="cart-badge">2</span>
+    </a>
+</li>
             </ul>
             </nav>
             <button class="mobile-nav-toggle" aria-label="Toggle Navigation" id="mobile-nav-toggle">
@@ -852,52 +593,37 @@
                          fetchpriority="high" 
                          decoding="async">
                 </div>
-                            <div class="rotating-badge">
-                <svg viewBox="0 0 100 100" width="120" height="120">
-                    <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent"/>
-                    <text><textPath href="#circlePath" fill="currentColor">100% ORGANIC • HAND HARVESTED •</textPath></text>
-                </svg>
-            </div>
             </div>
         </div>
     </section>
 
-<div class="marquee-section">
-    <div class="marquee-content">
-        <span>SUSTAINABLE FARMING ✦ PEAT-FREE ✦ COMMUNITY FOCUSED ✦ ORGANIC DAHLIAS ✦ </span>
-        <span>SUSTAINABLE FARMING ✦ PEAT-FREE ✦ COMMUNITY FOCUSED ✦ ORGANIC DAHLIAS ✦ </span>
-    </div>
-</div>
-
     <section class="about-section" id="about">
         <div class="section-container">
+            <div class="modern-hairline-divider"></div>
+            
             <div class="about-grid">
                 <div class="story-content">
                     <span class="section-tag">DAHLIA SPECIALIST & GROWER</span>
                     <h2 class="section-title">The Art <em>of</em> Nurturing Extraordinary Dahlias</h2>
-                    
-                    <p class="section-subtitle" style="margin-bottom: 20px;">
-                        Froggetts Flower Farm is a dedicated Surrey sanctuary for British-grown dahlias, born from Clare’s deep passion for these spectacular blooms.
-                    </p>
-                    
+                                                           
                     <p style="font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 40px; font-weight: 300;">
-                        From carefully conditioning rare varieties to cultivating the earth with sustainable, peat-free methods, we pour both heart and science into every single tuber we grow.
+                        Froggetts Flower Farm is a dedicated Surrey sanctuary for British-grown dahlias, born from Clare’s deep passion for these spectacular blooms. From carefully conditioning rare varieties to cultivating the earth with sustainable, peat-free methods, we pour both heart and science into every single tuber we grow.
                     </p>
 
                     <a href="/our-story" class="btn btn-primary">Discover Our Story</a>
                 </div>
                 <div class="about-visual">
                     <div class="image-frame">
-                    <img src="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp" 
-                    srcset="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp 400w, 
-                            images/gallery/clare-harvesting-fresh-dahlias-hd.webp 575w" 
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    fetchpriority="high" 
-                    width="575" height="719"
-                    alt="Clare, the founder of Froggetts Flower Farm, holding a freshly harvested bouquet of pink and peach dahlias in Surrey" 
-                    class="about-img">
-                    <div class="frame-backdrop"></div>
-                </div>
+                        <img src="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp" 
+                        srcset="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp 400w, 
+                                images/gallery/clare-harvesting-fresh-dahlias-hd.webp 575w" 
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        fetchpriority="high" 
+                        width="575" height="719"
+                        alt="Clare, the founder of Froggetts Flower Farm, holding a freshly harvested bouquet of pink and peach dahlias in Surrey" 
+                        class="about-img">
+                        <div class="frame-backdrop"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -905,6 +631,8 @@
 
     <section class="collections-section" id="collections">
         <div class="section-container">
+            <div class="modern-hairline-divider"></div>
+            
             <div class="section-header text-center">
                 <span class="section-tag">THE SEASON'S BEST</span>
                 <h2 class="section-title">Fresh from the Field</h2>
@@ -914,7 +642,6 @@
             </div>
 
             <div class="collections-grid">
-                
                 <div class="product-card glass-hover-card" id="prod-1">
                     <div class="product-img-wrapper">
                         <img src="images/sussex-wildflower-jug.webp" alt="A rustic jug filled with fresh delicate wildflowers from Surrey" class="product-img">
@@ -927,10 +654,7 @@
                             <span class="product-price">£65.00</span>
                             <a href="seasonal-flowers.html" class="add-to-cart-btn" aria-label="Reserve The Meadow Pitcher" id="btn-reserve-1">
                                 <span>Reserve</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                             </a>
                         </div>
                     </div>
@@ -948,10 +672,7 @@
                             <span class="product-price">£85.00</span>
                             <a href="seasonal-flowers.html" class="add-to-cart-btn" aria-label="Reserve Sweet Pea Harvest" id="btn-reserve-2">
                                 <span>Reserve</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                             </a>
                         </div>
                     </div>
@@ -968,195 +689,196 @@
                             <span class="product-price">£55.00</span>
                             <a href="seasonal-flowers.html" class="add-to-cart-btn" aria-label="Reserve The Signature Dahlia Urn" id="btn-reserve-3">
                                 <span>Reserve</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="pyo-experience" class="farm-editorial-section bg-cream-alt">
-        <div class="section-container editorial-flex-container">
-            
-            <div class="editorial-image-block">
+    <!-- PYO Szekció: DIVIDER JAVÍTVA -->
+    <!-- PYO SZEKCIÓ - ÚJ "HOW IT WORKS" DIZÁJN -->
+    <section id="pyo-experience" class="how-it-works-section">
+        <div class="section-container">
+            <div class="hiw-grid">
+                
+                <!-- Bal oldal: Tartalom és Lépések -->
+                <div class="hiw-content">
+                    <div class="hiw-badge">
+                        <!-- Finom kis levél ikon az SVG-ben -->
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2c0 0-4 4-4 9a4 4 0 0 0 8 0c0-5-4-9-4-9Z"></path>
+                        </svg>
+                        <span>Farm Experience</span>
+                    </div>
+                    
+                    <h2 class="hiw-title">How it <em>Works</em></h2>
+                    
+                    <p class="hiw-intro">
+                        Wander through our vibrant dahlia beds and compose your own unique, freshly cut bouquet in a peaceful setting.
+                    </p>
+                    
+                    <div class="hiw-cards">
+                        <div class="hiw-card">
+                            <span class="hiw-step">01</span>
+                            <h3 class="hiw-card-title">Pause & Wander</h3>
+                            <p class="hiw-card-desc">Arrive at the farm, grab a basket, and take your time walking among the seasonal blooms without rush.</p>
+                        </div>
+                        
+                        <div class="hiw-card">
+                            <span class="hiw-step">02</span>
+                            <h3 class="hiw-card-title">Harvest & Connect</h3>
+                            <p class="hiw-card-desc">We provide the tools and gentle guidance as you carefully select and cut your favorite stems.</p>
+                        </div>
+
+                        <div class="hiw-card">
+                            <span class="hiw-step">03</span>
+                            <h3 class="hiw-card-title">Tea & Cake</h3>
+                            <p class="hiw-card-desc">After harvesting, relax in our scenic garden with a delightful blend of artisanal teas and homemade cakes.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="/pick-your-own-tea" class="btn btn-primary" style="margin-top: 30px;">Book an Afternoon</a>
+                </div>
+
+                <!-- Jobb oldal: Nagy, lekerekített kép -->
+                <div class="hiw-image-block">
                     <img src="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp" 
-                    srcset="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp 1x, 
-                            images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp 2x" 
-                    width="600" height="750"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    loading="lazy"
-                    alt="Friends Esme and Dilly holding large colourful dahlia bouquets at the flower farm" 
-                    class="editorial-display-img">
-            </div>
+                         srcset="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp 1x, 
+                                 images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp 2x" 
+                         sizes="(max-width: 768px) 100vw, 50vw"
+                         loading="lazy"
+                         alt="Friends holding large colourful dahlia bouquets at the flower farm" 
+                         class="hiw-img">
+                </div>
 
-            <div class="editorial-text-block">
-                <span class="editorial-subtitle">The Farm Experience</span>
-                <h2 class="editorial-title">Pick Your Own & Tea Afternoons</h2>
-                
-                <p style="font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px; font-weight: 300;">
-                    Wander through our vibrant dahlia beds and compose your own unique, freshly cut bouquet. We provide all the necessary tools and gentle guidance, making it a perfect, peaceful escape for both beginners and seasoned flower lovers. After harvesting, relax in our scenic garden with a delightful blend of artisanal teas and homemade cakes, baked fresh right here on the farm.
-                </p>
-                
-                <a href="/pick-your-own-tea" class="btn btn-primary">Book an Afternoon</a>
             </div>
-
         </div>
     </section>
 
+    <!-- Közösségi Szekció: DIVIDER JAVÍTVA -->
     <section id="community-section" class="farm-editorial-section">
-        <div class="section-container editorial-flex-container row-reversed">
-            <div class="editorial-image-block">
-                <img src="images/froggetts-community-volunteers.webp" alt="A group of happy volunteers gathering in a rustic barn surrounded by freshly picked colourful dahlias at the flower farm" class="editorial-display-img">
-            </div>
-            <div class="editorial-text-block">
-                <span class="editorial-subtitle">Rooted in Surrey</span>
-                <h2 class="editorial-title">Community Flower Club & Volunteering</h2>
-                <p class="editorial-description">
-                    Support sustainable local farming and enjoy a weekly curated basket of our freshest seasonal stems. We are also a proud host to Duke of Edinburgh students and local volunteers, creating a space where generations connect and learn organic farming first-hand.
-                </p>
-                <a href="/contact" class="btn btn-primary">Join Our Club</a>
-            </div>
-        </div>
-    </section>
-
-<section class="learning-section" id="learning">        
-        <div class="section-container learning-flex-container">
+        <div class="section-container">
+            <div class="modern-hairline-divider"></div>
             
-            <div class="learning-image-wrapper">
-                <img src="images/dofe-volunteering-flower-farm-thumb.webp" 
-                     srcset="images/dofe-volunteering-flower-farm-thumb.webp 1x, 
-                             images/dofe-volunteering-flower-farm-hd.webp 2x" 
-                     width="600" height="750"
-                     sizes="(max-width: 768px) 100vw, 50vw"
-                     alt="Clare guiding Duke of Edinburgh volunteers in planting seeds and potting plants at the flower farm" 
-                     loading="lazy"
-                     class="learning-single-img">
-                     
-                <div class="glass-card learning-badge">
-                    <span>DofE Approved</span>
+            <div class="editorial-flex-container row-reversed">
+                <div class="editorial-image-block">
+                    <img src="images/froggetts-community-volunteers.webp" alt="A group of happy volunteers gathering in a rustic barn surrounded by freshly picked colourful dahlias at the flower farm" class="editorial-display-img">
+                </div>
+                <div class="editorial-text-block">
+                    <span class="editorial-subtitle">Rooted in Surrey</span>
+                    <h2 class="editorial-title">Community Flower Club & Volunteering</h2>
+                    <p class="editorial-description">
+                        Support sustainable local farming and enjoy a weekly curated basket of our freshest seasonal stems. We are also a proud host to Duke of Edinburgh students and local volunteers, creating a space where generations connect and learn organic farming first-hand.
+                    </p>
+                    <a href="/contact" class="btn btn-primary">Join Our Club</a>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="learning-content">
-                <span class="section-tag">WORKSHOPS</span>
-                <h2 class="section-title">Learning <em>&</em> Growing Together</h2>
-                
-                <p style="font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; font-weight: 300;">
-                    Froggetts Flower Farm is rooted in community and sharing the joy of nature. Join us on the farm for hands-on Dahlia Masterclasses and seasonal floristry crafts, or take part in our dedicated educational visits and official DofE volunteering programmes.
-                </p>
+    <!-- Oktatás Szekció: DIVIDER JAVÍTVA -->
+    <section class="learning-section" id="learning">        
+        <div class="section-container">
+            <div class="modern-hairline-divider"></div>
+            
+            <div class="learning-flex-container">
+                <div class="learning-image-wrapper">
+                    <img src="images/dofe-volunteering-flower-farm-thumb.webp" 
+                         srcset="images/dofe-volunteering-flower-farm-thumb.webp 1x, 
+                                 images/dofe-volunteering-flower-farm-hd.webp 2x" 
+                         width="600" height="750"
+                         sizes="(max-width: 768px) 100vw, 50vw"
+                         alt="Clare guiding Duke of Edinburgh volunteers in planting seeds and potting plants at the flower farm" 
+                         loading="lazy"
+                         class="learning-single-img">
+                         
+                    <div class="glass-card learning-badge">
+                        <span>DofE Approved</span>
+                    </div>
+                </div>
 
-                <a href="workshops.html" class="btn btn-primary" aria-label="Explore our workshops and educational programs" style="margin-top: 20px;">
-                    Explore Our Programs
-                </a>
+                <div class="learning-content">
+                    <span class="section-tag">WORKSHOPS</span>
+                    <h2 class="section-title">Learning <em>&</em> Growing Together</h2>
+                    
+                    <p style="font-size: var(--font-body); color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; font-weight: 300;">
+                        Froggetts Flower Farm is rooted in community and sharing the joy of nature. Join us on the farm for hands-on Dahlia Masterclasses and seasonal floristry crafts, or take part in our dedicated educational visits and official DofE volunteering programmes.
+                    </p>
+
+                    <a href="workshops.html" class="btn btn-primary" aria-label="Explore our workshops and educational programs" style="margin-top: 20px;">
+                        Explore Our Programs
+                    </a>
+                </div>
             </div>
-
         </div>
     </section>
 
     <section class="gallery-section" id="gallery">
-    <div class="section-container">
-        
-        <div class="gallery-header">
-            <span class="section-tag">VISUAL JOURNEY</span>
-            <h2 class="section-title">Life <em>on the</em> Flower Farm</h2>
-        </div>
-
-        <div class="gallery-slider-container">
-            <button class="slider-btn prev-btn" id="gallery-prev" aria-label="Previous images">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
+        <div class="section-container">
+            <div class="modern-hairline-divider"></div>
             
-            <div class="gallery-grid">
-        
-                <div class="gallery-item">
-                    <a href="images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp" class="lightbox-trigger">
-                        <img src="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp"
-                             srcset="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp 1x,
-                                     images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp 2x"
-                             sizes="(max-width: 768px) 100vw, 33vw"
-                             loading="lazy" width="483" height="859"
-                             alt="Esme and Dilly holding large colorful dahlia bouquets at Froggetts Flower Farm">
-                        <div class="gallery-overlay"><span>Dahlia Harvest</span></div>
-                    </a>
-                </div>
-
-                <div class="gallery-item">
-                    <a href="images/gallery/pale-pink-garden-roses-flower-farm-hd.webp" class="lightbox-trigger">
-                        <img src="images/gallery/pale-pink-garden-roses-flower-farm-thumb.webp"
-                             srcset="images/gallery/pale-pink-garden-roses-flower-farm-thumb.webp 1x,
-                                     images/gallery/pale-pink-garden-roses-flower-farm-hd.webp 2x"
-                             width="483" height="859"
-                             loading="lazy"
-                             alt="Pale pink blooming roses in the lush garden of the flower farm">
-                        <div class="gallery-overlay"><span>Garden Roses</span></div>
-                    </a>
-                </div>
-
-                <div class="gallery-item">
-                    <a href="images/gallery/friendly-farm-dog-thursdays-hd.webp" class="lightbox-trigger">
-                        <img src="images/gallery/friendly-farm-dog-thursdays-thumb.webp"
-                             srcset="images/gallery/friendly-farm-dog-thursdays-thumb.webp 1x,
-                                     images/gallery/friendly-farm-dog-thursdays-hd.webp 2x"
-                             sizes="(max-width: 768px) 100vw, 33vw"
-                             loading="lazy" width="483" height="859"
-                             alt="Friendly farm dog being held during a sunny Thursday at Froggetts Flower Farm">
-                        <div class="gallery-overlay"><span>Farm Life</span></div>
-                    </a>
-                </div>
-
-                <div class="gallery-item">
-                    <a href="images/gallery/colourful-wildflower-meadow-bouquet-hd.webp" class="lightbox-trigger">
-                        <img src="images/gallery/colourful-wildflower-meadow-bouquet-thumb.webp"
-                             srcset="images/gallery/colourful-wildflower-meadow-bouquet-thumb.webp 1x,
-                                     images/gallery/colourful-wildflower-meadow-bouquet-hd.webp 2x"
-                             sizes="(max-width: 768px) 100vw, 33vw"
-                             loading="lazy" width="483" height="859"
-                             alt="Close-up of a colorful freshly gathered seasonal wildflower bouquet">
-                        <div class="gallery-overlay"><span>Wildflower Bouquet</span></div>
-                    </a>
-                </div>
-
-                <div class="gallery-item">
-                    <a href="images/gallery/clare-harvesting-fresh-dahlias-hd.webp" class="lightbox-trigger">
-                        <img src="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp"
-                             srcset="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp 1x,
-                                     images/gallery/clare-harvesting-fresh-dahlias-hd.webp 2x"
-                             sizes="(max-width: 768px) 100vw, 33vw"
-                             loading="lazy" width="483" height="859"
-                             alt="Clare, founder of Froggetts Flower Farm, harvesting fresh pink and peach dahlias">
-                        <div class="gallery-overlay"><span>Clare's Harvest</span></div>
-                    </a>
-                </div>
-
-                <div class="gallery-item">
-                    <a href="images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp" class="lightbox-trigger">
-                        <img src="images/gallery/freshly-cut-dahlia-buckets-harvest-thumb.webp"
-                             srcset="images/gallery/freshly-cut-dahlia-buckets-harvest-thumb.webp 1x,
-                                     images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp 2x"
-                             sizes="(max-width: 768px) 100vw, 33vw"
-                             loading="lazy" width="483" height="859"
-                             alt="Buckets overflowing with freshly cut colorful dahlias resting in the farm grass">
-                        <div class="gallery-overlay"><span>Fresh Cut Stems</span></div>
-                    </a>
-                </div>
-                
+            <div class="gallery-header">
+                <span class="section-tag">VISUAL JOURNEY</span>
+                <h2 class="section-title">Life <em>on the</em> Flower Farm</h2>
             </div>
 
-            <button class="slider-btn next-btn" id="gallery-next" aria-label="Next images">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
+            <div class="gallery-slider-container">
+                <button class="slider-btn prev-btn" id="gallery-prev" aria-label="Previous images">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <a href="images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp" class="lightbox-trigger">
+                            <img src="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp" srcset="images/gallery/friends-florists-dahlia-bouquets-surrey-thumb.webp 1x, images/gallery/friends-florists-dahlia-bouquets-surrey-hd.webp 2x" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" width="483" height="859" alt="Esme and Dilly holding large colorful dahlia bouquets">
+                            <div class="gallery-overlay"><span>Dahlia Harvest</span></div>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="images/gallery/pale-pink-garden-roses-flower-farm-hd.webp" class="lightbox-trigger">
+                            <img src="images/gallery/pale-pink-garden-roses-flower-farm-thumb.webp" srcset="images/gallery/pale-pink-garden-roses-flower-farm-thumb.webp 1x, images/gallery/pale-pink-garden-roses-flower-farm-hd.webp 2x" width="483" height="859" loading="lazy" alt="Pale pink blooming roses">
+                            <div class="gallery-overlay"><span>Garden Roses</span></div>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="images/gallery/friendly-farm-dog-thursdays-hd.webp" class="lightbox-trigger">
+                            <img src="images/gallery/friendly-farm-dog-thursdays-thumb.webp" srcset="images/gallery/friendly-farm-dog-thursdays-thumb.webp 1x, images/gallery/friendly-farm-dog-thursdays-hd.webp 2x" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" width="483" height="859" alt="Friendly farm dog">
+                            <div class="gallery-overlay"><span>Farm Life</span></div>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="images/gallery/colourful-wildflower-meadow-bouquet-hd.webp" class="lightbox-trigger">
+                            <img src="images/gallery/colourful-wildflower-meadow-bouquet-thumb.webp" srcset="images/gallery/colourful-wildflower-meadow-bouquet-thumb.webp 1x, images/gallery/colourful-wildflower-meadow-bouquet-hd.webp 2x" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" width="483" height="859" alt="Close-up of a colorful freshly gathered seasonal wildflower bouquet">
+                            <div class="gallery-overlay"><span>Wildflower Bouquet</span></div>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="images/gallery/clare-harvesting-fresh-dahlias-hd.webp" class="lightbox-trigger">
+                            <img src="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp" srcset="images/gallery/clare-harvesting-fresh-dahlias-thumb.webp 1x, images/gallery/clare-harvesting-fresh-dahlias-hd.webp 2x" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" width="483" height="859" alt="Clare harvesting fresh pink and peach dahlias">
+                            <div class="gallery-overlay"><span>Clare's Harvest</span></div>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp" class="lightbox-trigger">
+                            <img src="images/gallery/freshly-cut-dahlia-buckets-harvest-thumb.webp" srcset="images/gallery/freshly-cut-dahlia-buckets-harvest-thumb.webp 1x, images/gallery/freshly-cut-dahlia-buckets-harvest-hd.webp 2x" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" width="483" height="859" alt="Buckets overflowing with freshly cut colorful dahlias">
+                            <div class="gallery-overlay"><span>Fresh Cut Stems</span></div>
+                        </a>
+                    </div>
+                </div>
+
+                <button class="slider-btn next-btn" id="gallery-next" aria-label="Next images">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section class="testimonials-section" id="testimonials">
         <div class="testimonial-wrapper">
+            <div class="modern-hairline-divider"></div>
             
             <div class="testimonials-header">
                 <span class="section-tag">KIND WORDS</span>
@@ -1170,7 +892,6 @@
 
                 <div class="testimonial-viewport">
                     <div class="testimonial-track" id="testi-track">
-                        
                         <div class="testimonial-single active">
                             <div class="quote-mark">"</div>
                             <p class="testimonial-text-large">
@@ -1182,7 +903,6 @@
                                 <span>Horsham</span>
                             </div>
                         </div>
-
                         <div class="testimonial-single">
                             <div class="quote-mark">"</div>
                             <p class="testimonial-text-large">
@@ -1194,7 +914,6 @@
                                 <span>Surrey</span>
                             </div>
                         </div>
-
                         <div class="testimonial-single">
                             <div class="quote-mark">"</div>
                             <p class="testimonial-text-large">
@@ -1206,8 +925,6 @@
                                 <span>Local Coordinator</span>
                             </div>
                         </div>
-                        </div>
-
                     </div>
                 </div>
 
@@ -1215,62 +932,58 @@
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </button>
             </div>
-
         </div>
     </section>
 
     <section class="journal-teaser-section" id="journal">
-    <div class="section-container">
-        
-        <div class="journal-header">
-            <h2 class="section-title">From the Journal</h2>
-            <p class="section-subtitle max-w-600 mx-auto">
-                Musings on floristry, mindfulness, and the changing seasons at Loxwood.
-            </p>
-        </div>
-
-        <div class="journal-grid">
+        <div class="section-container">
+            <div class="modern-hairline-divider"></div>
             
-            <article class="journal-card">
-                <a href="#" class="journal-img-wrapper">
-                    <img src="images/blog/summer-dahlia-harvest-thumb.webp" alt="Dahlia bloom" class="journal-img" loading="lazy">
-                </a>
-                <div class="journal-content">
-                    <span class="journal-meta">Mindfulness</span>
-                    <h3 class="journal-title"><a href="#">The Art of Slow Living</a></h3>
-                    <a href="#" class="journal-link">Read More &rarr;</a>
-                </div>
-            </article>
+            <div class="journal-header">
+                <h2 class="section-title">From the Journal</h2>
+                <p class="section-subtitle max-w-600 mx-auto">
+                    Musings on floristry, mindfulness, and the changing seasons at Loxwood.
+                </p>
+            </div>
 
-            <article class="journal-card">
-                <a href="#" class="journal-img-wrapper">
-                    <img src="images/blog/peat-free-compost-thumb.webp" alt="Floristry work" class="journal-img" loading="lazy">
-                </a>
-                <div class="journal-content">
-                    <span class="journal-meta">Seasonality</span>
-                    <h3 class="journal-title"><a href="#">Preparing the Soil for Spring</a></h3>
-                    <a href="#" class="journal-link">Read More &rarr;</a>
-                </div>
-            </article>
-
-            <article class="journal-card">
-                <a href="#" class="journal-img-wrapper">
-                    <img src="images/blog/spring-seed-sowing-thumb.webp" alt="Dahlia field" class="journal-img" loading="lazy">
-                </a>
-                <div class="journal-content">
-                    <span class="journal-meta">Farm Life</span>
-                    <h3 class="journal-title"><a href="#">A Morning in the Dahlia Field</a></h3>
-                    <a href="#" class="journal-link">Read More &rarr;</a>
-                </div>
-            </article>
-
+            <div class="journal-grid">
+                <article class="journal-card">
+                    <a href="#" class="journal-img-wrapper">
+                        <img src="images/blog/summer-dahlia-harvest-thumb.webp" alt="Dahlia bloom" class="journal-img" loading="lazy">
+                    </a>
+                    <div class="journal-content">
+                        <span class="journal-meta">Mindfulness</span>
+                        <h3 class="journal-title"><a href="#">The Art of Slow Living</a></h3>
+                        <a href="#" class="journal-link">Read More &rarr;</a>
+                    </div>
+                </article>
+                <article class="journal-card">
+                    <a href="#" class="journal-img-wrapper">
+                        <img src="images/blog/peat-free-compost-thumb.webp" alt="Floristry work" class="journal-img" loading="lazy">
+                    </a>
+                    <div class="journal-content">
+                        <span class="journal-meta">Seasonality</span>
+                        <h3 class="journal-title"><a href="#">Preparing the Soil for Spring</a></h3>
+                        <a href="#" class="journal-link">Read More &rarr;</a>
+                    </div>
+                </article>
+                <article class="journal-card">
+                    <a href="#" class="journal-img-wrapper">
+                        <img src="images/blog/spring-seed-sowing-thumb.webp" alt="Dahlia field" class="journal-img" loading="lazy">
+                    </a>
+                    <div class="journal-content">
+                        <span class="journal-meta">Farm Life</span>
+                        <h3 class="journal-title"><a href="#">A Morning in the Dahlia Field</a></h3>
+                        <a href="#" class="journal-link">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center" style="margin-top: 60px;">
+                <a href="journal.html" class="btn-journal-solid">Visit the Journal</a>
+            </div>
         </div>
-        
-        <div class="text-center" style="margin-top: 60px;">
-            <a href="journal.html" class="btn-journal-solid">Visit the Journal</a>
-        </div>
-    </div>
-</section>
+    </section>
 
     <section class="subscribe-section" id="subscribe">
         <div class="subscribe-bg"></div>
@@ -1279,13 +992,10 @@
                 <span class="section-tag">THE FLOWER CLUB</span>
                 <h2 class="section-title text-center">Receive the Season's Poetry</h2>
                 <p class="subscribe-description text-center">
-                    Join our newsletter and receive farm updates, alerts for limited seasonal releases, and floral
-                    styling tips directly in your inbox.
+                    Join our newsletter and receive farm updates, alerts for limited seasonal releases, and floral styling tips directly in your inbox.
                 </p>
-                <form class="subscribe-form" id="subscribe-form"
-                    onsubmit="event.preventDefault(); alert('Thank you for joining our club!');">
-                    <input type="email" placeholder="Your email address" required class="subscribe-input"
-                        aria-label="Email address" id="sub-email">
+                <form class="subscribe-form" id="subscribe-form" onsubmit="event.preventDefault(); alert('Thank you for joining our club!');">
+                    <input type="email" placeholder="Your email address" required class="subscribe-input" aria-label="Email address" id="sub-email">
                     <button type="submit" class="btn btn-primary btn-submit" id="sub-submit">Subscribe</button>
                 </form>
             </div>
@@ -1300,8 +1010,7 @@
                         <span class="logo-accent">Froggetts</span> Farm
                     </a>
                     <p class="footer-desc">
-                        A slow flower farm dedicated to restoring ecological balance and spreading beauty through
-                        organic heirloom blooms.
+                        A slow flower farm dedicated to restoring ecological balance and spreading beauty through organic heirloom blooms.
                     </p>
                 </div>
                 <div class="footer-links">
@@ -1312,7 +1021,18 @@
                         <li><a href="pick-your-own.html" class="nav-link">Pick Your Own</a></li>
                         <li><a href="workshops.html" class="nav-link">Workshops</a></li>
                         <li><a href="journal.html" class="nav-link">Journal</a></li>
-                        <li><a href="contact.html" class="nav-link contact-cta">Join the Club</a></li>
+                        <li>
+    <a href="cart.html" class="nav-icon-cart" aria-label="Shopping Cart">
+        <!-- Prémium "Shopping Bag" ikon -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <!-- Kosár tartalma számláló (Opcionális) -->
+        <span class="cart-badge">2</span>
+    </a>
+</li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -1341,29 +1061,26 @@
     </div>
     
     <script>
-        // 1. Fejléc görgetési effektus (Zökkenőmentes rögzítés)
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
             if (header) {
-                if (window.scrollY > 20) { // 50-ről lecsökkentve, hogy azonnal reagáljon
+                if (window.scrollY > 20) { 
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
             }
-        }, { passive: true }); // Teljesítmény optimalizálás görgetéshez
+        }, { passive: true }); 
 
-        // 2. Mobil menü vezérlés
         const toggle = document.getElementById('mobile-nav-toggle');
         const menu = document.getElementById('nav-menu');
         if (toggle && menu) {
             toggle.addEventListener('click', (e) => {
-                e.stopPropagation(); // Meggátolja, hogy a kattintás azonnal bezárja
+                e.stopPropagation(); 
                 menu.classList.toggle('active');
                 toggle.classList.toggle('active');
             });
 
-            // Ha a menün kívülre kattintanak, záródjon be automatic
             document.addEventListener('click', (e) => {
                 if (!menu.contains(e.target) && !toggle.contains(e.target)) {
                     menu.classList.remove('active');
@@ -1372,7 +1089,6 @@
             });
         }
 
-        // 3. Finom görgetés a horgony (anchor) linkekhez
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1384,7 +1100,6 @@
                     if (menu) menu.classList.remove('active');
                     if (toggle) toggle.classList.remove('active');
                     
-                    // Kiszámoljuk a fix fejléc magasságát, hogy ne takarja ki a címsort
                     const headerOffset = document.getElementById('main-header')?.offsetHeight || 80;
                     const elementPosition = target.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -1397,7 +1112,6 @@
             });
         });
 
-        //4. Javított és egységesített Görgetési Animáció
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1408,7 +1122,6 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in-section');
                     
-                    // Kártyák animációja az adott szekción belül
                     const cards = entry.target.querySelectorAll('.product-card, .editorial-text-block, .gallery-item, .journal-card');
                     cards.forEach((card, index) => {
                         card.style.animationDelay = `${index * 0.15}s`;
@@ -1420,12 +1133,10 @@
             });
         }, observerOptions);
 
-        // Az összes fő szekció figyelése
         document.querySelectorAll('.about-section, .collections-section, .farm-editorial-section, .learning-section, .gallery-section, .testimonials-section, .journal-teaser-section, .subscribe-section').forEach(section => {
             observer.observe(section);
         });
 
-        // 5. Galéria Csúszka (Slider) logika mobilra
         const galleryTrack = document.querySelector('.gallery-grid');
         const prevBtn = document.getElementById('gallery-prev');
         const nextBtn = document.getElementById('gallery-next');
@@ -1433,19 +1144,12 @@
         if (galleryTrack && prevBtn && nextBtn) {
             const getScrollAmount = () => {
                 const firstItem = galleryTrack.querySelector('.gallery-item');
-                return firstItem ? firstItem.offsetWidth + 35 : 300; // 35px a gap mérete a CSS-ben
+                return firstItem ? firstItem.offsetWidth + 35 : 300; 
             };
-
-            nextBtn.addEventListener('click', () => {
-                galleryTrack.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-            });
-
-            prevBtn.addEventListener('click', () => {
-                galleryTrack.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-            });
+            nextBtn.addEventListener('click', () => { galleryTrack.scrollBy({ left: getScrollAmount(), behavior: 'smooth' }); });
+            prevBtn.addEventListener('click', () => { galleryTrack.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' }); });
         }
 
-        // 6. Nagyméretű Képnézegető (Lightbox) - Golyóálló verzió
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
@@ -1459,7 +1163,7 @@
                     if (hdImageUrl) {
                         lightboxImg.src = hdImageUrl;
                         lightbox.classList.add('active');
-                        document.body.style.overflow = 'hidden'; // Meggátolja a háttér görgetését
+                        document.body.style.overflow = 'hidden'; 
                     }
                 });
             });
@@ -1467,25 +1171,14 @@
             const closeLightbox = () => {
                 lightbox.classList.remove('active');
                 document.body.style.overflow = '';
-                setTimeout(() => { lightboxImg.src = ''; }, 300); // Törli a képet bezárás után, hogy legközelebb ne villanjon be a régi
+                setTimeout(() => { lightboxImg.src = ''; }, 300); 
             };
 
             lightboxClose.addEventListener('click', closeLightbox);
-            
-            // Bezárás ha a fekete háttérre kattintanak
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) closeLightbox();
-            });
-
-            // Bezárás az ESC billentyűvel
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                    closeLightbox();
-                }
-            });
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('active')) { closeLightbox(); } });
         }
 
-        // 7. Vélemények (Testimonials) Csúszka
         const testiTrack = document.getElementById('testi-track');
         const testiSlides = document.querySelectorAll('.testimonial-single');
         const testiPrev = document.getElementById('testi-prev');
@@ -1505,7 +1198,6 @@
                 currentTesti = (currentTesti + 1) % testiSlides.length;
                 updateTestimonialSlider();
             });
-
             testiPrev.addEventListener('click', () => {
                 currentTesti = (currentTesti - 1 + testiSlides.length) % testiSlides.length;
                 updateTestimonialSlider();
