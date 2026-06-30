@@ -588,6 +588,69 @@
             .testimonial-text-large { font-size: 1.15rem; }
             .journal-grid { grid-template-columns: 1fr; gap: var(--gap-md); }
         }
+
+        /* ====================================================
+   ÚJ: SEASON & BOOKING SZEKCIÓ CSS
+   ==================================================== */
+.booking-section { padding: 40px 0 var(--section-padding) 0; background-color: var(--bg-primary); z-index: 10; position: relative; }
+.booking-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center; }
+
+.booking-info h2 { margin-bottom: 24px; color: var(--text-primary); }
+.booking-info p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; max-width: 400px; }
+
+.month-tags { display: flex; gap: 12px; }
+.month-tag { padding: 8px 16px; font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; background: #EBEBEB; color: var(--text-muted); border-radius: 4px; transition: var(--transition-fast); }
+/* Ez a képen látható zöld háttér a hónapoknak */
+.month-tag.active { background: #D9E2D5; color: #3A4735; } 
+
+.booking-card { background: #FDFDFD; padding: 50px; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02); border-radius: 4px; }
+.booking-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.booking-item h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px; color: var(--text-primary); font-weight: 500; }
+.booking-item p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+.booking-price { font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; color: var(--text-primary); }
+
+.booking-divider { border: 0; height: 1px; background: rgba(0,0,0,0.06); margin: 30px 0; }
+
+.booking-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 30px; }
+.booking-location { display: flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-secondary); }
+/* A képen látható erdőzöld gomb */
+.btn-booking { background: #4F5A49; color: var(--white); padding: 14px 32px; font-family: var(--font-sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; border: none; text-decoration: none; display: inline-block; transition: background 0.3s ease; cursor: pointer; }
+.btn-booking:hover { background: #3c4538; }
+
+@media (max-width: 768px) {
+    .booking-grid { grid-template-columns: 1fr; gap: 40px; }
+    .booking-card { padding: 30px; }
+    .booking-footer { flex-direction: column; gap: 24px; align-items: flex-start; }
+    .btn-booking { width: 100%; text-align: center; }
+}
+
+
+/* ====================================================
+   ÚJ: VILÁGOS FOOTER STÍLUSOK (FELÜLÍRJA A RÉGIT)
+   ==================================================== */
+.main-footer { 
+    background-color: #F8F8F6; /* A képen látható elegáns bézs/törtfehér */
+    color: var(--text-primary); 
+    padding: 100px 0 50px; 
+    position: relative; 
+    z-index: 10; 
+}
+.footer-logo { color: var(--text-primary); margin-bottom: 24px; display: inline-block; }
+.main-footer .logo-accent { color: var(--text-secondary); opacity: 0.9; }
+.footer-desc { color: var(--text-secondary); font-size: var(--font-body); line-height: 1.6; font-weight: 400; max-width: 320px; }
+
+.footer-heading { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; letter-spacing: 0.15em; color: var(--text-primary); text-transform: uppercase; margin-bottom: 24px; }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: var(--text-secondary); font-size: var(--font-body); font-weight: 400; }
+.footer-links a:hover { color: var(--text-primary); transform: translateX(4px); }
+
+.footer-contact p, .footer-hours p { color: var(--text-secondary); font-size: var(--font-body); font-weight: 400; margin-bottom: 8px; }
+.contact-email { margin-top: 16px; color: var(--text-primary) !important; font-weight: 600 !important; }
+
+.footer-bottom { border-top: 1px solid rgba(0, 0, 0, 0.08); padding-top: 40px; text-align: center; }
+.footer-bottom p { font-size: var(--font-small); color: var(--text-muted); font-weight: 400; letter-spacing: 0.03em; }
+
     </style>
 </head>
 
@@ -784,9 +847,7 @@
                             <h3 class="hiw-card-title">Tea & Cake</h3>
                             <p class="hiw-card-desc">After harvesting, relax in our scenic garden with a delightful blend of artisanal teas and homemade cakes.</p>
                         </div>
-                    </div>
-                    
-                    <a href="/pick-your-own-tea" class="btn btn-primary" style="margin-top: 30px;">Book an Afternoon</a>
+                    </div>      
                 </div>
 
                 <div class="hiw-image-block">
@@ -798,6 +859,62 @@
                          alt="Friends holding large colourful dahlia bouquets at the flower farm" 
                          class="hiw-img">
                 </div>
+            </div>
+        </div>
+    </section>
+
+<!-- BOOKING SZEKCIÓ (Az árak és foglalás) -->
+    <section class="booking-section" id="booking">
+        <div class="section-container">
+            <div class="booking-grid">
+                
+                <!-- Bal oldal: Szezon infó és Hónapok -->
+                <div class="booking-info">
+                    <h2 class="section-title">Season <em>&</em> Booking</h2>
+                    <p>Our dahlia fields are typically open from late August through the first frost in October. Pre-booking is essential to ensure a peaceful environment for all visitors.</p>
+                    <div class="month-tags">
+                        <span class="month-tag active">August</span>
+                        <span class="month-tag active">September</span>
+                        <span class="month-tag">October</span>
+                    </div>
+                </div>
+
+                <!-- Jobb oldal: Árkártya -->
+                <div class="booking-card">
+                    <!-- 1. Csomag -->
+                    <div class="booking-item">
+                        <div>
+                            <h3>Standard PYO Bucket</h3>
+                            <p>Includes snips hire and a large bucket (approx 30 stems).</p>
+                        </div>
+                        <div class="booking-price">£45</div>
+                    </div>
+                    
+                    <hr class="booking-divider">
+                    
+                    <!-- 2. Csomag -->
+                    <div class="booking-item">
+                        <div>
+                            <h3>Golden Hour Session</h3>
+                            <p>Evening picking with light refreshments and fewer guests.</p>
+                        </div>
+                        <div class="booking-price">£65</div>
+                    </div>
+
+                    <!-- Kártya alja: Helyszín és Gomb -->
+                    <div class="booking-footer">
+                        <div class="booking-location">
+                            <!-- Helyszín Pin ikon -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Loxwood, West Sussex borders
+                        </div>
+                        <a href="/book" class="btn btn-booking">Select Date</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
