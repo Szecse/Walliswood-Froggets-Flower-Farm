@@ -51,7 +51,7 @@
             --font-btn: clamp(0.85rem, 0.3vw + 0.8rem, 0.95rem);    
             --font-nav: clamp(0.75rem, 0.8vw + 0.1rem, 0.85rem);    
 
-            --section-padding: 140px;    
+            --section-padding: 120px;    
             --container-padding: 40px;
             --border-radius-lg: 24px;
             --border-radius-sm: 8px;
@@ -91,11 +91,30 @@
         .section-container { max-width: 1266px; margin: 0 auto; padding: 0 var(--container-padding); }
         .text-center { text-align: center; }
 
-        .section-tag { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; letter-spacing: 0.15em; color: var(--text-secondary); text-transform: uppercase; display: inline-block; margin-bottom: var(--gap-sm); }
+        .section-tag {
+            font-family: var(--font-sans);
+            font-size: 0.75rem; /* Finomabb, kisebb méret */
+            font-weight: 500; /* Kevésbé tolakodó, elegánsabb vastagság */
+            letter-spacing: 0.2em; /* Nyújtottabb, prémium magazin-hatás */
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 16px; /* Tökéletes távolság a cím felett */
+            opacity: 0.7;
+        }        
         .section-title { font-size: var(--font-h2); margin-bottom: var(--gap-sm); }
         .section-title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
         .section-subtitle { font-size: var(--font-subtitle); color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--gap-lg); font-weight: 300; line-height: 1.6; }
-
+        .section-description {
+            font-family: var(--font-sans);
+            font-size: var(--font-body); /* A beépített body méretváltozód */
+            color: var(--text-secondary); /* A beépített lágyabb szürke színed */
+            font-weight: 300; /* Elegáns, vékonyított betűstílus */
+            max-width: 550px; /* Nem engedjük elnyúlni a monitoron */
+            margin: 0 auto; /* Középre zárja a szöveget */
+            line-height: 1.7;
+            text-wrap: pretty;
+        }
         .btn { 
             display: inline-flex; 
             align-items: center; 
@@ -175,23 +194,23 @@
             justify-content: center; 
         }
 
-        /* --- MODERN SECTION DIVIDER (KÖZÉPRE IGAZÍTVA, FIX TÁVKÖZ NÉLKÜL) --- */
-        .modern-hairline-divider {
-            width: 100%;
-            max-width: 1186px;
-            height: 1px;
-            background-color: var(--text-primary);
-            opacity: 0.15;
-            margin: 0 auto; /* Kivettük az ütköző felső/alsó margót */
-        }
-
         /* ----------------------------------------------------
            Levegős Editorial Hero Szekció
            ---------------------------------------------------- */
         .airy-hero-section { background-color: var(--bg-primary); padding: calc(var(--section-padding) + 40px) 0 80px 0; min-height: 100vh; display: flex; align-items: center; }
         .airy-hero-grid { max-width: 1266px; margin: 0 auto; padding: 0 var(--container-padding); display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; align-items: center; width: 100%; }
         .airy-hero-content { display: flex; flex-direction: column; align-items: flex-start; }
-        .airy-hero-content .editorial-tag { font-family: var(--font-sans); font-size: var(--font-small); letter-spacing: 0.2em; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; display: inline-block; margin-bottom: 24px; }
+        .airy-hero-content .editorial-tag {
+            font-family: var(--font-sans);
+            font-size: var(--font-small); /* Marad a picit nagyobb méret, ami a Heróhoz kell */
+            font-weight: 500; /* Átírtuk 700-ról 500-ra, így már nem lesz otrombán vastag */
+            letter-spacing: 0.2em; /* Gyönyörűen megnyújtja a betűket */
+            color: var(--text-secondary); /* Ez is megkapja a lágyabb színt */
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 24px;
+            opacity: 0.8; /* Megkapja ugyanazt a finom áttetszőséget, mint a többi */
+        }        
         .airy-hero-title { font-size: clamp(2.2rem, 3vw + 0.8rem, 3.2rem); line-height: 1.15; margin-bottom: var(--gap-sm); color: var(--text-primary); text-wrap: balance; }
         .airy-hero-title em { font-style: italic; }
         .airy-hero-description { font-size: var(--font-body); color: var(--text-muted); margin-bottom: var(--gap-md); font-weight: 400; max-width: 90%; line-height: 1.8; }
@@ -212,6 +231,7 @@
         .fade-in-section .section-container, .fade-in-section .testimonial-wrapper { opacity: 1; transform: translateY(0); }
 
         /* --- MISSION STATEMENT SZEKCIÓ --- */
+        /* --- MISSION STATEMENT SZEKCIÓ (FRISSÍTETT) --- */
         .mission-statement-section {
             padding: var(--section-padding) 0;
             background-color: var(--bg-primary);
@@ -221,7 +241,7 @@
 
         .mission-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 1.5fr; /* 1:1.5 arányú aszimmetrikus rács */
             gap: 80px;
             align-items: start;
         }
@@ -229,7 +249,7 @@
         .mission-title-col {
             display: flex;
             flex-direction: column;
-            padding-top: var(--gap-sm); /* Finom belső igazítás a hajszálvonal alá */
+            padding-top: var(--gap-sm);
         }
 
         .mission-title {
@@ -253,6 +273,11 @@
             padding-top: var(--gap-sm);
         }
 
+        .mission-text-container {
+            max-width: 550px; /* Fókuszált, magazin-szerű szélesség */
+            margin-left: 0;
+        }
+
         .mission-text-col p {
             font-size: var(--font-body);
             color: var(--text-secondary);
@@ -261,24 +286,34 @@
             font-weight: 300;
         }
 
-        .mission-text-col p:last-child {
-            margin-bottom: 0;
+        /* Gomb margó a változóval */
+        .mission-text-container .btn {
+            margin-top: var(--gap-sm); 
         }
 
         @media (max-width: 768px) {
             .mission-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Mobilon egymás alá kerül */
                 gap: 30px;
             }
+            .mission-text-container {
+                max-width: 100%; /* Mobilon kitölti a teret */
+            }
         }
-
         /* --- EGYSÉGESÍTETT FEHÉR HÁTTERŰ SZEKCIÓK --- */
         .about-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }        
         .collections-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }       
         .farm-editorial-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); width: 100%; position: relative; z-index: 10; }
         .learning-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); width: 100%; position: relative; z-index: 10; }        
         .gallery-section { background-color: var(--bg-primary); padding: var(--section-padding) 0; width: 100%; position: relative; z-index: 10; }
-        .testimonials-section { background-color: var(--bg-primary) !important; padding: 120px 0; width: 100%; overflow: hidden; position: relative; z-index: 10; }
+        .testimonials-section { 
+            background-color: var(--bg-primary); 
+            padding: var(--section-padding) 0; 
+            width: 100%; 
+            overflow: hidden; 
+            position: relative; 
+            z-index: 10; 
+        }        
         .journal-teaser-section { padding: var(--section-padding) 0; background-color: var(--bg-primary); position: relative; z-index: 10; }
 
         /* --- SZEKCIÓ BELSŐ STÍLUSOK --- */
@@ -301,10 +336,40 @@
         .product-badge { position: absolute; top: 16px; left: 16px; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--text-primary); padding: 6px 12px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; border-radius: 20px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); z-index: 2; }
         .product-info { padding: 30px; }
         .product-title { font-size: var(--font-h4); line-height: 1.3; margin-bottom: 6px; transition: var(--transition-fast); }
-        .product-category { font-size: var(--font-small); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--gap-sm); }
-        .product-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0, 0, 0, 0.05); padding-top: 20px; }
-        .product-price { font-family: var(--font-serif); font-size: var(--font-h4); color: var(--text-primary); }
-        .add-to-cart-btn { display: inline-flex; align-items: center; gap: 8px; font-size: var(--font-small); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-primary); }
+        .product-category {
+                font-family: var(--font-sans);
+                font-size: 0.75rem; /* Kicsit kisebb, finomabb méret */
+                font-weight: 500;
+                letter-spacing: 0.15em; /* Elegáns nyújtottság */
+                color: var(--text-secondary);
+                text-transform: uppercase;
+                opacity: 0.75; /* Halványítás, hogy a cím domináljon */
+                margin-bottom: var(--gap-sm);
+            }        
+        .product-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: none; /* KIVÉVE A VONAL: A whitespace elegendő elválasztás */
+                padding-top: 10px; /* Finom igazítás a vonal elhagyása után */
+            }        
+        .product-price {
+    font-family: var(--font-serif); /* Marad a Playfair Display */
+    font-size: 1.25rem; /* Kicsit finomabb, hogy ne legyen nehezebb a gombnál */
+    font-weight: 400; /* Szándékosan nem vastag, így sokkal elegánsabb */
+    font-style: italic; /* Opcionális: a dőlt Serif számok elképesztően jól néznek ki */
+    color: var(--text-primary);
+            }        .add-to-cart-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 500; /* Vékonyabb, elegánsabb betűk a vastag helyett */
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            transition: var(--transition-fast);
+        }        
         .add-to-cart-btn svg { transition: var(--transition-fast); }
         .add-to-cart-btn:hover { color: var(--text-secondary); }
         .add-to-cart-btn:hover svg { transform: translateX(4px); }
@@ -450,14 +515,15 @@
         .learning-list li strong { color: var(--text-primary); display: inline; }
 
         .testimonial-wrapper { position: relative; max-width: 900px; margin: 0 auto; padding: 0 var(--container-padding); }
-        .testimonials-header { text-align: center; margin-bottom: 50px; }
+        .testimonials-header { text-align: center; margin-bottom: 30px; }        
         .testimonial-carousel { position: relative; display: flex; align-items: center; justify-content: center; }
         .testimonial-viewport { overflow: hidden; width: 100%; padding: 20px 0; }
         .testimonial-track { display: flex; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
         .testimonial-single { flex: 0 0 100%; width: 100%; padding: 0 60px; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; transform: scale(0.95); pointer-events: none; }
         .testimonial-single.active { opacity: 1; transform: scale(1); pointer-events: auto; }
-        .quote-mark { font-family: var(--font-serif); font-size: 5rem; color: var(--text-primary); opacity: 0.08; line-height: 0.5; margin-bottom: 25px; }
-        .testimonial-text-large { font-family: var(--font-serif); font-size: clamp(1.2rem, 2vw + 0.6rem, 1.8rem); line-height: 1.5; color: var(--text-primary); margin-bottom: var(--gap-md); max-width: 750px; font-style: italic; font-weight: 400; opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        
+        .quote-mark { font-family: var(--font-serif); font-size: 3.5rem; color: var(--text-primary); opacity: 0.15; line-height: 1; margin-bottom: 10px; display: block; }        
+        .testimonial-text-large { font-family: var(--font-serif); font-size: clamp(1.4rem, 2vw + 0.5rem, 1.8rem); line-height: 1.6; color: var(--text-primary); max-width: 750px; margin: 0 auto 30px auto; font-style: italic; font-weight: 400; }
         .testimonial-single.active .testimonial-text-large { opacity: 1; transform: translateX(0); transition-delay: 0.1s; }
         .testimonial-author-center { display: flex; flex-direction: column; align-items: center; }
         .testimonial-author-center strong { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.08em; text-transform: uppercase; }
@@ -465,10 +531,11 @@
         .testimonial-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid var(--white); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.4s ease; }
         .testimonial-single.active .testimonial-avatar { animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--text-secondary); cursor: pointer; padding: 10px; transition: var(--transition-fast); z-index: 10; display: flex; align-items: center; justify-content: center; opacity: 0.5; }
-        .carousel-arrow:hover { color: var(--text-primary); opacity: 1; transform: translateY(-50%) scale(1.1); }
-        .prev-arrow { left: -20px; }
-        .next-arrow { right: -20px; }
+        
+        .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--text-secondary); opacity: 0.4; transition: var(--transition-fast); }
+        .carousel-arrow:hover { opacity: 1; color: var(--text-primary); }        
+        .prev-arrow { left: -40px; }
+        .next-arrow { right: -40px; }
 
         .gallery-header { text-align: center; margin-bottom: var(--gap-lg); display: flex; flex-direction: column; align-items: center; }
         .gallery-slider-container { position: relative; display: block; width: 100%; }
@@ -521,23 +588,7 @@
         .subscribe-input:focus { background: var(--white); border-color: var(--text-primary); box-shadow: 0 0 0 4px rgba(28, 30, 33, 0.1); }
         .btn-submit { border: none; cursor: pointer; }
 
-        /* --- FOOTER --- */
-        .main-footer { background-color: var(--text-primary); color: var(--white); padding: 100px 0 50px; position: relative; z-index: 10; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 80px; margin-bottom: var(--gap-xl); }
-        .footer-logo { color: var(--white); margin-bottom: 24px; display: inline-block; }
-        .main-footer .logo-accent { color: var(--white); opacity: 0.9; }
-        .footer-desc { color: rgba(255, 255, 255, 0.85); font-size: var(--font-body); line-height: 1.6; font-weight: 300; max-width: 320px; }
-        .footer-heading { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.85); text-transform: uppercase; margin-bottom: 24px; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: rgba(255, 255, 255, 0.85); font-size: var(--font-body); font-weight: 300; }
-        .footer-links a:hover { color: var(--white); transform: translateX(4px); }
-        .footer-contact p, .footer-hours p { color: rgba(255, 255, 255, 0.85); font-size: var(--font-body); font-weight: 300; margin-bottom: 8px; }
-        .contact-email { margin-top: 16px; color: var(--white) !important; font-weight: 400 !important; }
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 40px; text-align: center; }
-        .footer-bottom p { font-size: var(--font-small); color: rgba(255, 255, 255, 0.7); font-weight: 300; letter-spacing: 0.03em; }
-
-        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE / MOBIL NÉZET --- */
         @media (max-width: 1024px) {
             :root { --section-padding: 90px; --container-padding: 30px; --gap-xl: 50px; }
             .collections-grid { grid-template-columns: repeat(2, 1fr); gap: var(--gap-sm); }            
@@ -556,7 +607,9 @@
         }
 
         @media (max-width: 768px) {
-            :root { --section-padding: 70px; --container-padding: 24px; }
+            :root { --section-padding: 60px; --container-padding: 20px; --gap-xl: 50px; 
+        --gap-lg: 40px;
+        --gap-md: 30px; }
             .header-container { padding: 0 24px; }
             .mobile-nav-toggle { display: flex; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; z-index: 1100; }
             .mobile-nav-toggle span { display: block; height: 2px; width: 100%; background-color: var(--text-primary); border-radius: 2px; transition: var(--transition-fast); }
@@ -567,6 +620,20 @@
             .nav-menu.active { right: 0; }
             .nav-menu ul { flex-direction: column; align-items: flex-start; gap: 30px; }
             .hero-glass-card { padding: 40px 24px; }
+            /* Hero szekció mobil javítása */
+    .airy-hero-grid { 
+        grid-template-columns: 1fr; /* 2 oszlop helyett 1 oszlopra vált mobilon */
+        gap: 40px; 
+    }
+    .airy-hero-actions { 
+        flex-direction: column; /* A gombokat egymás mellől egymás alá teszi */
+        width: 100%; 
+        gap: 16px;
+    }
+    .airy-hero-actions .btn { 
+        width: 100%; /* A gombok kitöltik a képernyő szélességét */
+        text-align: center;
+    }
             .about-grid { flex-direction: column; gap: var(--gap-lg); }
             .about-visual { order: -1; width: 100%; }
             .frame-backdrop { right: -20px; bottom: -20px; left: 20px; top: 20px; }
@@ -585,72 +652,87 @@
             .testimonial-single { padding: 0 30px; }
             .prev-arrow { left: -10px; }
             .next-arrow { right: -10px; }
-            .testimonial-text-large { font-size: 1.15rem; }
-            .journal-grid { grid-template-columns: 1fr; gap: var(--gap-md); }
+        } /* <--- EZ A ZÁRÓJEL HIÁNYZOTT AZ ELŐBB! ETTŐL JAVUL MEG MINDEN! */
+
+        /* ====================================================
+           SEASON & BOOKING SZEKCIÓ CSS
+           ==================================================== */
+            .booking-section { 
+                padding: var(--section-padding) 0; /* Fix 140px helyett a globális változót használjuk */
+                background-color: var(--bg-primary); 
+                z-index: 10; 
+                position: relative; 
+            }        
+            .booking-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center; }
+        .booking-info h2 { margin-bottom: 24px; color: var(--text-primary); }
+        .booking-info p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; max-width: 400px; }
+        .month-tags { display: flex; gap: 12px; }
+        .month-tag { padding: 8px 16px; font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; background: #EBEBEB; color: var(--text-muted); border-radius: 4px; transition: var(--transition-fast); }
+        .month-tag.active { background: #D9E2D5; color: #3A4735; } 
+        .booking-card { background: #FDFDFD; padding: 50px; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02); border-radius: 4px; }
+        .booking-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        .booking-item h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px; color: var(--text-primary); font-weight: 500; }
+        .booking-item p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.6; }
+        .booking-price { font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; color: var(--text-primary); }
+        .booking-divider { border: 0; height: 1px; background: rgba(0,0,0,0.06); margin: 30px 0; }
+        .booking-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.06); }
+        .booking-location { display: flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-secondary); }
+        .btn-booking { background: #4F5A49; color: var(--white); padding: 14px 32px; font-family: var(--font-sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; border: none; text-decoration: none; display: inline-block; transition: background 0.3s ease; cursor: pointer; }
+        .btn-booking:hover { background: #3c4538; }
+
+        @media (max-width: 768px) {
+            .booking-grid { grid-template-columns: 1fr; gap: 40px; }
+            .booking-card { padding: 30px; }
+            .booking-footer { flex-direction: column; gap: 24px; align-items: flex-start; }
+            .btn-booking { width: 100%; text-align: center; }
         }
 
         /* ====================================================
-   ÚJ: SEASON & BOOKING SZEKCIÓ CSS
-   ==================================================== */
-.booking-section { padding: 40px 0 var(--section-padding) 0; background-color: var(--bg-primary); z-index: 10; position: relative; }
-.booking-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center; }
+           VILÁGOS FOOTER STÍLUSOK
+           ==================================================== */
+        /* ====================================================
+           VILÁGOS FOOTER STÍLUSOK (JAVÍTOTT ASZTALI RÁCS)
+           ==================================================== */
+        .main-footer { 
+            background-color: #F8F8F6; 
+            color: var(--text-primary); 
+            padding: 100px 0 50px; 
+            position: relative; 
+            z-index: 10; 
+            width: 100%;
+        }
+        
+        /* Ez a sor teszi újra 4 oszlopossá asztali gépen! */
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+            gap: 80px; 
+            margin-bottom: var(--gap-xl); 
+        }
+        
+        .footer-logo { color: var(--text-primary); margin-bottom: 24px; display: inline-block; }
+        .main-footer .logo-accent { color: var(--text-secondary); opacity: 0.9; }
+        .footer-desc { color: var(--text-secondary); font-size: var(--font-body); line-height: 1.6; font-weight: 400; max-width: 320px; }
 
-.booking-info h2 { margin-bottom: 24px; color: var(--text-primary); }
-.booking-info p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; max-width: 400px; }
+        .footer-heading { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; letter-spacing: 0.15em; color: var(--text-primary); text-transform: uppercase; margin-bottom: 24px; }
+        .footer-links ul { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-secondary); font-size: var(--font-body); font-weight: 400; display: inline-block; transition: var(--transition-fast); }
+        .footer-links a:hover { color: var(--text-primary); transform: translateX(4px); }
 
-.month-tags { display: flex; gap: 12px; }
-.month-tag { padding: 8px 16px; font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; background: #EBEBEB; color: var(--text-muted); border-radius: 4px; transition: var(--transition-fast); }
-/* Ez a képen látható zöld háttér a hónapoknak */
-.month-tag.active { background: #D9E2D5; color: #3A4735; } 
+        .footer-contact p, .footer-hours p { color: var(--text-secondary); font-size: var(--font-body); font-weight: 400; margin-bottom: 8px; line-height: 1.6; }
+        .contact-email { margin-top: 16px; color: var(--text-primary) !important; font-weight: 600 !important; }
 
-.booking-card { background: #FDFDFD; padding: 50px; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02); border-radius: 4px; }
-.booking-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
-.booking-item h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 8px; color: var(--text-primary); font-weight: 500; }
-.booking-item p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
-.booking-price { font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; color: var(--text-primary); }
+        .footer-bottom { border-top: 1px solid rgba(0, 0, 0, 0.08); padding-top: 40px; text-align: center; margin-top: 40px; }
+        .footer-bottom p { font-size: var(--font-small); color: var(--text-muted); font-weight: 400; letter-spacing: 0.03em; }
 
-.booking-divider { border: 0; height: 1px; background: rgba(0,0,0,0.06); margin: 30px 0; }
-
-.booking-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 30px; }
-.booking-location { display: flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-secondary); }
-/* A képen látható erdőzöld gomb */
-.btn-booking { background: #4F5A49; color: var(--white); padding: 14px 32px; font-family: var(--font-sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; border: none; text-decoration: none; display: inline-block; transition: background 0.3s ease; cursor: pointer; }
-.btn-booking:hover { background: #3c4538; }
-
-@media (max-width: 768px) {
-    .booking-grid { grid-template-columns: 1fr; gap: 40px; }
-    .booking-card { padding: 30px; }
-    .booking-footer { flex-direction: column; gap: 24px; align-items: flex-start; }
-    .btn-booking { width: 100%; text-align: center; }
-}
-
-
-/* ====================================================
-   ÚJ: VILÁGOS FOOTER STÍLUSOK (FELÜLÍRJA A RÉGIT)
-   ==================================================== */
-.main-footer { 
-    background-color: #F8F8F6; /* A képen látható elegáns bézs/törtfehér */
-    color: var(--text-primary); 
-    padding: 100px 0 50px; 
-    position: relative; 
-    z-index: 10; 
-}
-.footer-logo { color: var(--text-primary); margin-bottom: 24px; display: inline-block; }
-.main-footer .logo-accent { color: var(--text-secondary); opacity: 0.9; }
-.footer-desc { color: var(--text-secondary); font-size: var(--font-body); line-height: 1.6; font-weight: 400; max-width: 320px; }
-
-.footer-heading { font-family: var(--font-sans); font-size: var(--font-small); font-weight: 600; letter-spacing: 0.15em; color: var(--text-primary); text-transform: uppercase; margin-bottom: 24px; }
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: var(--text-secondary); font-size: var(--font-body); font-weight: 400; }
-.footer-links a:hover { color: var(--text-primary); transform: translateX(4px); }
-
-.footer-contact p, .footer-hours p { color: var(--text-secondary); font-size: var(--font-body); font-weight: 400; margin-bottom: 8px; }
-.contact-email { margin-top: 16px; color: var(--text-primary) !important; font-weight: 600 !important; }
-
-.footer-bottom { border-top: 1px solid rgba(0, 0, 0, 0.08); padding-top: 40px; text-align: center; }
-.footer-bottom p { font-size: var(--font-small); color: var(--text-muted); font-weight: 400; letter-spacing: 0.03em; }
-
+        /* Biztosítjuk, hogy csak kisebb monitorokon váltson át 2 vagy 1 oszlopra */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
     </style>
 </head>
 
@@ -690,8 +772,10 @@
     <section class="airy-hero-section" id="hero">
         <div class="airy-hero-grid">
             <div class="airy-hero-content">
-                <span class="editorial-tag">Established 2021 &bull; Organic farming</span>
-                <h1 class="airy-hero-title">
+            <span class="editorial-tag">
+                <img src="Icons/flower-doodle-outline-svgrepo-com.svg" alt="" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 8px;">
+                Established 2021 &bull; Organic farming
+            </span>                <h1 class="airy-hero-title">
                  Flower Farm & Dahlia Specialist <em>in Surrey</em>
                 </h1>
                 <p class="airy-hero-description">
@@ -718,7 +802,6 @@
     </section>
 
     <!-- 1. ELVÁLASZTÓ ÉS SZEKCIÓ -->
-    <div class="modern-hairline-divider"></div>
     <section class="mission-statement-section" id="about">
         <div class="section-container">
             <div class="mission-grid">
@@ -728,14 +811,16 @@
                 </div>
                 
                 <div class="mission-text-col">
-                    <p>
-                        Froggetts Flower Farm is a dedicated Surrey sanctuary for British-grown dahlias, born from Clare’s deep passion for these spectacular blooms. We believe in the restorative power of nature and cultivate beautiful, seasonal flowers while actively supporting our local community.
-                    </p>
-                    <p>
-                        From carefully conditioning rare varieties to cultivating the earth with sustainable, peat-free methods, we pour both heart and science into every single tuber we grow. Our farm is designed not just for growing flowers, but for nurturing mental well-being and a deep connection to the natural world.
-                    </p>
-                    <div style="margin-top: 20px;">
-                        <a href="/our-story" class="btn btn-secondary">Discover Our Story</a>
+                    <div class="mission-text-container">
+                        <p>
+                            Froggetts Flower Farm is a dedicated Surrey sanctuary for British-grown dahlias, born from Clare’s deep passion for these spectacular blooms. We believe in the restorative power of nature and cultivate beautiful, seasonal flowers while actively supporting our local community.
+                        </p>
+                        <p>
+                            From carefully conditioning rare varieties to cultivating the earth with sustainable, peat-free methods, we pour both heart and science into every single tuber we grow. Our farm is designed not just for growing flowers, but for nurturing mental well-being and a deep connection to the natural world.
+                        </p>
+                        <div style="margin-top: var(--gap-sm);">
+                            <a href="/our-story" class="btn btn-secondary">Discover Our Story</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -743,13 +828,12 @@
     </section>
 
     <!-- 2. ELVÁLASZTÓ ÉS SZEKCIÓ -->
-    <div class="modern-hairline-divider"></div>
     <section class="collections-section" id="collections">
         <div class="section-container">
-            <div class="section-header text-center">
-                <span class="section-tag">THE SEASON'S BEST</span>
+            <div class="section-header text-center" style="margin-bottom: var(--gap-lg);">
+                <span class="section-tag">The Season's Best</span>
                 <h2 class="section-title">Fresh from the Field</h2>
-                <p class="section-subtitle max-w-600 mx-auto mb-60">
+                <p class="section-description">
                     Carefully selected bouquets and arrangements showing off the absolute best of our current blooms.
                 </p>
             </div>
@@ -812,7 +896,6 @@
     </section>
 
     <!-- 3. ELVÁLASZTÓ ÉS SZEKCIÓ -->
-    <div class="modern-hairline-divider"></div>
     <section id="pyo-experience" class="how-it-works-section">
         <div class="section-container">
             <div class="hiw-grid">
@@ -920,7 +1003,6 @@
     </section>
 
     <!-- 4. ELVÁLASZTÓ ÉS SZEKCIÓ -->
-    <div class="modern-hairline-divider"></div>
     <section id="community-section" class="farm-editorial-section">
         <div class="section-container">
             <div class="editorial-flex-container row-reversed">
@@ -928,7 +1010,7 @@
                     <img src="images/froggetts-community-volunteers.webp" alt="A group of happy volunteers gathering in a rustic barn surrounded by freshly picked colourful dahlias at the flower farm" class="editorial-display-img">
                 </div>
                 <div class="editorial-text-block">
-                    <span class="editorial-subtitle">Rooted in Surrey</span>
+                    <span class="section-tag">Rooted in Surrey</span>
                     <h2 class="editorial-title">Community Flower Club & Volunteering</h2>
                     <p class="editorial-description">
                         Support sustainable local farming and enjoy a weekly curated basket of our freshest seasonal stems. We are also a proud host to Duke of Edinburgh students and local volunteers, creating a space where generations connect and learn organic farming first-hand.
@@ -940,7 +1022,6 @@
     </section>
 
     <!-- 5. ELVÁLASZTÓ ÉS SZEKCIÓ -->
-    <div class="modern-hairline-divider"></div>
     <section class="learning-section" id="learning">        
         <div class="section-container">
             <div class="learning-flex-container">
@@ -974,7 +1055,6 @@
     </section>
 
     <!-- 6. ELVÁLASZTÓ ÉS SZEKCIÓ -->
-    <div class="modern-hairline-divider"></div>
     <section class="gallery-section" id="gallery">
         <div class="section-container">
             <div class="gallery-header">
@@ -1034,7 +1114,6 @@
     </section>
 
     <!-- 7. ELVÁLASZTÓ ÉS SZEKCIÓ -->
-    <div class="modern-hairline-divider"></div>
     <section class="testimonials-section" id="testimonials">
         <div class="testimonial-wrapper">
             <div class="testimonials-header">
@@ -1055,7 +1134,7 @@
                                 Clare’s dahlias are absolute perfection. We ordered fresh stems for our summer event in Billingshurst, and guests are still talking about the vibrant colours and incredible size of the blooms.
                             </p>
                             <div class="testimonial-author-center">
-                                <img src="images/margaret-testimonial.webp" alt="Sarah L." class="testimonial-avatar" loading="lazy">
+                                <img src="images/oldladie200.jpg" alt="Sarah L." class="testimonial-avatar" loading="lazy">
                                 <strong>Sarah L.</strong>
                                 <span>Horsham</span>
                             </div>
@@ -1093,13 +1172,13 @@
     </section>
 
     <!-- 8. ELVÁLASZTÓ ÉS SZEKCIÓ -->
-    <div class="modern-hairline-divider"></div>
     <section class="journal-teaser-section" id="journal">
         <div class="section-container">
-            <div class="journal-header">
-                <h2 class="section-title">From the Journal</h2>
-                <p class="section-subtitle max-w-600 mx-auto">
-                    Musings on floristry, mindfulness, and the changing seasons at Loxwood.
+            <div class="journal-header text-center">
+                <span class="section-tag">From the Journal</span>
+                <h2 class="section-title" style="margin-bottom: var(--gap-sm);">Musings <em>from the</em> Farm</h2>
+                <p class="section-description" style="margin-bottom: var(--gap-md);">
+                    Reflections on mindfulness, slow living, and the changing seasons at Loxwood.
                 </p>
             </div>
 
